@@ -1,5 +1,11 @@
 { 
+<<<<<<< HEAD
 "require": { 
 "components/jquery": "3.*" 
 } 
+=======
+  "require": { 
+    "components/jquery": "3.*" 
+  } 
+>>>>>>> 4b2009ed5b0b2b489009aaf799c9f068174de0a2
 }
