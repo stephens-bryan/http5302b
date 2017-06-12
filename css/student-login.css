@@ -1,0 +1,17 @@
+form {
+    width: 50% !important;
+    margin: 0 auto !important;
+    
+}
+#studentLoginForm__promptLoginCont {
+    float: right;
+}
+
+#studentLoginForm__passwPrompt {
+    margin-right: 20px;
+}
+
+
+#acctSettForm__cont {
+    display: block;
+}

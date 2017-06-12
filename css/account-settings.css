@@ -1,0 +1,15 @@
+form {
+    width: 50% !important;
+    margin: 0 auto !important;
+    
+}
+
+
+.save {
+    float: right;
+}
+
+
+#acctSettForm__cont {
+    display: block;
+}
