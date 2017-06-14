@@ -6,17 +6,23 @@ h1 {
   font-size: 3em; }
 
 main {
-  color: #153b35; }
+  color: #153b35;
+  margin-bottom: 80px; }
 
 .row {
   margin: 0 auto; }
 
+.top-padding {
+  position: relative; }
+
 #admin_head {
-  color: white;
-  background: #153b35;
+  position: fixed;
   margin: 0;
-  position: relative;
-  z-index: 5; }
+  left: 0;
+  right: 0;
+  z-index: 5;
+  color: white;
+  background: #153b35; }
   #admin_head h1 {
     font-size: 1.5em;
     text-transform: uppercase; }

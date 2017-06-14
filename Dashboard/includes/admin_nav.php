@@ -1,6 +1,6 @@
 
     <!--END #header-->
-        <div class="row">
+        <div class="row top-padding">
             <aside id="admin_nav" class="col m4 l3 z-depth-2">
                 <div class="center-align">
                     <img src="includes/media/HumberWebDev.png" alt="humber logo" title="Image of humber logo" width="70%"/>
@@ -36,10 +36,12 @@
 
             </aside>
             <script type='text/javascript'>
-                var height = $(window).height() - $('#admin_head').height() - 10;
+                var height = $(window).height() - $('#admin_head').height();
                 $("#admin_nav").css("height", height);
+                $(".top-padding").css("top", $('#admin_head').height());
                 $( window ).resize(function() {
                     $("#admin_nav").css("height", height);
+                    $(".top-padding").css("top", $('#admin_head').height());
                 });
             </script>
             <!--END #side-->

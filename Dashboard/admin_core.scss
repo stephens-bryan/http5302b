@@ -12,16 +12,22 @@ h1 {
 }
 main {
     color: $dark;
+    margin-bottom: 80px;
 }
 .row {
     margin: 0 auto;
 }
+.top-padding {
+    position: relative;
+}
 #admin_head {
+    position: fixed;
+    margin: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
     color: white;
     background: $dark;
-    margin: 0;
-    position: relative;
-    z-index: 5;
     h1 {
         font-size: 1.5em;
         text-transform: uppercase;
@@ -45,11 +51,12 @@ main {
         text-transform: uppercase;
     }
 }
-
 #admin_nav {
-    font-size: 0.9em;
-    height: 70vh;
+    position: fixed;
+    height: 90vh;
+    padding-top: 50px;
     color: white;
+    font-size: 0.9em;
     text-transform: uppercase;
     background: linear-gradient($blue,$teal);
 }
