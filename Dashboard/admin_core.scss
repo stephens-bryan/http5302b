@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:200');
+
+$blue : #73ddd9;
+$teal : #50e8cf;
+$dark : #153b35;
+
+* {
+    font-family: 'Montserrat';
+}
+h1 {
+    font-size: 3em;
+}
+main {
+    color: $dark;
+}
+.row {
+    margin: 0 auto;
+}
+#admin_head {
+    color: white;
+    background: $dark;
+    margin: 0;
+    position: relative;
+    z-index: 5;
+    h1 {
+        font-size: 1.5em;
+        text-transform: uppercase;
+    }
+    a {
+        color: inherit;
+        transition: color 0.3s ease;
+        &:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+}
+#features {
+    text-align: center;
+    color: $blue;
+    i {
+        font-size: 8em;
+    }
+    h2 {
+        font-size: 1em;
+        text-transform: uppercase;
+    }
+}
+
+#admin_nav {
+    font-size: 0.9em;
+    height: 70vh;
+    color: white;
+    text-transform: uppercase;
+    background: linear-gradient($blue,$teal);
+}
