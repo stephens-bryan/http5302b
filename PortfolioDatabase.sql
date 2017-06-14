@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `portfolio` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `portfolio`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: portfolio.cga94bd83uty.ca-central-1.rds.amazonaws.com    Database: portfolio
@@ -33,7 +35,7 @@ CREATE TABLE `Accounts` (
   PRIMARY KEY (`Id`),
   KEY `RoleId` (`RoleId`),
   CONSTRAINT `Accounts_ibfk_1` FOREIGN KEY (`RoleId`) REFERENCES `Roles` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +44,7 @@ CREATE TABLE `Accounts` (
 
 LOCK TABLES `Accounts` WRITE;
 /*!40000 ALTER TABLE `Accounts` DISABLE KEYS */;
-INSERT INTO `Accounts` VALUES (1,1,'Boss','Bernard.Monette@humber.ca','root','1a935314579adfe8dc18db6ae1e8aec4df941a93',''),(2,3,'student','student@gmail.com','student','81291dee22e3be6d899743420c20764845b74dc0','');
+INSERT INTO `Accounts` VALUES (1,1,'Boss','Bernard.Monette@humber.ca','root','1a935314579adfe8dc18db6ae1e8aec4df941a93',''),(2,3,'student','student@gmail.com','student','81291dee22e3be6d899743420c20764845b74dc0',''),(3,3,'someDude','test@test.com','test','81291dee22e3be6d899743420c20764845b74dc0','\0');
 /*!40000 ALTER TABLE `Accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +201,7 @@ CREATE TABLE `Positions` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(50) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,7 +210,7 @@ CREATE TABLE `Positions` (
 
 LOCK TABLES `Positions` WRITE;
 /*!40000 ALTER TABLE `Positions` DISABLE KEYS */;
-INSERT INTO `Positions` VALUES (1,'Team Lead'),(2,'Developer'),(3,'Designer');
+INSERT INTO `Positions` VALUES (1,'Team Lead'),(2,'Developer'),(3,'Designer'),(4,'Front End'),(5,'Back End'),(6,'Database'),(7,'Project Manager');
 /*!40000 ALTER TABLE `Positions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -296,7 +298,7 @@ CREATE TABLE `Projects` (
   KEY `PositionId` (`PositionId`),
   CONSTRAINT `Projects_ibfk_1` FOREIGN KEY (`StudentId`) REFERENCES `Students` (`Id`),
   CONSTRAINT `Projects_ibfk_2` FOREIGN KEY (`PositionId`) REFERENCES `Positions` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,7 +307,7 @@ CREATE TABLE `Projects` (
 
 LOCK TABLES `Projects` WRITE;
 /*!40000 ALTER TABLE `Projects` DISABLE KEYS */;
-INSERT INTO `Projects` VALUES (1,1,'main.png','Hospital website redesign','2017-04-28 12:00:00','',1,'Short description to show in search results.','Full description of the project.','www.sample.com','','2017-06-08 11:11:11','','');
+INSERT INTO `Projects` VALUES (1,1,'main.png','Hospital website redesign','2017-04-28 12:00:00','',1,'Short description to show in search results.','Full description of the project.','www.sample.com','','2017-06-08 11:11:11','',''),(2,3,'main.jpg','SomeProject','2017-06-17 00:00:00','\0',1,NULL,'blah blah blah','www.somesite.com',NULL,'2017-06-08 07:00:00','\0','\0'),(3,4,'main.jpg','React-Native','2017-06-08 08:00:00','\0',1,NULL,'blah blah',NULL,NULL,'2017-06-07 00:38:00','\0','\0'),(4,5,'main.jpg','myproj','2017-06-20 12:00:00','\0',1,NULL,'blah blah',NULL,NULL,'2017-06-07 00:00:00','\0','\0'),(5,6,'main.jpeg','awesome','2017-06-09 00:00:00','\0',1,NULL,'blah blah',NULL,NULL,'2017-06-28 00:00:00','\0','\0');
 /*!40000 ALTER TABLE `Projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,6 +334,30 @@ LOCK TABLES `Roles` WRITE;
 /*!40000 ALTER TABLE `Roles` DISABLE KEYS */;
 INSERT INTO `Roles` VALUES (1,'superadmin',1),(2,'admin',2),(3,'student',3);
 /*!40000 ALTER TABLE `Roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Stacks`
+--
+
+DROP TABLE IF EXISTS `Stacks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Stacks` (
+  `Id` int(11) NOT NULL,
+  `Title` varchar(50) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Stacks`
+--
+
+LOCK TABLES `Stacks` WRITE;
+/*!40000 ALTER TABLE `Stacks` DISABLE KEYS */;
+INSERT INTO `Stacks` VALUES (1,'Frontend'),(2,'Backend'),(3,'Fullstack'),(4,'Designer'),(5,'DatabaseAdmin');
+/*!40000 ALTER TABLE `Stacks` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -362,6 +388,34 @@ LOCK TABLES `StudentExternals` WRITE;
 /*!40000 ALTER TABLE `StudentExternals` DISABLE KEYS */;
 INSERT INTO `StudentExternals` VALUES (1,1,1,'https://github.com'),(2,1,2,'https://www.linkedin.com/'),(3,1,3,'https://www.student.com');
 /*!40000 ALTER TABLE `StudentExternals` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `StudentStacks`
+--
+
+DROP TABLE IF EXISTS `StudentStacks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `StudentStacks` (
+  `Id` int(11) NOT NULL,
+  `StudentId` int(11) NOT NULL,
+  `StackId` int(11) NOT NULL,
+  KEY `StudentId` (`StudentId`),
+  KEY `StackId` (`StackId`),
+  CONSTRAINT `StudentStacks_ibfk_1` FOREIGN KEY (`StudentId`) REFERENCES `Students` (`Id`),
+  CONSTRAINT `StudentStacks_ibfk_2` FOREIGN KEY (`StackId`) REFERENCES `Stacks` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `StudentStacks`
+--
+
+LOCK TABLES `StudentStacks` WRITE;
+/*!40000 ALTER TABLE `StudentStacks` DISABLE KEYS */;
+INSERT INTO `StudentStacks` VALUES (1,1,3),(2,6,1),(3,5,2),(4,4,3),(5,3,5),(6,6,3),(7,5,5),(8,4,3),(9,3,4),(10,6,5);
+/*!40000 ALTER TABLE `StudentStacks` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -414,7 +468,7 @@ CREATE TABLE `Students` (
   PRIMARY KEY (`Id`),
   KEY `AccountId` (`AccountId`),
   CONSTRAINT `Students_ibfk_1` FOREIGN KEY (`AccountId`) REFERENCES `Accounts` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -423,7 +477,7 @@ CREATE TABLE `Students` (
 
 LOCK TABLES `Students` WRITE;
 /*!40000 ALTER TABLE `Students` DISABLE KEYS */;
-INSERT INTO `Students` VALUES (1,2,NULL,'Student','Studentovich','n00000000','student@gmail.com','2017-06-08 11:06:06','647-555-5555',NULL);
+INSERT INTO `Students` VALUES (1,2,NULL,'Student','Studentovich','n00000000','student@gmail.com','2017-06-08 11:06:06','647-555-5555',NULL),(2,3,NULL,'Some','Dude','n0000121','test@test.com','0000-00-00 00:00:00',NULL,NULL),(3,NULL,NULL,'Jessica','Mount','n1234567','jess@test.com','2017-06-08 00:00:00',NULL,NULL),(4,NULL,NULL,'Sierra','Katrian','n2222222222','s@test.com','2017-06-08 07:00:00',NULL,NULL),(5,NULL,NULL,'Kevin','Sanabria','n23344323332','k@test.com','2017-06-08 10:00:00',NULL,NULL),(6,NULL,NULL,'Steve','Djau','n121423542352','steve@test.com','2017-06-08 00:00:00',NULL,NULL);
 /*!40000 ALTER TABLE `Students` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -488,4 +542,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-08 11:24:02
+-- Dump completed on 2017-06-14 13:50:57
