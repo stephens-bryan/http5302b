@@ -1,0 +1,436 @@
+/* Custom Fonts*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+
+/* End of Fonts*/
+
+
+/* Font Usage Command*/
+
+
+/*
+font-family: 'Montserrat', sans-serif;
+*/
+
+
+/* End of Usage*/
+
+
+/* Genearl */
+
+  html {
+  }
+        
+
+
+/* Headers Font*/
+
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+
+
+#search {
+    width: 250px;
+    margin: 2em 1.5em;
+    border-bottom: 1px solid black;
+}
+
+#search::placeholder {
+        color: black;
+
+}
+
+#sidebar__searchIcon {
+    position: absolute;
+    top: 350px;
+    right: 0025px;
+}
+
+
+/* Sidebar style*/
+
+.logo {
+    max-width: 85%;
+    height: auto;
+    margin: 2em 1em 5em 1em;
+}
+#icon {
+margin: 0 6em;
+}
+
+.year {
+    color: #fff;
+    margin: 0 auto;
+    margin: 0 1em 4em 1em;
+}
+
+header,
+main,
+footer {
+    padding-left: 300px;
+}
+
+.bar-color {
+    background-color: #73ddd9;
+    background-image: linear-gradient( #73ddd9, #50e8cf);
+}
+
+.no-sidebar {
+    padding-left: 0px !important;
+}
+
+
+.side-nav li {
+}
+#slide-out {
+    color: black;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+.side-nav li {
+}
+
+.sidebar-footer {
+    bottom: 0;
+    color: #000;
+    width: 100%;
+    height: 0;
+}
+
+
+.side-nav .collapsible-body,
+.side-nav.fixed .collapsible-body {
+    background-color: #73ddd9;
+}
+nav {
+    background-color: #73ddd9;
+    display: none;
+}
+#mobile-logo{
+    margin: 5px 1em;
+    max-width: 150px;
+    height: auto;
+}
+
+#nav-mobile li {
+    color: #fff;
+    letter-spacing: 3px;
+    font-weight: 200;
+}
+
+/* End of Sidebar style*/
+
+/* Start of Login Page Style */
+
+#studentLoginPage__mainCont { 
+    padding-left: 0px !important;
+    text-align: center;
+    
+}
+
+#studentLoginPage__logo {
+    margin: 100px 0px 25px 0px;
+    width: 75%;
+    max-width: 400px;
+}
+
+#studentLoginPage__form {
+    width:50%;
+    margin: 0 auto;
+}
+
+#studentLoginForm__passwField {
+    margin-bottom: 20px;
+}
+
+#studentLoginForm__passwPrompt {
+    color: #898989;
+}
+
+
+
+/* End of Login Page Style */
+
+
+/* Start of Account Settings Style */
+#acctSettForm__cont {
+    text-align: center;
+}
+
+.portalLogo {
+    margin: 10px 0px 40px 0px;
+}
+
+
+#acctSettForm__browse {
+    margin-bottom: 20px;
+}
+
+#acctSettForm__save {
+    margin-top:30px;
+}
+
+
+
+/* End of Account Settings Style */
+
+
+/* Start of My Projects Style*/
+
+.myProjectsForm {
+    width: 75% !important;
+    margin: 0 auto !important;
+
+}
+
+
+.myProjectsForm__header {
+    text-align: center;
+}
+
+#studentLoginForm__promptLoginCont {
+    float: right;
+}
+
+#studentLoginForm__passwPrompt {
+    margin-right: 20px;
+}
+
+
+#acctSettForm__cont {
+    display: block;
+}
+
+.select {
+    display: inline;
+}
+
+
+#projectsForm__cont {
+    text-align: center;
+}
+
+/* End of My Projects Style*/
+
+/* Start of Project Settings Style*/
+
+.myProjectsForm__header {
+    text-align: center;
+}
+
+#studentLoginForm__promptLoginCont {
+    float: right;
+}
+
+#studentLoginForm__passwPrompt {
+    margin-right: 20px;
+}
+
+#acctSettForm__cont {
+    display: block;
+}
+
+.select {
+    display: inline;
+}
+
+.save {
+    float: right;
+}
+
+#projectSettingsForm__cont {
+    text-align: center;
+}
+
+/* End of Project Settings Style */
+
+/* Project Thumbnails */
+
+    .card, .card-image {
+      border-radius: 8px;
+      /*border:1px solid #50E8CF;*/
+      background-color:#50E8CF;
+    }
+
+    /* small */
+
+    .thumbnail-small {
+      width:243px;
+      height:182px!important;
+    }
+
+    .thumbnail-small-header {
+      position:absolute;
+      height:24px;
+      z-index:1;
+      background-color:#50E8CF;
+    }
+
+    .thumbnail-small-header-svgs {
+      position:absolute;
+      /*border-radius: 8px!important;*/
+      width:243px;
+      border-top-right-radius: 8px!important;
+      border-top-left-radius: 8px!important;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      z-index:1;
+      background-color:#50E8CF;
+    }
+
+    .thumbnail-small-image {
+      height:182px;
+      position:absolute;
+      border-radius: 8px!important;
+      border:1px solid #50E8CF;
+      background-color:#50E8CF;
+    }
+
+    .thumbnail-small-footer {
+      border-bottom-right-radius: 8px!important;
+      border-bottom-left-radius: 8px!important;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      font-size:11px;
+      color:black;
+      height:48px;
+      padding:0;
+      margin:0;
+      width:243px;
+    }
+
+    .thumbnail-small-footer-background {
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:243px;
+      opacity: 0.9;
+      filter: alpha(opacity=90);
+      border-bottom-right-radius: 8px!important;
+      border-bottom-left-radius: 8px!important;
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+      background-color:white;
+      height:48px;
+      padding:0;
+      margin:0;
+    }
+
+    .thumbnail-small-footer-content-container,
+    .thumbnail-small-footer-image-container {
+      padding:0!important;
+      margin:0!important;
+      width:243px;
+      height:48px;
+    }
+
+    .thumbnail-small-footer {
+      border-bottom:1px solid #50E8CF;
+      border-right:1px solid #50E8CF;
+      border-left:1px solid #50E8CF;
+    }
+
+    .thumbnail-small-footer-text-header-container,
+    .thumbnail-small-footer-text-description-container {
+      padding:0!important;
+      margin:0!important;
+    }
+
+    .thumbnail-small-footer-text-header {
+      color:#153B35!important;
+      font-size:12px!important;
+      font-weight:600;
+    }
+
+    .thumbnail-small-footer-text-description {
+      color:#25776D!important;
+      font-size:10px!important;
+      font-weight:400;
+    }
+
+    .thumbnail-small-footer-text {
+      font-family: 'Montserrat', sans-serif;
+      line-height:1.4;
+      letter-spacing: 0.5px;
+      padding:0!important;
+      margin:0!important;
+      width:170px;
+    }
+
+    .thumbnail-small-footer-text-container {
+      padding-left:10px!important;
+    }
+
+    .thumbnail-small-footer-image {
+      height:33px !important;
+      width:33px !important;
+      border-radius:50%!important;
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+    }
+
+    /* overlay */
+
+    .thumb-container {
+      position: relative;
+      width: 243px;
+      cursor:pointer;
+    }
+
+    .image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      transition: .5s ease;
+      background-color: #50E8CF;
+      z-index:1;
+      border-radius: 8px;
+    }
+
+    .thumb-container:hover .overlay {
+      opacity: 1;
+    }
+
+    .text {
+      color: white;
+      font-size: 20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+    }
+
+/* end of Project Thumbnails */
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 992px) {
+    header,
+    main,
+    footer {
+        padding-left: 0 !important;
+    }
+     nav{
+        display: block;
+    }
+}
+
