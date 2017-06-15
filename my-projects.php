@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Humber Student Folio</title>
-    <link rel="stylesheet" href="css/materialize.min.css">
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/my-projects.css">
-</head>
+<?php
+
+require_once "includes/header.php";
+
+
+?>
 <body>
-   <main>
-       
-       <div class="row">
-        <div class="col s12 myProjectsForm__header">
-            <h2>Mia's Projects</h2>
-           </div>
-       </div>
-       
-        <div class="row" id="myProjectsForm__cont">
+    <?php 
+    require_once "includes/loggedin_sidebar.php";
+    ?>
+    
+    <main>
+    <div class="container">  
+        <div class="row" id="projectsForm__cont">
+            
+            <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
+                <img src="img/humber-logo-webDevPortal.png" class="portalLogo">
+    
+            <div class="col s12 myProjectsForm__header">
+                <h2>Mia's Projects</h2>
+            </div>
             
             <div class="col s12">
                 <form>
@@ -37,7 +39,7 @@
                             <td>Img ImgImgImgImgImgImgImg</td>
                             <td>
                                   <input name="group1" type="radio" id="test1" />
-                                  <label for="test1">Yes</label>
+                                  <label for="test1"></label>
                             
                             </td>
                             <td>
@@ -49,16 +51,20 @@
                     </tbody>
                 </table>
                     
-                    <button>Add Project</button>
+                    <button class="btn">Add Project</button>
                     
                 <div class="col s12">
-                    <input type="submit" value="Save Changes" class="save">
+                    <input type="submit" value="Save Changes" class="right btn">
                     </div>
                 </form>    
             </div>
-       </div>
-    
-    
-    </main>
+            
+        </div>
+    </div> 
+    </main>    
 </body>
-</html>
+
+<?php
+
+require_once "includes/footer.php";
+?>

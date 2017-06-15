@@ -1,21 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Humber Student Folio</title>
-    <link rel="stylesheet" href="css/materialize.min.css">
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <link rel="stylesheet" href="css/project-settings.css">
-</head>
+<?php
+
+require_once "includes/header.php";
+
+
+?>
 <body>
-   <main>
-       <div class="row">
-        <div class="col s12 myProjectsForm__header">
-            <h2>Project X</h2>
-           </div>
-       </div>
-       
-        <div class="row" id="myProjectsForm__cont">
+    <?php 
+    require_once "includes/loggedin_sidebar.php";
+    ?>
+    
+    <main>
+    <div class="container">  
+        <div class="row" id="projectSettingsForm__cont">
+            
+            <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
+                <img src="img/humber-logo-webDevPortal.png" class="portalLogo">
+            
+            <div class="col s12 myProjectsForm__header">
+                <h2>Project X</h2>
+            </div>
             
             <div class="col s12">
                 <form>
@@ -71,7 +74,7 @@
                     </tbody>
                 </table>
                     
-                    <button>Add Image</button>
+                    <button class="btn left">Add Image</button>
                     
                     <h4>Tags</h4>
                       <input type="checkbox" id="css" />
@@ -87,13 +90,17 @@
                       <label for="jquery">jQuery</label>
                     
                 <div class="col s12">
-                    <input type="submit" value="Save Changes" class="save">
+                    <input type="submit" value="Save Changes" class="right btn">
                     </div>
                 </form>    
             </div>
-       </div>
-    
-    
-    </main>
+            
+        </div>
+    </div> 
+    </main>    
 </body>
-</html>
+
+<?php
+
+require_once "includes/footer.php";
+?>
