@@ -1,0 +1,40 @@
+/* Custom Fonts*/
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/* End of Fonts*/
+
+
+/* Font Usage Command*/
+
+
+/*
+font-family: 'Montserrat', sans-serif;
+*/
+
+
+/* End of Usage*/
+
+
+/* Headers Font*/
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+/* Sidebar style*/
+
+ header, main, footer {
+      padding-left: 300px;
+    }
+
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
+/* End of Sidebar style*/
