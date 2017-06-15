@@ -1,15 +1,6 @@
-<?php ?>
-
 <head>
-    <meta charset="UTF-8">
-    <title>Humber Student Folio</title>
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/project-thumbnails.css">
+  <script type="text/javascript" src="./js/project-thumbnail-small.js"></script>
+  <link rel="stylesheet" href="css/project-thumbnails-small.css">
 </head>
 
     <div class="card thumbnail-small">
@@ -21,7 +12,7 @@
             </svg>
             <div class="thumb-container">
 
-              <!--project hero image--> <img class="thumbnail-small-image" src="http://materializecss.com/images/sample-1.jpg">
+              <!--project hero image--> <img class="thumbnail-small-image" src="img/sample-1.jpg">
 
               <div class="overlay">
                 <div class="center text"><i class="small material-icons">visibility</i></div>
@@ -33,7 +24,7 @@
                     <div class="row valign-wrapper">
                         <div class="col s2 thumbnail-small-footer-image-container valign-wrapper">
 
-                          <!--student profile pic--> <img class="left thumbnail-small-footer-image" src="http://materializecss.com/images/yuna.jpg">
+                          <!--student profile pic--> <img class="left thumbnail-small-footer-image" src="img/yuna.jpg">
 
                         </div>
                         <div class="col s10 thumbnail-small-footer-text-container">
@@ -42,12 +33,7 @@
                           <!--student profile name--> <p class="left thumbnail-small-footer-text thumbnail-small-footer-text-header">Dennis Nedry</p>
 
                           </div>
-                          <div class="col s12 thumbnail-small-footer-text-description-container">
 
-                              <!--student description-->
-                              <p class="left thumbnail-small-footer-text thumbnail-small-footer-text-description">Text describing the student</p>
-
-                          </div>
                         </div>
                     </div>
                 </div>
