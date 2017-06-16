@@ -2,14 +2,14 @@
 
 //grab values.
 $StudentId = 1;
-$MainPicture;
-$Name;
+$MainPicture $_POST['mainImage';
+$Name = $_POST['projectName';
 $FinishDate;
 $TeamProject;
 $PositionId;
-$ShortDesc;
-$Description;
-$Url;
+$ShortDesc = $_POST['ShortDescription'];
+$Description = $_POST['Description'];
+$Url = $_POST['Url'];
 $Github;
 $UploadDate;
 $Approved;

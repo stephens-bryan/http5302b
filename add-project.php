@@ -31,12 +31,12 @@ require_once "includes/header.php";
             <div class="col s12">
                 <form method="POST" action="add-project-logic.php">
                     
-                  <input id="" type="text" placeholder="Project Name" name="project-name">
+                  <input id="" type="text" placeholder="Project Name" name="projectName">
                   
                   
-                  <input id="" type="text" placeholder="Project Description (Short)">
-                    <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)"></textarea>
-                  <input id="" type="text" placeholder="External URL">
+                  <input id="" type="text" placeholder="Project Description (Short)" name="ShortDescription">
+                    <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)" name="Description"></textarea>
+                  <input id="" type="text" placeholder="External URL" name="Url">
                 <table>
                     <thead>
                         <tr>
@@ -63,7 +63,7 @@ require_once "includes/header.php";
                                   
                                 <div class="btn">
                                   <span>Browse...</span>
-                                  <input type="file">
+                                  <input type="file" name="mainImage">
                                 </div>
                                   
                               </div>
