@@ -1,29 +1,54 @@
 <?php
+ini_set('display_errors', 1); 
+include('includes.php');
+include('database.php');
+$student id = 1;
+
+if (isset($_POST['submit-project'])){
+  $studentID =
+  $mainPicture = $_POST['']
+  $projectName = $_POST['project-name'];
+  $finishDate =;
+  $teamProject =;
+  $positionID=;
+  $shortDesc =;
+  $longDesc=;
+  $url = ;
+  $gitHub =;
+  $uploadDate =;
+  $approved =;
+  $published= ;
+
+    
+}
 
 require_once "includes/header.php";
-
 
 ?>
 <body>
     <?php 
     require_once "includes/loggedin_sidebar.php";
     ?>
-    
+
     <main>
+
     <div class="container">  
-        <div class="row" id="projectSettingsForm__cont">
-            
+      <div class="row" id="projectSettingsForm__cont">
+        
+            <?php echo $name['Name'];?>
             <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
                 <img src="img/humber-logo-webDevPortal.png" class="portalLogo">
             
             <div class="col s12 myProjectsForm__header">
-                <h2>Project X</h2>
+                <h2>Add a Project</h2>
             </div>
-            
+
             <div class="col s12">
-                <form>
+                <form method="POST" action="#">
                     
-                  <input id="" type="text" placeholder="Project Name">
+                  <input id="" type="text" placeholder="Project Name" name="project-name">
+                  
+                  
                   <input id="" type="text" placeholder="Project Description (Short)">
                     <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)"></textarea>
                   <input id="" type="text" placeholder="External URL">
@@ -90,7 +115,7 @@ require_once "includes/header.php";
                       <label for="jquery">jQuery</label>
                     
                 <div class="col s12">
-                    <input type="submit" value="Save Changes" class="right btn">
+                    <input type="submit" value="Save Changes" class="right btn" name="submit-project">
                     </div>
                 </form>    
             </div>
