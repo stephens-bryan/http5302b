@@ -8,6 +8,6 @@ class TechDAO {
     $statement->execute();
     $techs = $statement->fetchAll();
     return $techs;
-    return $techs;
+    $statement->closeCursor();
   }
 }

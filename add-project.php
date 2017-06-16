@@ -11,7 +11,6 @@ $studentid = 1;
 
 
 // if (isset($_POST['submit-project'])){
-//   $studentID =
 //   $mainPicture = $_POST['']
 //   $projectName = $_POST['project-name'];
 //   $finishDate =;
