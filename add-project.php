@@ -29,7 +29,7 @@ require_once "includes/header.php";
             </div>
 
             <div class="col s12">
-                <form method="POST" action="#">
+                <form method="POST" action="add-project-logic.php">
                     
                   <input id="" type="text" placeholder="Project Name" name="project-name">
                   
@@ -91,17 +91,7 @@ require_once "includes/header.php";
                       <input type="checkbox" id="<?php echo $t['Id']?>" value="<?php echo $t['Id']?>"/>
                   <label for="<?php echo $t['Id']?>"><?php echo $t['Title']?></label>
                   <?php endforeach; ?>
-<!--                       <input type="checkbox" id="css" />
-                      <label for="css">CSS</label>
-                    
-                      <input type="checkbox" id="html" />
-                      <label for="html">HTML</label>
-                    
-                      <input type="checkbox" id="javascript" />
-                      <label for="javascript">Javascript</label>
-                    
-                      <input type="checkbox" id="jquery" />
-                      <label for="jquery">jQuery</label> -->
+
                     
                 <div class="col s12">
                     <input type="submit" value="Save Changes" class="right btn" name="submit-project">
