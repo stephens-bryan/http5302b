@@ -8,25 +8,6 @@ $studentid = 1;
  $tech = new TechDAO;
  $tech = $tech->getTechs($pdo);
 
-
-
-// if (isset($_POST['submit-project'])){
-//   $mainPicture = $_POST['']
-//   $projectName = $_POST['project-name'];
-//   $finishDate =;
-//   $teamProject =;
-//   $positionID=;
-//   $shortDesc =;
-//   $longDesc=;
-//   $url = ;
-//   $gitHub =;
-//   $uploadDate =;
-//   $approved =;
-//   $published= ;
-
-    
-// }
-
 require_once "includes/header.php";
 
 ?>
