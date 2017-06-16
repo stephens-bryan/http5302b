@@ -1,5 +1,6 @@
 <?php 
 
+//grab values.
 $StudentId = 1;
 $MainPicture;
 $Name;
@@ -15,3 +16,8 @@ $Approved;
 $Published;
 $Order;
 
+//validate values
+
+//insert into database if valid
+
+//provide successful feedback for user.
