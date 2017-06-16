@@ -1,26 +1,32 @@
 <?php
-ini_set('display_errors', 1); 
+ini_set('display_errors', 3); 
 include('includes.php');
 include('database.php');
-$student id = 1;
+$studentid = 1;
 
-if (isset($_POST['submit-project'])){
-  $studentID =
-  $mainPicture = $_POST['']
-  $projectName = $_POST['project-name'];
-  $finishDate =;
-  $teamProject =;
-  $positionID=;
-  $shortDesc =;
-  $longDesc=;
-  $url = ;
-  $gitHub =;
-  $uploadDate =;
-  $approved =;
-  $published= ;
+//need to grab all the tech's from the database for our user to have tech options for their project
+ $tech = new TechDAO;
+ $tech = $tech->getTechs($pdo);
+
+
+
+// if (isset($_POST['submit-project'])){
+//   $studentID =
+//   $mainPicture = $_POST['']
+//   $projectName = $_POST['project-name'];
+//   $finishDate =;
+//   $teamProject =;
+//   $positionID=;
+//   $shortDesc =;
+//   $longDesc=;
+//   $url = ;
+//   $gitHub =;
+//   $uploadDate =;
+//   $approved =;
+//   $published= ;
 
     
-}
+// }
 
 require_once "includes/header.php";
 
@@ -35,7 +41,6 @@ require_once "includes/header.php";
     <div class="container">  
       <div class="row" id="projectSettingsForm__cont">
         
-            <?php echo $name['Name'];?>
             <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
                 <img src="img/humber-logo-webDevPortal.png" class="portalLogo">
             
@@ -100,9 +105,13 @@ require_once "includes/header.php";
                 </table>
                     
                     <button class="btn left">Add Image</button>
-                    
+                   
                     <h4>Tags</h4>
-                      <input type="checkbox" id="css" />
+                   <?php foreach($tech as $t):?>
+                      <input type="checkbox" id="<?php echo $t['Id']?>" value="<?php echo $t['Id']?>"/>
+                  <label for="<?php echo $t['Id']?>"><?php echo $t['Title']?></label>
+                  <?php endforeach; ?>
+<!--                       <input type="checkbox" id="css" />
                       <label for="css">CSS</label>
                     
                       <input type="checkbox" id="html" />
@@ -112,7 +121,7 @@ require_once "includes/header.php";
                       <label for="javascript">Javascript</label>
                     
                       <input type="checkbox" id="jquery" />
-                      <label for="jquery">jQuery</label>
+                      <label for="jquery">jQuery</label> -->
                     
                 <div class="col s12">
                     <input type="submit" value="Save Changes" class="right btn" name="submit-project">
