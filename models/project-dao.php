@@ -24,23 +24,24 @@ public function getProjectsById($db, $studentId){
   }
   //insert a project by user_id
   public function insertProject($db, $studentId, $mainPicture, $name, $finishDate, $teamProject, $positionId, $shortDesc, $Description, $Url, $Github, $uploadDate, $Approved, $Published){
-    $query = INSERT INTO Projects (StudentId, MainPicture, Name, FinishDate, TeamProject, PositionId, ShortDesc, Description, Url, Github, UploadDate, Approved, Published) VALUES (:StudentId, :MainPicture, :Name, :FinishDate, :TeamProject, :PositionId, :ShortDesc, :Description, :Url, :Github, :UploadDate, :Approved, :Published);
+    $query = "INSERT INTO Projects (StudentId, MainPicture, Name, FinishDate, TeamProject, PositionId, ShortDesc, Description, Url, Github, UploadDate, Approved, Published) VALUES (:StudentId, :MainPicture, :Name, :FinishDate, :TeamProject, :PositionId, :ShortDesc, :Description, :Url, :Github, :UploadDate, :Approved, :Published)";
     $statement = $db->prepare($query);
     $statement->bindValue(':StudentId', $studentId);
     $statement->bindValue(':MainPicture', $mainPicture);
     $statement->bindValue(':Name', $name);
     $statement->bindValue(':FinishDate', $finishDate);
-    $statement->bindValue(':TeamProject', $teamProject);
+    $statement->bindValue(':TeamProject', (bool)$teamProject, PDO::PARAM_BOOL);
     $statement->bindValue(':PositionId', $positionId);
     $statement->bindValue(':ShortDesc', $shortDesc);
     $statement->bindValue(':Description', $Description);
     $statement->bindValue(':Url', $Url);
     $statement->bindValue(':Github', $Github);
     $statement->bindValue(':UploadDate', $uploadDate);
-    $statement->bindValue(':Approved', $Approved);
-    $statement->bindValue(':Published', $Published);
-    $statement->execute();
+    $statement->bindValue(':Approved', (bool)$Approved, PDO::PARAM_BOOL);
+    $statement->bindValue(':Published', (bool)$Published, PDO::PARAM_BOOL);
+    $statement->execute() or die(print_r($statement->errorInfo(), true));;
     $statement->closeCursor();
+    echo 'success';
       
     
   }

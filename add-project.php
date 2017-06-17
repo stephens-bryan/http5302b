@@ -61,7 +61,7 @@ require_once "includes/header.php";
                                 
                                   
                               </div>
-                          <input type="checkbox" id="TeamProject" value="1" name="TeamProject"/>
+                          <input type="checkbox" id="TeamProject" name="TeamProject"/>
                   <label for="TeamProject">Was this a team project?</label>
                    <h4>
                     What role(s) did you serve for this project?
@@ -89,7 +89,7 @@ require_once "includes/header.php";
 
             
                 <div class="col s12">
-                   <input type="checkbox" id="Published" value="Yes" name="Published">
+                   <input type="checkbox" id="Published" name="Published">
                   <label for="Published">Would you like to publish this project?</label> 
                     <input type="submit" value="Save Changes" class="right btn" name="submit-project">
                     </div>
