@@ -5,7 +5,7 @@ class ProjectTechsDAO {
     $statement = $db->prepare($query);
     $statement->bindValue(':ProjectId', $ProjectId);
     $statement->bindValue(':TechId', $TechId);
-    $statement->execute();
+    $statement->execute() or die(print_r($statement->errorInfo(), true));
     $statement->closeCursor();
   }
 }

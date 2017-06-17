@@ -51,23 +51,18 @@ else {
 else {
   $Published = 0;
 }
-                    
+
+$techs = $_POST['t'];
+                   
  
-//grab values for technology used and the position the user served on the project
-                    
-//  $techs;
-//  $positions;                   
-
-
-
-
+       
 //validate values
 
 //insert into database if valid
 
-$project = new ProjectDAO;
+ $project = new ProjectDAO;
 
-   $project->insertProject($pdo, $StudentId, $MainPicture, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
+ $project->insertProject($pdo, $StudentId, $MainPicture, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
  
 //now we have to insert technologies associated with the project into the techs table. 
 //we will do this by grabbing the id of the project that was just inserted
@@ -75,7 +70,14 @@ $project = new ProjectDAO;
 //this will work because upload date is unique, our user cannot upload more than 1 project in less than a second.
 
 //project now holds the Id of the project we just inserted above.
-$project = $project->getProjectIDJustInserted($pdo, $StudentId, $UploadDate)[0];
+  $project = $project->getProjectIDJustInserted($pdo, $StudentId, $UploadDate)[0];
 
 
+// //now for each tech that was selected, we just have to insert into our projecttech table
+
+ $projectTech = new ProjectTechsDAO;
+ foreach($techs as $t){
+  
+  $projectTech->insertProjectTechs($pdo, $project, $t);
+}
 //provide successful feedback for user.

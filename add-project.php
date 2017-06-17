@@ -61,15 +61,16 @@ require_once "includes/header.php";
                                 
                                   
                               </div>
-                          <input type="checkbox" id="TeamProject" name="TeamProject"/>
+                          <input type="checkbox" id="TeamProject"  name="TeamProject"/>
                   <label for="TeamProject">Was this a team project?</label>
+                  
                    <h4>
                     What role(s) did you serve for this project?
                   </h4>
-                  <?php foreach($positions as $p):?>
-                  <input type="radio" id="<?php echo $p['Id']?>" value="<?php echo $p['Id']?>" name="Position"/>
-                  <label for="<?php echo $p['Id']?>"><?php echo $p['Title']?></label>
-                  <?php endforeach;?>
+                 <?php foreach($positions as $p):?> 
+                  <input type="radio" id="<?php echo $p['Title']?>" value="<?php echo $p['Id']?>" name="Position"/>
+                  <label for="<?php echo $p['Title']?>"><?php echo $p['Title']?></label>
+                  <?php endforeach;?> 
                             
                             
                             
@@ -79,11 +80,15 @@ require_once "includes/header.php";
                     When was this project completed?
                   </h4>
                   <input type="date" id="FinishDate" name="FinishDate" value="When was this project completed?">
+                  
                     <h4>Technology Used for this Project(Must select at least 1).</h4>
                    <?php foreach($tech as $t):?>
-                      <input type="checkbox" id="<?php echo $t['Id']?>" value="<?php echo $t['Id']?>" name="techs[]"/>
-                  <label for="<?php echo $t['Id']?>"><?php echo $t['Title']?></label>
+                      <input type="checkbox" id="<?php echo $t['Title']?>" value="<?php echo $t['Id']?>" name="t[]"/>
+                  <label for="<?php echo $t['Title']?>"><?php echo $t['Title']?></label>
                   <?php endforeach; ?>
+                 
+            
+                  
                   
               
 
