@@ -22,4 +22,13 @@ public function getProjectsById($db, $studentId){
     $statement->closeCursor();
     return $projects;
   }
+  
+  //Deletes Project
+  public function deleteProject($db, $id) {
+    $query = 'DELETE FROM projects WHERE id = :ID';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':ID',$id, PDO::PARAM_INT);
+    $row = $statement->execute();
+    return true;
+  }
 }

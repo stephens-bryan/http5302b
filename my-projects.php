@@ -47,6 +47,9 @@ require_once "includes/header.php";
                                   <option value="1">1</option>
                                 </select>    
                             </td>
+                            <td>
+                              <button type="button" class="btn">Delete</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -61,7 +64,10 @@ require_once "includes/header.php";
             
         </div>
     </div> 
-    </main>    
+  </main>
+  
+  
+<!-- PLEASE LEAVE HERE. Will need for AJAX  <script src="js/delete.js"></script> -->
 </body>
 
 <?php
