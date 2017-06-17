@@ -41,8 +41,17 @@ public function getProjectsById($db, $studentId){
     $statement->bindValue(':Published', (bool)$Published, PDO::PARAM_BOOL);
     $statement->execute() or die(print_r($statement->errorInfo(), true));;
     $statement->closeCursor();
-    echo 'success';
       
-    
   }
+  public function getProjectIDJustInserted($db, $studentId, $uploadDate){
+    $query =  "SELECT Id FROM Projects WHERE StudentId = :StudentId AND UploadDate = :UploadDate";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':StudentId', $studentId);
+    $statement->bindValue(':UploadDate', $uploadDate);
+    $statement->execute();
+    $project = $statement->fetch();
+    $statement->closeCursor();
+    return $project;
+  }
+  
 }
