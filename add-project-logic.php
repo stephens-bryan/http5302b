@@ -1,20 +1,25 @@
 <?php 
-
-//grab values.
-$StudentId = 1;
-$MainPicture $_POST['mainImage';
-$Name = $_POST['projectName';
-$FinishDate;
-$TeamProject;
-$PositionId;
-$ShortDesc = $_POST['ShortDescription'];
-$Description = $_POST['Description'];
-$Url = $_POST['Url'];
-$Github;
-$UploadDate;
-$Approved;
-$Published;
-$Order;
+ 
+//grab values for project.
+echo $StudentId = 1;
+echo $MainPicture = $_POST['mainImage'];
+ echo $Name = $_POST['projectName'];
+ echo $FinishDate = $_POST['FinishDate'];
+ echo $TeamProject = $_POST['TeamProject'];
+ echo $PositionId= $_POST['Position'];
+ echo $ShortDesc = $_POST['ShortDescription'];
+ echo $Description = $_POST['Description'];
+ echo $Url = $_POST['Url'];
+ echo $Github = $_POST['Github'];
+ echo $UploadDate = date('Y-m-d H:i:s'); 
+ echo $Approved = 0;
+ echo $Published = $_POST['Published'];
+                    
+ 
+//grab values for technology used and the position the user served on the project
+                    
+//  $techs;
+//  $positions;                   
 
 //validate values
 

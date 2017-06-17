@@ -8,6 +8,10 @@ $studentid = 1;
  $tech = new TechDAO;
  $tech = $tech->getTechs($pdo);
 
+//we need to grab all the possible roles from the database for our user to have options for the position they served on for the project
+$positions = new PositionDAO;
+$positions = $positions->getPositions($pdo);
+
 require_once "includes/header.php";
 
 ?>
@@ -37,63 +41,56 @@ require_once "includes/header.php";
                   <input id="" type="text" placeholder="Project Description (Short)" name="ShortDescription">
                     <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)" name="Description"></textarea>
                   <input id="" type="text" placeholder="External URL" name="Url">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Images</th>
-                            <th>Hero</th>
-                            <th>Order</th>
-                            <th>Delete</th>
-                        </tr>
-                    
-                    </thead>
-                    
-                    <!--The data in tbody is placeholder content! Delete if you want-->
-                    <tbody>
-                        <tr>
-                            <td>
+                  <input id="github" type="text" placeholder="Github Repository(Optional)" name="Github">
+                   
+                
+                  
+                   
+              
                                 
-                                <div class="col s2">
-                                    <p>Img go here</p>
+                                
+                              <div class="file-field input-field col s12">
+                                <div class="btn col s8">
+                                  <span>Add Project Image</span>
+                                  <input type="file">
                                 </div>
-                              <div class="file-field input-field col s10">
-                                <div class="file-path-wrapper">
-                                  <input class="file-path" type="text" placeholder="Profile Picture">
+                                <div class="file-path-wrapper col s8">
+                                  <input class="file-path" type="text" placeholder="Your uploaded image" name="mainImage">
                                 </div>
                                   
-                                <div class="btn">
-                                  <span>Browse...</span>
-                                  <input type="file" name="mainImage">
-                                </div>
+                                
                                   
                               </div>
+                          <input type="checkbox" id="TeamProject" value="1" name="TeamProject"/>
+                  <label for="TeamProject">Was this a team project?</label>
+                   <h4>
+                    What role(s) did you serve for this project?
+                  </h4>
+                  <?php foreach($positions as $p):?>
+                  <input type="radio" id="<?php echo $p['Id']?>" value="<?php echo $p['Id']?>" name="Position"/>
+                  <label for="<?php echo $p['Id']?>"><?php echo $p['Title']?></label>
+                  <?php endforeach;?>
                             
                             
-                            </td>
-                            <td>
-                                  <input name="group1" type="radio" id="test1" />
-                                  <label for="test1">Yes</label>
                             
-                            </td>
-                            <td>
-                                <select class="select">
-                                  <option value="1">1</option>
-                                </select>    
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
                     
-                    <button class="btn left">Add Image</button>
-                   
-                    <h4>Tags</h4>
+                    
+                  <h4>
+                    When was this project completed?
+                  </h4>
+                  <input type="date" id="FinishDate" name="FinishDate" value="When was this project completed?">
+                    <h4>Technology Used for this Project(Must select at least 1).</h4>
                    <?php foreach($tech as $t):?>
-                      <input type="checkbox" id="<?php echo $t['Id']?>" value="<?php echo $t['Id']?>"/>
+                      <input type="checkbox" id="<?php echo $t['Id']?>" value="<?php echo $t['Id']?>" name="techs[]"/>
                   <label for="<?php echo $t['Id']?>"><?php echo $t['Title']?></label>
                   <?php endforeach; ?>
+                  
+              
 
-                    
+            
                 <div class="col s12">
+                   <input type="checkbox" id="Published" value="Yes" name="Published">
+                  <label for="Published">Would you like to publish this project?</label> 
                     <input type="submit" value="Save Changes" class="right btn" name="submit-project">
                     </div>
                 </form>    
