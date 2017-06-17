@@ -1,6 +1,21 @@
 <?php
 
+require_once 'includes.php';
+require_once 'database.php';
+$studentid = 1;
+
+//need to grab all the tech's from the database for our user to have tech options for their project
+$projectClass = new Project();
+$viewProjects = $projectClass->getProjectsById($pdo, $studentid);
+
+echo $viewProjects;
+
 require_once "includes/header.php";
+
+
+
+
+
 
 
 ?>
@@ -35,8 +50,9 @@ require_once "includes/header.php";
                     
                     <!--The data in tbody is placeholder content! Delete if you want-->
                     <tbody>
+                      <?php foreach ($viewProjects as $project) : ?>                        
                         <tr>
-                            <td>Img ImgImgImgImgImgImgImg</td>
+                            <td><?php echo $project.name ?></td>
                             <td>
                                   <input name="group1" type="radio" id="test1" />
                                   <label for="test1"></label>
@@ -51,6 +67,7 @@ require_once "includes/header.php";
                               <button type="button" class="btn">Delete</button>
                             </td>
                         </tr>
+                      <?php endforeach; ?>
                     </tbody>
                 </table>
                     
