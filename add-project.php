@@ -57,7 +57,7 @@ require_once "includes/header.php";
                               <div class="file-field input-field col s12">
                                 <div class="btn col s8">
                                   <span>Add Project Image</span>
-                                  <input type="file">
+                                  <input type="file" name="ProjectImage">
                                 </div>
                                 <div class="file-path-wrapper col s8">
                                   <input class="file-path" type="text" placeholder="Your uploaded image" name="mainImage">

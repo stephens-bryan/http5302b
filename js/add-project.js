@@ -8,9 +8,11 @@ $(document).ready(function(){
       url:'add-project-logic.php',
       type:'POST',
       data: formData,
-      async: false,
+      async: true,
       success:function(data){
         alert(data)
+                $("#submission-progress").html('');
+
       },
       cahce: false,
       contentType:false,

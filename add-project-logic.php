@@ -10,6 +10,10 @@ include('database.php');
   //hard set the student id
   $StudentId = $_POST['StudentId'];
 
+  //image file
+  $_FILES['ProjectImage'];
+
+  //image name
   $MainPicture = $_POST['mainImage'];
 
   $Name = $_POST['projectName'];
