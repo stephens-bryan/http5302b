@@ -2,21 +2,17 @@
 
 require_once 'includes.php';
 require_once 'database.php';
-$studentid = 1;
+$studentId = 1;
 
 //need to grab all the tech's from the database for our user to have tech options for their project
-$projectClass = new Project();
-$viewProjects = $projectClass->getProjectsById($pdo, $studentid);
+$projectClass = new ProjectDAO();
+$viewProjects = $projectClass->getProjectsById($pdo, $studentId);
 
-echo $viewProjects;
+// var_dump($viewProjects);
+
+
 
 require_once "includes/header.php";
-
-
-
-
-
-
 
 ?>
 <body>
@@ -40,9 +36,9 @@ require_once "includes/header.php";
                 <table>
                     <thead>
                         <tr>
-                            <th>Project</th>
-                            <th>Hero</th>
-                            <th>Order</th>
+                            <th>Project Name</th>
+                            <th>Feature Image</th>
+                            <th>View Order</th>
                             <th>Delete</th>
                         </tr>
                     
@@ -52,20 +48,12 @@ require_once "includes/header.php";
                     <tbody>
                       <?php foreach ($viewProjects as $project) : ?>                        
                         <tr>
-                            <td><?php echo $project.name ?></td>
-                            <td>
-                                  <input name="group1" type="radio" id="test1" />
-                                  <label for="test1"></label>
-                            
-                            </td>
-                            <td>
-                                <select class="select">
-                                  <option value="1">1</option>
-                                </select>    
-                            </td>
-                            <td>
-                              <button type="button" class="btn">Delete</button>
-                            </td>
+                          <td><?php echo $project['Name'] ?></td>
+                          <td><img class="thumbnail-small" src="img/<?php echo $project['MainPicture'] ?>" alt="<?php echo $project['MainPicture'] ?>"></td>
+                          <td><input type="text" value="<?php echo $project['PositionId'] ?>"></td>
+                          <td>
+                            <button id="btnDeleteProject<?php echo $project['Id'] ?>" data-target="deleteProjectModal" class="btn"  value="<?php echo $project['Id'] ?>">DEL <?php echo $project['Id'] ?></button>
+                          </td>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
@@ -80,11 +68,25 @@ require_once "includes/header.php";
             </div>
             
         </div>
-    </div> 
-  </main>
+    </div>       
+
+  <!-- Modal Structure -->
+  <div id="deleteProjectModal" class="modal">
+    <div class="modal-content">
+      <h4>Are you sure you want to delete this project?</h4>
+      <p>Once you click yes, there is no going back.</p>
+      <p id="idTest"></p>
+    </div>
+    <div class="modal-footer">
+      <button id="btnDeleteProjectConfirm" class="modal-action modal-close waves-effect waves-green btn-flat" value="">Agree</button>
+    </div>
+  </div>
+</main>
+ 
   
   
-<!-- PLEASE LEAVE HERE. Will need for AJAX  <script src="js/delete.js"></script> -->
+  <script src="js/delete.js"></script>
+  <script src="js/modal.js"></script>
 </body>
 
 <?php
