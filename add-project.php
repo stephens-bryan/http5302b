@@ -35,7 +35,7 @@ require_once "includes/header.php";
             </div>
 
             <div class="col s12">
-                <form method="POST" id="submit-project">
+                <form method="POST" id="submit-project" enctype="multipart/form-data">
                     <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
                   <input id="" type="text" placeholder="Project Name" name="projectName">
                   

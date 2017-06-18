@@ -12,12 +12,45 @@ $userFeedback = '';
 //grab values for project.
 //================================================
 
-//grab all required inputs first.
+//handle the image upload first
+//=======
+$imageName = $_FILES['ProjectImage']['name'];
+  echo $imageName;
+
+  //path of file in temp directory
+  $imageTemp = $_FILES['ProjectImage']['tmp_name'];
+  echo $imageTemp;
+
+  //size of file in bytes
+  $imageSize = $_FILES['ProjectImage']['size'];
+echo $imageSize;
+
+//error number
+$imageError = $_FILES['ProjectImage']['error'];
+echo $imageError;
+
+//now lets move our file to the images folder.
+$target_path = "img/";
+$target_path = $target_path . $imageName;
+
+if(move_uploaded_file($imageTemp, $target_path)){
+  echo 'The file' . $imageName . 'has been uploaded';
+}
+else {
+  echo 'Error uploading file';
+}
+
+
+
+
+
+//grab all required inputs
 //=========
 $StudentId = $_POST['StudentId'];
 
-  //image file
-  $image = $_FILES['ProjectImage']['name'];
+  //image file name
+  
+  
  
   //image name
   $MainPicture = $_POST['mainImage'];
@@ -102,31 +135,31 @@ else {
 
 
 if ($formValid){
- $project = new ProjectDAO;
+//  $project = new ProjectDAO;
 
- $project->insertProject($pdo, $StudentId, $MainPicture, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
+//  $project->insertProject($pdo, $StudentId, $MainPicture, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
  
-//now we have to insert technologies associated with the project into the techs table. 
-//we will do this by grabbing the id of the project that was just inserted
-//we will do this by calling a method that passes in our user id and the upload date to grab the correct project
-//this will work because upload date is unique, our user cannot upload more than 1 project in less than a second.
+// //now we have to insert technologies associated with the project into the techs table. 
+// //we will do this by grabbing the id of the project that was just inserted
+// //we will do this by calling a method that passes in our user id and the upload date to grab the correct project
+// //this will work because upload date is unique, our user cannot upload more than 1 project in less than a second.
 
-//project now holds the Id of the project we just inserted above.
-  $project = $project->getProjectIDJustInserted($pdo, $StudentId, $UploadDate)[0];
+// //project now holds the Id of the project we just inserted above.
+//   $project = $project->getProjectIDJustInserted($pdo, $StudentId, $UploadDate)[0];
 
 
-// //now for each tech that was selected, we just have to insert into our projecttech table
+// // //now for each tech that was selected, we just have to insert into our projecttech table
 
- $projectTech = new ProjectTechsDAO;
- foreach($techs as $t){
+//  $projectTech = new ProjectTechsDAO;
+//  foreach($techs as $t){
   
-  $projectTech->insertProjectTechs($pdo, $project, $t);
-}
+//   $projectTech->insertProjectTechs($pdo, $project, $t);
+// }
   
   
   //now we echo a successful message back to the ajax call.
   $userFeedback = "Project was uploaded successfully";
-  echo $userFeedback;
+  //echo $userFeedback;
 }
 
 //or if form was not valid, we echo all of the error messages that were set.
