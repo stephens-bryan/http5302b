@@ -33,11 +33,16 @@ echo $imageError;
 $target_path = "img/";
 $target_path = $target_path . $imageName;
 
+//check if it actually is an image. if it is, move it, if not, send feedback.
+if (getimagesize($imageTemp)){
 if(move_uploaded_file($imageTemp, $target_path)){
   echo 'The file' . $imageName . 'has been uploaded';
 }
 else {
   echo 'Error uploading file';
+}
+} else {
+  echo 'this is not an image';
 }
 
 
