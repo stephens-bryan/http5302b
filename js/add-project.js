@@ -12,7 +12,8 @@ $(document).ready(function(){
       data: formData,
       async: true,
       success:function(data){
-                  $("#upload-feedback").html(data);
+                  $("#upload-feedback").html(Materialize.toast("<p>Errors Found:<br/>" + data + "</p>", 10000));
+
 
                 $("#submission-progress").html('');
          $("#add-project-form-container").show();
