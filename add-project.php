@@ -103,11 +103,16 @@ require_once "includes/header.php";
                   <label for="Published">Would you like to publish this project?</label> 
                     <input type="submit" value="Save Changes" class="right btn" name="submit-project">
                     </div>
-                </form>    
+                  
+                </form>  
+              
             </div>
             
         </div>
     </div> 
+      <div id="submission-progress">
+                    
+                  </div>
     </main>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/add-project.js"></script>

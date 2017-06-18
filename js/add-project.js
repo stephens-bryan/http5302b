@@ -1,7 +1,8 @@
 $(document).ready(function(){
 //grab the submit button
   $("#submit-project").submit(function(){
-    alert('clicked');
+        $("#submission-progress").html('<p>Project Uploading.</p><div class="progress"><div class="indeterminate"></div>');
+
     var formData = new FormData($(this)[0]);
     $.ajax({
       url:'add-project-logic.php',
