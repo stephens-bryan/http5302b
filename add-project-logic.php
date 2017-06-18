@@ -4,18 +4,64 @@ ini_set('display_errors', '3');
  include('includes.php');
 include('database.php');
 
+//flag variable. if form is set to false, it will not submit. also to hold our feedback to the user.
+$formValid = true;
+$userFeedback = '';
+
 
 //grab values for project.
 //================================================
-  //hard set the student id
-  $StudentId = 1;
 
+//grab all required inputs first.
+//=========
+$StudentId = $_POST['StudentId'];
+
+  //image file
+  $image = $_FILES['ProjectImage']['name'];
+ 
+  //image name
   $MainPicture = $_POST['mainImage'];
+if(empty($MainPicture)){
+  $formValid = false;
+   $imageError = "You must upload an image.<br/>";
+}
 
   $Name = $_POST['projectName'];
+if(empty($Name)){
+  $formValid = false;
+  $nameError = "You must name the project<br/>";
+}
 
   $FinishDate = $_POST['FinishDate'];
+  if(empty($FinishDate)){
+    $formValid = false;
+    $dateError="You must select when the project was finished.<br/>";
+  }
 
+  $Description = $_POST['Description'];
+  if(empty($Description)){
+    $formValid = false;
+    $descriptionError="You must give a description for the project<br/>";
+  }
+if(isset($_POST['t'])){
+   $techs = $_POST['t'];
+}
+else{
+  $formValid = false;
+  $techError ="You must select at least one technology used<br/>";
+}
+
+
+//now our values that can be null
+//============
+
+//if the user checks published, published is set to true, otherwise it is set to false.
+  if (isset($_POST['Published'])){
+    $Published = 1;
+  } 
+else {
+  $Published = 0;
+}
 //if team project has been checked it's true, if not, it's false.
 if (isset($_POST['TeamProject'])){
   $TeamProject = 1;
@@ -34,32 +80,28 @@ else {
 
   $ShortDesc = $_POST['ShortDescription'];
 
-  $Description = $_POST['Description'];
 
   $Url = $_POST['Url'];
 
   $Github = $_POST['Github'];
 
+
+//now  our hardcoded values for date uploaded and approved.
   $UploadDate = date('Y-m-d H:i:s'); 
 
   $Approved = 0;
 
-//if the user checks published, published is set to true, otherwise it is set to false.
-  if (isset($_POST['Published'])){
-    $Published = 1;
-  } 
-else {
-  $Published = 0;
-}
 
-$techs = $_POST['t'];
+
+
                    
  
        
-//validate values
 
-//insert into database if valid
+//insert into database if formValid variable is still true.
 
+
+if ($formValid){
  $project = new ProjectDAO;
 
  $project->insertProject($pdo, $StudentId, $MainPicture, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
@@ -80,4 +122,18 @@ $techs = $_POST['t'];
   
   $projectTech->insertProjectTechs($pdo, $project, $t);
 }
-//provide successful feedback for user.
+  
+  
+  //now we echo a successful message back to the ajax call.
+  $userFeedback = "Project was uploaded successfully";
+  echo $userFeedback;
+}
+
+//or if form was not valid, we echo all of the error messages that were set.
+else {
+  if(isset($imageError)) echo $imageError;
+  if(isset($nameError)) echo $nameError;
+  if(isset($dateError)) echo $dateError;
+  if(isset($descriptionError)) echo $descriptionError;
+  if(isset($techError)) echo $techError;
+}

@@ -22,7 +22,9 @@ require_once "includes/header.php";
 
     <main>
 
-    <div class="container">  
+    <div class="container" id="add-project-form-container">
+      <p id="upload-feedback">
+      </p>
       <div class="row" id="projectSettingsForm__cont">
         
             <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
@@ -33,8 +35,8 @@ require_once "includes/header.php";
             </div>
 
             <div class="col s12">
-                <form method="POST" action="add-project-logic.php">
-                    
+                <form method="POST" id="submit-project">
+                    <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
                   <input id="" type="text" placeholder="Project Name" name="projectName">
                   
                   
@@ -52,7 +54,7 @@ require_once "includes/header.php";
                               <div class="file-field input-field col s12">
                                 <div class="btn col s8">
                                   <span>Add Project Image</span>
-                                  <input type="file">
+                                  <input type="file" name="ProjectImage">
                                 </div>
                                 <div class="file-path-wrapper col s8">
                                   <input class="file-path" type="text" placeholder="Your uploaded image" name="mainImage">
@@ -98,12 +100,19 @@ require_once "includes/header.php";
                   <label for="Published">Would you like to publish this project?</label> 
                     <input type="submit" value="Save Changes" class="right btn" name="submit-project">
                     </div>
-                </form>    
+                  
+                </form>  
+              
             </div>
             
         </div>
     </div> 
-    </main>    
+      <div id="submission-progress">
+                    
+                  </div>
+    </main>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/add-project.js"></script>
 </body>
 
 <?php
