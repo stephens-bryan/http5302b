@@ -4,22 +4,62 @@ ini_set('display_errors', '3');
  include('includes.php');
 include('database.php');
 
+//flag variable. if form is set to false, it will not submit. also to hold our feedback to the user.
+$formValid = true;
+$userFeedback = '';
+
 
 //grab values for project.
 //================================================
-  //hard set the student id
-  $StudentId = $_POST['StudentId'];
+
+//grab all required inputs first.
+//=========
+$StudentId = $_POST['StudentId'];
 
   //image file
-  $_FILES['ProjectImage'];
+  $image = $_FILES['ProjectImage'];
+  if(empty($image)){
+    $formValid = false;
+    $imageError = "no image upload<br/>";
+  }
 
   //image name
   $MainPicture = $_POST['mainImage'];
 
   $Name = $_POST['projectName'];
+if(empty($Name)){
+  $formValid = false;
+  $nameError = "no name given for project<br/>";
+}
 
   $FinishDate = $_POST['FinishDate'];
+  if(empty($FinishDate)){
+    $formValid = false;
+    $dateError="no finish date for project given<br/>";
+  }
 
+  $Description = $_POST['Description'];
+  if(empty($Description)){
+    $formValid = false;
+    $descriptionError="no description for project given<br/>";
+  }
+$techs = $_POST['t'];
+if(empty($techs)){
+  $formValid = false;
+  $techError ="You must select at least one technology used<br/>";
+}
+
+
+//now our values that can be null
+//============
+
+//if the user checks published, published is set to true, otherwise it is set to false.
+  if (isset($_POST['Published'])){
+    $Published = 1;
+  } 
+else {
+  $Published = 0;
+}
 //if team project has been checked it's true, if not, it's false.
 if (isset($_POST['TeamProject'])){
   $TeamProject = 1;
@@ -38,32 +78,28 @@ else {
 
   $ShortDesc = $_POST['ShortDescription'];
 
-  $Description = $_POST['Description'];
 
   $Url = $_POST['Url'];
 
   $Github = $_POST['Github'];
 
+
+//now  our hardcoded values for date uploaded and approved.
   $UploadDate = date('Y-m-d H:i:s'); 
 
   $Approved = 0;
 
-//if the user checks published, published is set to true, otherwise it is set to false.
-  if (isset($_POST['Published'])){
-    $Published = 1;
-  } 
-else {
-  $Published = 0;
-}
 
-$techs = $_POST['t'];
+
+
                    
  
        
-//validate values
 
-//insert into database if valid
+//insert into database if formValid variable is still true.
 
+
+if ($formValid){
  $project = new ProjectDAO;
 
  $project->insertProject($pdo, $StudentId, $MainPicture, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
@@ -84,4 +120,10 @@ $techs = $_POST['t'];
   
   $projectTech->insertProjectTechs($pdo, $project, $t);
 }
-//provide successful feedback for user.
+  $userFeedback = "Project was uploaded successfully";
+  echo $userFeedback;
+}
+else {
+  if(isset($nameError)) echo $nameError;
+  if(isset($descriptionError)) echo $descriptionError;
+}

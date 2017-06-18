@@ -24,8 +24,9 @@ require_once "includes/header.php";
 
     <main>
 
-    <div class="container">
-      
+    <div class="container" id="add-project-form-container">
+      <p id="upload-feedback">
+      </p>
       <div class="row" id="projectSettingsForm__cont">
         
             <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
