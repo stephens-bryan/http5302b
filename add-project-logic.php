@@ -12,36 +12,44 @@ $userFeedback = '';
 //grab values for project.
 //================================================
 
+//grab these two things as they will be used for our image name.
+$StudentId = $_POST['StudentId'];
+$UploadDate = date('Y-m-d H:i:s'); 
+
+
 //handle the image upload first
 //=======
-$imageName = $_FILES['ProjectImage']['name'];
-  echo $imageName;
 
+//we are going to grab the image name but add on the current time and the student id to make it unique.
+$imageName = $StudentId . $UploadDate . $_FILES['ProjectImage']['name'];
   //path of file in temp directory
   $imageTemp = $_FILES['ProjectImage']['tmp_name'];
-  echo $imageTemp;
 
   //size of file in bytes
   $imageSize = $_FILES['ProjectImage']['size'];
-echo $imageSize;
-
 //error number
 $imageError = $_FILES['ProjectImage']['error'];
-echo $imageError;
 
 //now lets move our file to the images folder.
 $target_path = "img/";
 $target_path = $target_path . $imageName;
 
+
+
 //check if it actually is an image. if it is, move it, if not, send feedback.
 if (getimagesize($imageTemp)){
-if(move_uploaded_file($imageTemp, $target_path)){
-  echo 'The file' . $imageName . 'has been uploaded';
-}
+  //check if the image name is less than 50 characters. It must be, to be stored in the database.
+      if (strlen($imageName)>50)  {
+          echo ' The image name is too large.';
+      }
+      elseif(move_uploaded_file($imageTemp, $target_path)){
+          echo 'The file' . $imageName . 'has been uploaded';
+      }
+      else {
+         echo 'Error uploading file';
+      }
+} 
 else {
-  echo 'Error uploading file';
-}
-} else {
   echo 'this is not an image';
 }
 
@@ -51,9 +59,7 @@ else {
 
 //grab all required inputs
 //=========
-$StudentId = $_POST['StudentId'];
 
-  //image file name
   
   
  
@@ -124,8 +130,8 @@ else {
   $Github = $_POST['Github'];
 
 
-//now  our hardcoded values for date uploaded and approved.
-  $UploadDate = date('Y-m-d H:i:s'); 
+//now  our hardcoded value for approved.
+
 
   $Approved = 0;
 
