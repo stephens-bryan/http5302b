@@ -24,7 +24,8 @@ require_once "includes/header.php";
 
     <main>
 
-    <div class="container">  
+    <div class="container">
+      
       <div class="row" id="projectSettingsForm__cont">
         
             <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
@@ -34,19 +35,7 @@ require_once "includes/header.php";
                 <h2>Add a Project</h2>
             </div>
         
-          <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn" href="#modal1">Modal</a>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+ 
 
             <div class="col s12">
                 <form method="POST" action="add-project-logic.php">
