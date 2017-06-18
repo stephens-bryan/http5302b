@@ -2,7 +2,7 @@ $(document).ready(function(){
 //grab the submit button
 
   $("#submit-project").submit(function(){
-        $("#submission-progress").html('<p>Project Uploading.</p><div class="progress"><div class="indeterminate"></div>');
+        $("#submission-progress").html('<p>Please be patient as we upload your project.</p><div class="progress"><div class="indeterminate"></div>');
         $("#add-project-form-container").hide();
 
     var formData = new FormData($(this)[0]);
@@ -14,7 +14,6 @@ $(document).ready(function(){
       success:function(data){
                   $("#upload-feedback").html(data);
 
-        alert(data)
                 $("#submission-progress").html('');
          $("#add-project-form-container").show();
 

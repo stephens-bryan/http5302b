@@ -17,34 +17,36 @@ $userFeedback = '';
 $StudentId = $_POST['StudentId'];
 
   //image file
-  $image = $_FILES['ProjectImage'];
-  if(empty($image)){
-    $formValid = false;
-    $imageError = "no image upload<br/>";
-  }
-
+  $image = $_FILES['ProjectImage']['name'];
+ 
   //image name
   $MainPicture = $_POST['mainImage'];
+if(empty($MainPicture)){
+  $formValid = false;
+   $imageError = "You must upload an image.<br/>";
+}
 
   $Name = $_POST['projectName'];
 if(empty($Name)){
   $formValid = false;
-  $nameError = "no name given for project<br/>";
+  $nameError = "You must name the project<br/>";
 }
 
   $FinishDate = $_POST['FinishDate'];
   if(empty($FinishDate)){
     $formValid = false;
-    $dateError="no finish date for project given<br/>";
+    $dateError="You must select when the project was finished.<br/>";
   }
 
   $Description = $_POST['Description'];
   if(empty($Description)){
     $formValid = false;
-    $descriptionError="no description for project given<br/>";
+    $descriptionError="You must give a description for the project<br/>";
   }
-$techs = $_POST['t'];
-if(empty($techs)){
+if(isset($_POST['t'])){
+   $techs = $_POST['t'];
+}
+else{
   $formValid = false;
   $techError ="You must select at least one technology used<br/>";
 }
@@ -120,10 +122,18 @@ if ($formValid){
   
   $projectTech->insertProjectTechs($pdo, $project, $t);
 }
+  
+  
+  //now we echo a successful message back to the ajax call.
   $userFeedback = "Project was uploaded successfully";
   echo $userFeedback;
 }
+
+//or if form was not valid, we echo all of the error messages that were set.
 else {
+  if(isset($imageError)) echo $imageError;
   if(isset($nameError)) echo $nameError;
+  if(isset($dateError)) echo $dateError;
   if(isset($descriptionError)) echo $descriptionError;
+  if(isset($techError)) echo $techError;
 }
