@@ -1,5 +1,7 @@
 <?php
 
+$accountIdSession = 4;
+
 require_once "includes/header.php";
 
 
@@ -49,6 +51,7 @@ require_once "includes/header.php";
                 </div>
                 
                 <div class="input-field">
+                  <button type="button" data-target="delete-account-modal" class="btn left" id="acctSettForm__delete-account" value="<?php echo $accountIdSession ?>" >Delete Account</button>
                 <input type="submit" value="Save Changes" class="btn right" id="acctSettForm__save">
                 </div>    
             </form>
@@ -56,7 +59,24 @@ require_once "includes/header.php";
             
         </div>
     </div> 
-    </main>    
+      
+        <!-- Modal Structure -->
+  <div id="delete-account-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-action modal-close right"><i class="small material-icons">close</i></span>
+      <h4>Are you sure you want to delete your account?</h4>
+      <p>Once you click delete there is no going back.</p>
+    </div>
+    <div class="modal-footer">
+      <button id="delete-account-modal__btn-delete-confirm" class="modal-action modal-close waves-effect waves-red btn-flat left" value="">Delete</button>
+      <button id="delete-account-modal__btn-delete-exit" class="modal-action modal-close waves-effect waves-green btn-flat right" value="">Cancel</button>
+    </div>
+  </div>
+      
+    </main> 
+  
+  <script src="js/delete.js"></script>
+  <script src="js/modal.js"></script>
 </body>
 
 <?php

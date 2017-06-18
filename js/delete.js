@@ -2,24 +2,26 @@ $(document).ready(function(){
 //     alert("Working");
   
   // DELETE MY PROJECT
-  $('[id^=btnDeleteProject]').click(function() {
+  $('[id^=my-projects-form__btn-delete]').click(function() {
       var id = $(this).val();
-      $('#btnDeleteProjectConfirm').val(id);
-    $('#btnDeleteProjectConfirm').click(function() {
+      $('#delete-project-modal__btn-delete-confirm').val(id);
+    $('#delete-project-modal__btn-delete-confirm').click(function() {
       $.post('./functions/delete-project.php', {id : id}, function(data){
-          $('#btnDeleteProject' + data).parents('tr').fadeOut();
+          $('#my-projects-form__btn-delete' + data).parents('tr').fadeOut();
       });
     });
   });
   
-   // DELETE MY ACCOUNT
-//   $('[id^=btnDelete]').click(function() {
-//       var id = $(this).val();
-//       $.post('./functions/delete-project.php', {id : id}, function(data){
-        
-//           $('#btnDelete' + data).parents('tr').slideUp();
-//       });
-//   });
+ // DELETE MY ACCOUNT
+ $('#acctSettForm__delete-account').click(function() {
+      var id = $(this).val();
+      $('#delete-account-modal__btn-delete-confirm').val(id);
+    $('#delete-account-modal__btn-delete-confirm').click(function() {
+      $.post('./functions/delete-account.php', {id : id}, function(data){
+          $( location ).attr("href", 'index.php');
+      });
+    });
+  });
   
   
 });

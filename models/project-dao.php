@@ -25,7 +25,7 @@ public function getProjectsById($db, $studentId){
   
   //Deletes Project
   public function deleteProject($db, $projectId) {
-    $query = 'DELETE FROM Projects WHERE id = :projectId';
+    $query = 'DELETE FROM Projects WHERE Id = :projectId';
     $statement = $db->prepare($query);
     $statement->bindValue(':projectId', $projectId, PDO::PARAM_INT);
     $row = $statement->execute();

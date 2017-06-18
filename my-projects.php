@@ -32,7 +32,6 @@ require_once "includes/header.php";
             </div>
             
             <div class="col s12">
-                <form>
                 <table>
                     <thead>
                         <tr>
@@ -44,15 +43,15 @@ require_once "includes/header.php";
                     
                     </thead>
                     
-                    <!--The data in tbody is placeholder content! Delete if you want-->
                     <tbody>
+                      <form id="my-projects-form" method="post" action="">
                       <?php foreach ($viewProjects as $project) : ?>                        
                         <tr>
-                          <td><?php echo $project['Name'] ?></td>
+                          <td><?php echo $project['Name'] ?> <?php echo $project['Id'] ?></td>
                           <td><img class="thumbnail-small" src="img/<?php echo $project['MainPicture'] ?>" alt="<?php echo $project['MainPicture'] ?>"></td>
                           <td><input type="text" value="<?php echo $project['PositionId'] ?>"></td>
                           <td>
-                            <button id="btnDeleteProject<?php echo $project['Id'] ?>" data-target="deleteProjectModal" class="btn"  value="<?php echo $project['Id'] ?>">DEL <?php echo $project['Id'] ?></button>
+                            <button id="my-projects-form__btn-delete<?php echo $project['Id'] ?>" data-target="delete-project-modal" class="btn"  value="<?php echo $project['Id'] ?>">Delete</button>
                           </td>
                         </tr>
                       <?php endforeach; ?>
@@ -71,14 +70,15 @@ require_once "includes/header.php";
     </div>       
 
   <!-- Modal Structure -->
-  <div id="deleteProjectModal" class="modal">
+  <div id="delete-project-modal" class="modal">
     <div class="modal-content">
+      <span class="modal-action modal-close right"><i class="small material-icons">close</i></span>
       <h4>Are you sure you want to delete this project?</h4>
-      <p>Once you click yes, there is no going back.</p>
-      <p id="idTest"></p>
+      <p>Once you click delete there is no going back.</p>
     </div>
     <div class="modal-footer">
-      <button id="btnDeleteProjectConfirm" class="modal-action modal-close waves-effect waves-green btn-flat" value="">Agree</button>
+      <button id="delete-project-modal__btn-delete-confirm" class="modal-action modal-close waves-effect waves-red btn-flat left" value="">Delete</button>
+      <button id="delete-project-modal__btn-delete-exit" class="modal-action modal-close waves-effect waves-green btn-flat right" value="">Cancel</button>
     </div>
   </div>
 </main>

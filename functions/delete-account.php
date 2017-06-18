@@ -5,10 +5,10 @@ require_once '../database.php';
 
 $accountId = $_POST['id'];
 
-$projectClass = new ProjectDAO();
-$deleteProjects = $projectClass->deleteAccount($pdo, $accountId);
+$accountClass = new AccountDAO();
+$deleteAccount = $accountClass->deleteAccount($pdo, $accountId);
 
-$jDeleteProject = json_encode($deleteProjects);
+$jDeleteProject = json_encode($deleteAccount);
 
 header("Content-Type: application/json");
 echo $jDeleteProject;
