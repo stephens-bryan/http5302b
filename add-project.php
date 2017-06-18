@@ -38,8 +38,8 @@ require_once "includes/header.php";
  
 
             <div class="col s12">
-                <form method="POST" action="add-project-logic.php">
-                    
+                <form method="POST" id="submit-project">
+                    <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
                   <input id="" type="text" placeholder="Project Name" name="projectName">
                   
                   
@@ -108,7 +108,9 @@ require_once "includes/header.php";
             
         </div>
     </div> 
-    </main>    
+    </main>  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/add-project.js"></script>
 </body>
 
 <?php

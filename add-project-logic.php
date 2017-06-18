@@ -8,7 +8,7 @@ include('database.php');
 //grab values for project.
 //================================================
   //hard set the student id
-  $StudentId = 1;
+  $StudentId = $_POST['StudentId'];
 
   $MainPicture = $_POST['mainImage'];
 
