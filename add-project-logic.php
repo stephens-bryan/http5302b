@@ -39,9 +39,9 @@ if(empty($Name)){
     $formValid = false;
     $dateEmptyError="You must select when the project was finished.<br/>";
   }
-if (!preg_match('/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', $FinishDate){
+if (!preg_match('/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', $FinishDate)){
     $formValid = false;
-  $dateError = "Invalid date entered. Must be in format yyyy/mm/dd.";
+  $dateError = "Invalid date entered. Must be in format yyyy/mm/dd.<br/>";
 }
 
   $Description = $_POST['Description'];
@@ -135,7 +135,8 @@ if (getimagesize($imageTemp)){
           $imageLengthError =  ' The image name is too large.';
       }
       elseif(move_uploaded_file($imageTemp, $target_path)){
-          echo 'The file' . $imageName . 'has been uploaded';
+        //set the value to be inserted into our database as mainimage
+        $imageValue = $imageName;
       }
       else {
          $imageGeneralError = 'Error uploading file';
@@ -155,9 +156,9 @@ else {
 
 
 if ($formValid){
-//  $project = new ProjectDAO;
+  $project = new ProjectDAO;
 
-//  $project->insertProject($pdo, $StudentId, $MainPicture, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
+  $project->insertProject($pdo, $StudentId, $imageValue, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
  
 // //now we have to insert technologies associated with the project into the techs table. 
 // //we will do this by grabbing the id of the project that was just inserted
@@ -165,21 +166,21 @@ if ($formValid){
 // //this will work because upload date is unique, our user cannot upload more than 1 project in less than a second.
 
 // //project now holds the Id of the project we just inserted above.
-//   $project = $project->getProjectIDJustInserted($pdo, $StudentId, $UploadDate)[0];
+   $project = $project->getProjectIDJustInserted($pdo, $StudentId, $UploadDate)[0];
 
 
 // // //now for each tech that was selected, we just have to insert into our projecttech table
 
-//  $projectTech = new ProjectTechsDAO;
-//  foreach($techs as $t){
+  $projectTech = new ProjectTechsDAO;
+  foreach($techs as $t){
   
-//   $projectTech->insertProjectTechs($pdo, $project, $t);
-// }
+   $projectTech->insertProjectTechs($pdo, $project, $t);
+ }
   
   
   //now we echo a successful message back to the ajax call.
   $userFeedback = "Project was uploaded successfully";
-  //echo $userFeedback;
+  echo $userFeedback;
 }
 
 //or if form was not valid, we echo all of the error messages that were set.
