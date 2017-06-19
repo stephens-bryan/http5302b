@@ -70,7 +70,13 @@ $projects = $projects->getProjectsById($pdo, $studentId);
 
                     <!--project skills-->
                     <div class="col s12 left">
-                        <div class="chip">jQuery</div><div class="chip">asp.net</div><div class="chip">php</div>
+                      <?php 
+                          $techs = new TechDAO; 
+                          $techs = $techs->getTechsByProjectId($pdo, $p['Id']);?>
+                          <?php foreach ($techs as $t) :?>
+                        
+                        <div class="chip"><?php echo $t['Title']?></div>
+                      <?php endforeach;?>
                     </div>
 
                     <!--optional button-->
