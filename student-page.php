@@ -51,7 +51,7 @@ $projects = $projects->getProjectsById($pdo, $studentId);
 
             <!--PROJECTS INFORMATION-->
                   <?php foreach ($projects as $p):?>
-                 <div><!--start of project 2-->
+                 <div><!--start of project-->
 
                     <!--project image-->
                     <div class="col s12 left">
@@ -80,40 +80,15 @@ $projects = $projects->getProjectsById($pdo, $studentId);
                     </div>
 
                     <!--optional button-->
+                   <?php if(isset($p['Url'])):?>
                     <div class="col s12 left">
-                        <a class="student-page__project-information_student-portfolio-link waves-effect waves-light btn student-page__student-information_student-project-link">Go To Website</a>
+                        <a class="student-page__project-information_student-portfolio-link waves-effect waves-light btn student-page__student-information_student-project-link" href="http://<?php echo $p['Url']?>">Go To Website</a>
                     </div>
+                   <?php endif;?>
 
-                </div><!--end of project2--
+                </div><!--end of project-->
                 <?php endforeach;?>
-                <div><!--start of project 2-->
-
-                    <!--project image-->
-                    <div class="col s12 left">
-                        <img class="student-page__project-information_project-image" src="img/sample-1.jpg" alt="">
-                    </div>
-
-                    <!--project name-->
-                    <div class="col s12 left">
-                        <h2 class="student-page__student-information_project-name">Project Name</h2>
-                    </div>
-
-                    <!--project description-->
-                    <div class="col s12 left">
-                        <p class="student-page__student-information_project-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </div>
-
-                    <!--project skills-->
-                    <div class="col s12 left">
-                        <div class="chip">jQuery</div><div class="chip">asp.net</div><div class="chip">php</div>
-                    </div>
-
-                    <!--optional button-->
-                    <div class="col s12 left">
-                        <a class="student-page__project-information_student-portfolio-link waves-effect waves-light btn student-page__student-information_student-project-link">Go To Website</a>
-                    </div>
-
-                </div><!--end of project2-->
+               
 
         </div>
 
