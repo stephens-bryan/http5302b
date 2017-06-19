@@ -6,6 +6,10 @@ require_once 'database.php';
 //hardcoded student id value for now
 $studentId = 1;
 
+//must grab student profile information
+$student = new Students;
+$student = $student->getStudentsById($pdo, $studentId);
+
 //need to grab all the tech's from the database for our user to have tech options for their project
 $projects = new ProjectDAO;
 $projects = $projects->getProjectsById($pdo, $studentId);
@@ -31,23 +35,20 @@ $projects = $projects->getProjectsById($pdo, $studentId);
 
                 <!--student profile pic-->
                 <div class="col s12 center">
-                    <img class="circle student-page__student-information_profile-pic" src="img/yuna.jpg">
+                    <img class="circle student-page__student-information_profile-pic" src="img/<?php echo $student['ProfileImg']?>">
                 </div>
 
                 <!--student name-->
                 <div class="col s12 center">
-                    <h1 class="center-align student-page__student-information_student-name">Dennis Nedry</h1>
+                    <h1 class="center-align student-page__student-information_student-name"><?php echo $student['FirstName'] . " " . $student['LastName'];?></h1>
                 </div>
 
-                <!--student description-->
+                <!--student contact-->
                 <div class="col s12 center">
-                    <p class="center-align student-page__student-information_student-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p class="center-align student-page__student-information_student-description"><?php echo $student['ContactEmail']?></p>
                 </div>
 
-                <!--optional button-->
-                <div class="col s12 center">
-                    <a class="waves-effect waves-light btn student-page__student-information_student-portfolio-link">Go To Portfolio</a>
-                </div>
+                
 
             <!--PROJECTS INFORMATION-->
                   <?php foreach ($projects as $p):?>
