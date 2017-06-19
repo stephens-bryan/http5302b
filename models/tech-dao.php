@@ -10,4 +10,12 @@ class TechDAO {
     return $techs;
     $statement->closeCursor();
   }
+  public function getTechsByProjectID($db, $projectId){
+    $query = "SELECT * FROM ProjectTechs WHERE ProjectId = :ProjectId";
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $techs = $statement->fetchAll();
+    $statement->closeCursor();
+    returns $techs;
+  }
 }

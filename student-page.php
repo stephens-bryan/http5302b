@@ -21,7 +21,6 @@ $projects = $projects->getProjectsById($pdo, $studentId);
 
     <main>
     <div class="container">
-<?php var_dump($projects)?>
         <div class="row">
 
             <div class="col s12 center">
