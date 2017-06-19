@@ -7,10 +7,6 @@ $projectId = $_POST['id'];
 
 $projectClass = new ProjectDAO();
 $deleteProject = $projectClass->deleteProject($pdo, $projectId);
-
-$jDeleteProject = json_encode($deleteProject);
-
-header("Content-Type: application/json");
-echo $jDeleteProject;
+$deleteProjectTechs = $projectClass->deleteProjectTechs($pdo, $projectId);
 
 ?>

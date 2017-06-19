@@ -31,6 +31,16 @@ public function getProjectsById($db, $studentId){
     $row = $statement->execute();
     return $projectId;
   }
+  
+  //Deletes Project Techs
+  public function deleteProjectTechs($db, $projectId) {
+    $query = 'DELETE FROM ProjectTechs WHERE ProjectId = :projectId';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':projectId', $projectId, PDO::PARAM_INT);
+    $row = $statement->execute();
+    return $projectId;
+  }
+
 
   //insert a project by user_id
   public function insertProject($db, $studentId, $mainPicture, $name, $finishDate, $teamProject, $positionId, $shortDesc, $Description, $Url, $Github, $uploadDate, $Approved, $Published){

@@ -85,7 +85,7 @@ require_once "includes/header.php";
  
   
   
-  <script src="js/delete.js"></script>
+  <script src="js/delete-project.js"></script>
   <script src="js/modal.js"></script>
 </body>
 

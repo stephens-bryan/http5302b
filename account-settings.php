@@ -68,14 +68,16 @@ require_once "includes/header.php";
       <p>Once you click delete there is no going back.</p>
     </div>
     <div class="modal-footer">
-      <button id="delete-account-modal__btn-delete-confirm" class="modal-action modal-close waves-effect waves-red btn-flat left" value="">Delete</button>
+      <form action="functions/delete-account.php" method="post">
+        <button type="submit" id="delete-account-modal__btn-delete-confirm" class="modal-action modal-close waves-effect waves-red btn-flat left" name="delete-account-modal__btn-delete-confirm" value="">Delete</button>
+      </form>
       <button id="delete-account-modal__btn-delete-exit" class="modal-action modal-close waves-effect waves-green btn-flat right" value="">Cancel</button>
     </div>
   </div>
       
     </main> 
   
-  <script src="js/delete.js"></script>
+<!--   <script src="js/delete.js"></script> -->
   <script src="js/modal.js"></script>
 </body>
 
