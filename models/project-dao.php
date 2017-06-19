@@ -74,7 +74,7 @@ public function getProjectsById($db, $studentId){
     $statement->closeCursor();
     return $project;
   }
-  public function updateProject($db, $id, $mainPicture, $name, $finishDate, $teamProject, $positionId, $shortDesc, $Description, $Url, $Github, $uploadDate, $Published);
+  public function updateProject($db, $id, $mainPicture, $name, $finishDate, $teamProject, $positionId, $shortDesc, $Description, $Url, $Github, $uploadDate, $Published){
   $query = "UPDATE Projects SET MainPicture = :mainPicture, Name = :name, FinishDate = :finishDate, TeamProject = :teamProject, PositionId = :positionId, ShortDesc = :shortDesc, Description = :description, Url = :url, GitHub = :github, UploadDate = :uploadDate, Approved = :approved, Published = :published WHERE Id = :id";
   $statement = $db->prepare($query);
   $statement->bindValue(':mainPicture', $mainPicture);
@@ -89,6 +89,9 @@ public function getProjectsById($db, $studentId){
   $statement->bindValue(':uploadDate', $uploadDate);
   $statement->bindValue(':approved', (bool)$Approved, PDO::PARAM_BOOL);
   $statement->bindValue(':published', (bool)$Published, PDO::PARAM_BOOL);
-  
-  
+  $statement->bindValue(':id', $id);
+  $statement->execute() or die(print_r($statement->errorInfo(), true));
+  $statement->closeCursor();
 }
+}
+
