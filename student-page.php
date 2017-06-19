@@ -1,4 +1,16 @@
-<?php require_once "includes/header.php"; ?>
+<?php
+ini_set('display_errors', 3); 
+
+require_once 'includes.php';
+require_once 'database.php';
+//hardcoded student id value for now
+$studentId = 1;
+
+//need to grab all the tech's from the database for our user to have tech options for their project
+$projects = new ProjectDAO;
+$projects = $projects->getProjectsById($pdo, $studentId);
+ require_once "includes/header.php";
+?>
 
 <head>
   <link rel="stylesheet" href="./css/student-page.css">
@@ -9,7 +21,7 @@
 
     <main>
     <div class="container">
-
+<?php var_dump($projects)?>
         <div class="row">
 
             <div class="col s12 center">
@@ -39,22 +51,22 @@
                 </div>
 
             <!--PROJECTS INFORMATION-->
-
-                <div><!--project 1-->
+                  <?php foreach ($projects as $p):?>
+                 <div><!--start of project 2-->
 
                     <!--project image-->
                     <div class="col s12 left">
-                        <img class="student-page__project-information_project-image" src="img/sample-1.jpg" alt="">
+                        <img class="student-page__project-information_project-image" src="img/<?php echo $p['MainPicture']?>" alt="project image">
                     </div>
 
                     <!--project name-->
                     <div class="col s12 left">
-                        <h2 class="student-page__student-information_project-name">Project Name</h2>
+                        <h2 class="student-page__student-information_project-name"><?php echo $p['Name']?></h2>
                     </div>
 
                     <!--project description-->
                     <div class="col s12 left">
-                        <p class="student-page__student-information_project-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p class="student-page__student-information_project-description"><?php echo $p['Description']?></p>
                     </div>
 
                     <!--project skills-->
@@ -67,8 +79,8 @@
                         <a class="student-page__project-information_student-portfolio-link waves-effect waves-light btn student-page__student-information_student-project-link">Go To Website</a>
                     </div>
 
-                </div><!--end of project1-->
-
+                </div><!--end of project2--
+                <?php endforeach;?>
                 <div><!--start of project 2-->
 
                     <!--project image-->
