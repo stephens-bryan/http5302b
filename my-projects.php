@@ -2,15 +2,10 @@
 
 require_once 'includes.php';
 require_once 'database.php';
-$studentId = 1;
+$studentId = 4;
 
-//need to grab all the tech's from the database for our user to have tech options for their project
 $projectClass = new ProjectDAO();
 $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
-
-// var_dump($viewProjects);
-
-
 
 require_once "includes/header.php";
 
@@ -37,7 +32,7 @@ require_once "includes/header.php";
                         <tr>
                             <th>Project Name</th>
                             <th>Feature Image</th>
-                            <th>View Order</th>
+                            <th>Description</th>
                             <th>Delete</th>
                         </tr>
                     
@@ -49,7 +44,9 @@ require_once "includes/header.php";
                         <tr>
                           <td><?php echo $project['Name'] ?> <?php echo $project['Id'] ?></td>
                           <td><img class="thumbnail-small" src="img/<?php echo $project['MainPicture'] ?>" alt="<?php echo $project['MainPicture'] ?>"></td>
-                          <td><input type="text" value="<?php echo $project['PositionId'] ?>"></td>
+                          <td>
+                            <button id="my-projects-form__btn-edit<?php echo $project['Id'] ?>" class="btn" value="<?php echo $project['Id'] ?>">Edit</button>
+                          </td>
                           <td>
                             <button id="my-projects-form__btn-delete<?php echo $project['Id'] ?>" data-target="delete-project-modal" class="btn"  value="<?php echo $project['Id'] ?>">Delete</button>
                           </td>
