@@ -60,9 +60,10 @@ public function getProjectsById($db, $studentId){
     $statement->bindValue(':Approved', (bool)$Approved, PDO::PARAM_BOOL);
     $statement->bindValue(':Published', (bool)$Published, PDO::PARAM_BOOL);
     $statement->execute() or die(print_r($statement->errorInfo(), true));;
-    $statement->closeCursor();
-      
+    $statement->closeCursor();  
   }
+  //this method is executed so that we can grab the last project that was added in project table and then using this id, insert the technology used for the project in the projecttechs table
+  //this occurs in the add-project-logic.php file.
   public function getProjectIDJustInserted($db, $studentId, $uploadDate){
     $query =  "SELECT Id FROM Projects WHERE StudentId = :StudentId AND UploadDate = :UploadDate";
     $statement = $db->prepare($query);
@@ -73,5 +74,21 @@ public function getProjectsById($db, $studentId){
     $statement->closeCursor();
     return $project;
   }
+  public function updateProject($db, $id, $mainPicture, $name, $finishDate, $teamProject, $positionId, $shortDesc, $Description, $Url, $Github, $uploadDate, $Published);
+  $query = "UPDATE Projects SET MainPicture = :mainPicture, Name = :name, FinishDate = :finishDate, TeamProject = :teamProject, PositionId = :positionId, ShortDesc = :shortDesc, Description = :description, Url = :url, GitHub = :github, UploadDate = :uploadDate, Approved = :approved, Published = :published WHERE Id = :id";
+  $statement = $db->prepare($query);
+  $statement->bindValue(':mainPicture', $mainPicture);
+  $statement->bindValue(':name', $name);
+  $statement->bindValue(':FinishDate', $finishDate);
+  $statement->bindValue(':teamProject', (bool)$teamProject, PDO::PARAM_BOOL);
+  $statement->bindValue(':positionId', $positionId);
+  $statement->bindValue(':shortDesc', $shortDesc);
+  $statement->bindValue(':description', $Description);
+  $statement->bindValue(':url', $Url);
+  $statement->bindValue(':github', $Github);
+  $statement->bindValue(':uploadDate', $uploadDate);
+  $statement->bindValue(':approved', (bool)$Approved, PDO::PARAM_BOOL);
+  $statement->bindValue(':published', (bool)$Published, PDO::PARAM_BOOL);
+  
   
 }
