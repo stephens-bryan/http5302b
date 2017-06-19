@@ -80,7 +80,7 @@ $projects = $projects->getProjectsById($pdo, $studentId);
                     </div>
 
                     <!--optional button-->
-                   <?php if(isset($p['Url'])):?>
+                   <?php if($p['Url'] !== "" && $p['Url'] !== null):?>
                     <div class="col s12 left">
                         <a class="student-page__project-information_student-portfolio-link waves-effect waves-light btn student-page__student-information_student-project-link" href="http://<?php echo $p['Url']?>">Go To Website</a>
                     </div>
