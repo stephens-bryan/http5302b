@@ -16,51 +16,9 @@ $userFeedback = '';
 $StudentId = $_POST['StudentId'];
 $UploadDate = date('Y-m-d H:i:s'); 
 
-
-//handle the image upload first
-//=======
-
-//we are going to grab the image name but add on the current time and the student id to make it unique.
-$imageName = $StudentId . $UploadDate . $_FILES['ProjectImage']['name'];
-  //path of file in temp directory
-  $imageTemp = $_FILES['ProjectImage']['tmp_name'];
-
-  //size of file in bytes
-  $imageSize = $_FILES['ProjectImage']['size'];
-//error number
-$imageError = $_FILES['ProjectImage']['error'];
-
-//now lets move our file to the images folder.
-$target_path = "img/";
-$target_path = $target_path . $imageName;
-
-
-
-//check if it actually is an image. if it is, move it, if not, send feedback.
-if (getimagesize($imageTemp)){
-  //check if the image name is less than 50 characters. It must be, to be stored in the database.
-      if (strlen($imageName)>50)  {
-          echo ' The image name is too large.';
-      }
-      elseif(move_uploaded_file($imageTemp, $target_path)){
-          echo 'The file' . $imageName . 'has been uploaded';
-      }
-      else {
-         echo 'Error uploading file';
-      }
-} 
-else {
-  echo 'this is not an image';
-}
-
-
-
-
-
 //grab all required inputs
 //=========
 
-  
   
  
   //image name
@@ -79,8 +37,12 @@ if(empty($Name)){
   $FinishDate = $_POST['FinishDate'];
   if(empty($FinishDate)){
     $formValid = false;
-    $dateError="You must select when the project was finished.<br/>";
+    $dateEmptyError="You must select when the project was finished.<br/>";
   }
+if (!preg_match('/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', $FinishDate){
+    $formValid = false;
+  $dateError = "Invalid date entered. Must be in format yyyy/mm/dd.";
+}
 
   $Description = $_POST['Description'];
   if(empty($Description)){
@@ -139,10 +101,57 @@ else {
 
 
                    
- 
-       
+ //handle the image upload if the rest of the form is valid
+//=======
 
-//insert into database if formValid variable is still true.
+if ($formValid){
+//we are going to grab the image name but add on the current time and the student id to make it unique.
+$imageName = $StudentId . $UploadDate . $_FILES['ProjectImage']['name'];
+  //path of file in temp directory
+  $imageTemp = $_FILES['ProjectImage']['tmp_name'];
+
+  //size of file in bytes
+  $imageSize = $_FILES['ProjectImage']['size'];
+//error number
+$imageError = $_FILES['ProjectImage']['error'];
+
+//if there are file errors.
+if ($imageError > 0){
+  $formValid = false;
+  $imageSizeError = "Image uploaded was too large";
+}
+
+//now lets move our file to the images folder.
+$target_path = "img/";
+$target_path = $target_path . $imageName;
+
+
+
+//check if it actually is an image. if it is, move it, if not, send feedback.
+if (getimagesize($imageTemp)){
+  //check if the image name is less than 50 characters. It must be, to be stored in the database.
+      if (strlen($imageName)>50)  {
+        $formValid = false;
+          $imageLengthError =  ' The image name is too large.';
+      }
+      elseif(move_uploaded_file($imageTemp, $target_path)){
+          echo 'The file' . $imageName . 'has been uploaded';
+      }
+      else {
+         $imageGeneralError = 'Error uploading file';
+        $formValid = false;
+      }
+} 
+else {
+  $formValid = false;
+  $notImageError = "This is not an image";
+}
+       
+}
+
+
+//insert into database if formValid variable is still true after attempting to upload an image
+//we don't want to upload an image without inserting a project into the database.
 
 
 if ($formValid){
@@ -177,7 +186,12 @@ if ($formValid){
 else {
   if(isset($imageError)) echo $imageError;
   if(isset($nameError)) echo $nameError;
+  if(isset($dateEmptyError)) echo $dateEmptyError;
   if(isset($dateError)) echo $dateError;
   if(isset($descriptionError)) echo $descriptionError;
   if(isset($techError)) echo $techError;
+  if(isset($imageGeneralError)) echo $imageGeneralError;
+  if(isset($imageLengthError)) echo $imageLengthError;
+  if(isset($imageSizeError)) echo $imageSizeError;
+  if(isset($notImageError)) echo $notImageError;
 }
