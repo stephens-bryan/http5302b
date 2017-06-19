@@ -1,7 +1,7 @@
 <?php
 require_once 'includes.php';
 require_once 'database.php';
-$studentId = 4;
+$studentId = 1;
 $projectClass = new ProjectDAO();
 $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
 require_once "includes/header.php";
