@@ -1,8 +1,7 @@
 <?php 
 ini_set('display_errors', '3');
-
- include('includes.php');
-include('database.php');
+require_once '../includes.php';
+require_once '../database.php';
 
 //flag variable. if form is set to false, it will not submit. also to hold our feedback to the user.
 $formValid = true;
