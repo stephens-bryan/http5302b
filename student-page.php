@@ -55,13 +55,18 @@ $projects = $projects->getProjectsById($pdo, $studentId);
 
                     <!--project image-->
                     <div class="col s12 left">
-                        <img class="student-page__project-information_project-image" src="img/<?php echo $p['MainPicture']?>" alt="project image">
+                        <img class="student-page__project-information_project-image thumbnail-small" src="img/<?php echo $p['MainPicture']?>" alt="project image">
                     </div>
 
                     <!--project name-->
                     <div class="col s12 left">
                         <h2 class="student-page__student-information_project-name"><?php echo $p['Name']?></h2>
                     </div>
+                   <div class="col s12 left">
+                     <p>
+                       Project Completed on: <?php echo date('M j, Y',strtotime($p['FinishDate']))?>
+                     </p>
+                   </div>
 
                     <!--project description-->
                     <div class="col s12 left">
@@ -79,13 +84,19 @@ $projects = $projects->getProjectsById($pdo, $studentId);
                       <?php endforeach;?>
                     </div>
 
-                    <!--optional button-->
+                    <!--Url-->
                    <?php if($p['Url'] !== "" && $p['Url'] !== null):?>
                     <div class="col s12 left">
                         <a class="student-page__project-information_student-portfolio-link waves-effect waves-light btn student-page__student-information_student-project-link" href="http://<?php echo $p['Url']?>">Go To Website</a>
                     </div>
                    <?php endif;?>
-
+                   <!--GitHub -->
+                    <?php if($p['GitHub'] !== "" && $p['GitHub'] !== null):?>
+                    <div class="col s12 left">
+                        <a class="student-page__project-information_student-portfolio-link waves-effect waves-light btn student-page__student-information_student-project-link" href="http://<?php echo $p['GitHub']?>">Go To GitHub Repository</a>
+                    </div>
+                   
+                   <?php endif;?>
                 </div><!--end of project-->
                 <?php endforeach;?>
                
