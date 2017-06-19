@@ -10,4 +10,13 @@ class PositionDAO {
     $statement->closeCursor();
     return $positions;
   }
+  public function getPositionByProjectId($db, $projectId){
+    $query = "SELECT * FROM Projects JOIN POSITIONS ON Projects.PositionId = Positions.Id WHERE Projects.Id = :ProjectId";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':ProjectId', $projectId);
+    $statement->execute();
+    $position = $statement->fetch();
+    $statement->closeCursor();
+    return $position;
+  }
 }
