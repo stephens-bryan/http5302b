@@ -1,14 +1,10 @@
 <?php
-
 require_once 'includes.php';
 require_once 'database.php';
 $studentId = 4;
-
 $projectClass = new ProjectDAO();
 $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
-
 require_once "includes/header.php";
-
 ?>
 <body>
     <?php 
@@ -87,6 +83,6 @@ require_once "includes/header.php";
 </body>
 
 <?php
-
 require_once "includes/footer.php";
 ?>
+Contact GitHub API Training Shop Blog About
