@@ -7,7 +7,7 @@ $(document).ready(function(){
 
     var formData = new FormData($(this)[0]);
     $.ajax({
-      url:'add-project-logic.php',
+      url:'./functions/add-project-logic.php',
       type:'POST',
       data: formData,
       async: true,

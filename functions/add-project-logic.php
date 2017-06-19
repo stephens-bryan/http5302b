@@ -121,7 +121,7 @@ if ($imageError > 0){
 }
 
 //now lets move our file to the images folder.
-$target_path = "img/";
+$target_path = "../img/";
 $target_path = $target_path . $imageName;
 
 
