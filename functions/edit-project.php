@@ -22,12 +22,11 @@ $userFeedback = '';
 
 $projectImg = new ProjectDAO;
   $projectImg = $projectImg->getProjectImg($pdo, $projectId);
-$projectImage = $projectImg['MainPicture'] . "<br/>";
+$projectImage = $projectImg['MainPicture'];
 
 //grab all required inputs
 //=========
 
-  
 
   //image name
    $MainPicture = $_POST['mainImage'];
@@ -41,8 +40,7 @@ if(empty($Name)){
   $formValid = false;
    $nameError = "You must name the project<br/>";
 } 
-
-  echo $FinishDate = $_POST['FinishDate'];
+ $FinishDate = $_POST['FinishDate'];
   if(empty($FinishDate)){
     $formValid = false;
      $dateEmptyError="You must select when the project was finished.<br/>";
@@ -51,7 +49,7 @@ if (!preg_match('/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/', $Fini
     $formValid = false;
   $dateError = "Invalid date entered. Must be in format yyyy/mm/dd.<br/>";
 } 
-
+//error before this
    $Description = $_POST['Description'];
   if(empty($Description)){
     $formValid = false;
@@ -64,7 +62,6 @@ else{
   $formValid = false;
    $techError ="You must select at least one technology used<br/>";
 } 
-
 
 //now our values that can be null
 //============
@@ -86,10 +83,10 @@ else {
  
 //if a position has been selected, then it's value if equal to that of the position selected, otherwise it is null.
 if (isset($_POST['Position'])){
- echo  $PositionId = $_POST['Position'];
+   $PositionId = $_POST['Position'];
 }
 else {
- echo  $PositionId = null;
+   $PositionId = null;
 } 
 
   $ShortDesc = $_POST['ShortDescription'];
@@ -104,7 +101,6 @@ else {
 
 
   $Approved = 0;
-
 
 
 
@@ -157,6 +153,17 @@ else {
 }
        
 }
+//final check before we delete the old image
+if ($formValid){
+  $delete  = "../img/"; 
+  if(unlink($delete .$projectImage)){
+    echo 'deleted';
+  }
+  else {
+    echo 'not deleted';
+    $formValid = false;
+  }
+}
 
 
 //insert into database if formValid variable is still true after attempting to upload an image
@@ -166,7 +173,7 @@ else {
 if ($formValid){
   $project = new ProjectDAO;
 
-  $project->updateProject($pdo, $projectId, $projectImage, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
+  $project->updateProject($pdo, $projectId, $imageValue, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
  
 // //now we delete all of the projecttech values with this project id
   
