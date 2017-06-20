@@ -2,7 +2,14 @@
 ini_set('display_errors', 3); 
 include('includes.php');
 include('database.php');
+
+//hardcoding the student id for now.
 $studentid = 1;
+
+//we need to grab the id of the project the user clicked on to edit, and get the project details from the database.
+$projectSelectedId = $_POST['project-to-edit'];
+$project = new ProjectDAO;
+$project = $project->getOneProject($pdo, $projectSelectedId);
 
 //need to grab all the tech's from the database for our user to have tech options for their project
  $tech = new TechDAO;
@@ -31,18 +38,23 @@ require_once "includes/header.php";
                 <img src="img/humber-logo-webDevPortal.png" class="portalLogo">
             
             <div class="col s12 myProjectsForm__header">
-                <h2>Add a Project</h2>
+              
+                <h2>Edit <?php echo $project['Name'];?></h2>
             </div>
 
             <div class="col s12">
                 <form method="POST" id="submit-project" enctype="multipart/form-data">
+                  <!-- hidden inputs for project and image -->
+                  <input type="hidden" value="<?php echo $project['Id']?>" name="project-id"/>
+                  <input type="hidden" value="<?php echo $project['MainPicture']?>" name="old-image"/>
                     <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
-                  <input id="" type="text" placeholder="Project Name" name="projectName">
+                  
+                  <input id="" type="text" placeholder="Project Name" name="projectName" value="<?php echo $project['Name']?>">
                   
                   
-                  <input id="" type="text" placeholder="Project Description (Short)" name="ShortDescription">
-                    <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)" name="Description"></textarea>
-                  <input id="" type="text" placeholder="External URL" name="Url">
+                  <input id="" type="text" placeholder="Project Description (Short)" name="ShortDescription" value="<?php echo $project['ShortDesc']?>">
+                    <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)" name="Description"><?php echo $project['Description']?></textarea>
+                  <input id="" type="text" placeholder="External URL" name="Url" value="<?php echo $project['Url']?>"/>
                   <input id="github" type="text" placeholder="Github Repository(Optional)" name="Github">
                    
                 

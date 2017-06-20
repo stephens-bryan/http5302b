@@ -10,7 +10,7 @@ $studentId = 1;
 $student = new Students;
 $student = $student->getStudentsById($pdo, $studentId);
 
-//need to grab all the tech's from the database for our user to have tech options for their project
+//THIS IS GRABBING ALL PROJECTS FOR TESTING PURPOSES. THIS METHOD MUST BE SWITCHED FOR THE METHOD THAT ONLY SHOWS PROJECTS THAT ARE APPROVED AND PUBLISHED.
 $projects = new ProjectDAO;
 $projects = $projects->getProjectsById($pdo, $studentId);
  require_once "includes/header.php";

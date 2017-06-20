@@ -35,13 +35,15 @@ require_once "includes/header.php";
                     </thead>
                     
                     <tbody>
-                      <form id="my-projects-form" method="post" action="">
                       <?php foreach ($viewProjects as $project) : ?>                        
                         <tr>
                           <td><?php echo $project['Name'] ?> <?php echo $project['Id'] ?></td>
                           <td><img class="thumbnail-small" src="img/<?php echo $project['MainPicture'] ?>" alt="<?php echo $project['MainPicture'] ?>"></td>
                           <td>
-                            <button id="my-projects-form__btn-edit<?php echo $project['Id'] ?>" class="btn" value="<?php echo $project['Id'] ?>">Edit</button>
+                            <form method="POST" action="project-settings.php">
+                              <input type="hidden" value="<?php echo $project['Id']?>" name="project-to-edit">
+                              <button type="submit" class="btn">Edit</button>
+                            </form>
                           </td>
                           <td>
                             <button id="my-projects-form__btn-delete<?php echo $project['Id'] ?>" data-target="delete-project-modal" class="btn"  value="<?php echo $project['Id'] ?>">Delete</button>
@@ -56,7 +58,6 @@ require_once "includes/header.php";
                 <div class="col s12">
                     <input type="submit" value="Save Changes" class="right btn">
                     </div>
-                </form>    
             </div>
             
         </div>

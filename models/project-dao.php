@@ -93,5 +93,14 @@ public function getProjectsById($db, $studentId){
   $statement->execute() or die(print_r($statement->errorInfo(), true));
   $statement->closeCursor();
 }
+  public function getOneProject($db, $projectId){
+    $query = "SELECT * FROM Projects WHERE Id = :id";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':id', $projectId);
+    $statement->execute()or die(print_r($statement->errorInfo(), true));
+    $project = $statement->fetch();
+    $statement->closeCursor();
+    return $project;
+  }
 }
 
