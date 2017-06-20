@@ -47,9 +47,10 @@ require_once "includes/header.php";
             </div>
 
             <div class="col s12">
-                <form method="POST" id="submit-project" enctype="multipart/form-data">
+                <form method="POST" id="update-project" enctype="multipart/form-data">
                   <!-- hidden inputs for project and image -->
                   <input type="hidden" value="<?php echo $project['Id']?>" name="project-id"/>
+                  <input type="hidden" value="<?php echo $studentid?>" name="studentId"/>
                   <input type="hidden" value="<?php echo $project['MainPicture']?>" name="old-image"/>
                     <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
                   
@@ -86,7 +87,7 @@ require_once "includes/header.php";
                     What role(s) did you serve for this project?
                   </h4>
                  <?php foreach($positions as $p):?> 
-                  <input <?php if ($project['PositionId'] == $p['Id']) echo 'checked'?> type="radio" id="<?php echo $p['Title']?>" value="<?php echo $p['Id']?>" name="Position"/>
+                  <input  type="radio" id="<?php echo $p['Title']?>" value="<?php echo $p['Id']?>" name="Position"/>
                   <label for="<?php echo $p['Title']?>"><?php echo $p['Title']?></label>
                   <?php endforeach;?> 
                             
@@ -129,7 +130,7 @@ require_once "includes/header.php";
                   </div>
     </main>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/update-project.js"></script>
+<script type="text/javascript" src="js/edit-project.js"></script>
 </body>
 
 <?php
