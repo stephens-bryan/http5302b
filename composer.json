@@ -3,7 +3,6 @@
     "components/jquery": "3.*",
     "phpunit/phpunit": "6.*.*",
     "phpunit/dbunit": "^3.0"
-  },
-  "require-dev": {
   }
 }
+

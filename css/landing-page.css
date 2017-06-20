@@ -1,0 +1,22 @@
+.humber-logo {
+  width:90%;
+  height:auto;
+}
+
+.landing-page__Humber-information {
+  margin-bottom:70px;
+}
+
+.landing-page__year {
+  font-weight: 600;
+}
+
+.landing-page__see-more {
+  text-align: right;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color:#153B35;
+}
