@@ -55,9 +55,7 @@ require_once "includes/header.php";
                     
                     <button class="btn">Add Project</button>
                     
-                <div class="col s12">
-                    <input type="submit" value="Save Changes" class="right btn">
-                    </div>
+                
             </div>
             
         </div>
