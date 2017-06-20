@@ -74,12 +74,12 @@ public function getProjectsById($db, $studentId){
     $statement->closeCursor();
     return $project;
   }
-  public function updateProject($db, $id, $mainPicture, $name, $finishDate, $teamProject, $positionId, $shortDesc, $Description, $Url, $Github, $uploadDate, $Published){
+  public function updateProject($db, $id, $mainPicture, $name, $finishDate, $teamProject, $positionId, $shortDesc, $Description, $Url, $Github, $uploadDate, $Approved, $Published){
   $query = "UPDATE Projects SET MainPicture = :mainPicture, Name = :name, FinishDate = :finishDate, TeamProject = :teamProject, PositionId = :positionId, ShortDesc = :shortDesc, Description = :description, Url = :url, GitHub = :github, UploadDate = :uploadDate, Approved = :approved, Published = :published WHERE Id = :id";
   $statement = $db->prepare($query);
   $statement->bindValue(':mainPicture', $mainPicture);
   $statement->bindValue(':name', $name);
-  $statement->bindValue(':FinishDate', $finishDate);
+  $statement->bindValue(':finishDate', $finishDate);
   $statement->bindValue(':teamProject', (bool)$teamProject, PDO::PARAM_BOOL);
   $statement->bindValue(':positionId', $positionId);
   $statement->bindValue(':shortDesc', $shortDesc);
@@ -101,6 +101,15 @@ public function getProjectsById($db, $studentId){
     $project = $statement->fetch();
     $statement->closeCursor();
     return $project;
+  }
+  public function getProjectImg($db, $projectId){
+    $query = "SELECT MainPicture FROM Projects WHERE Id = :projectId";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':projectId', $projectId);
+    $statement->execute();
+    $image = $statement->fetch();
+    $statement->closeCursor();
+    return $image;
   }
 }
 

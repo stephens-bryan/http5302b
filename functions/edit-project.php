@@ -20,6 +20,10 @@ $userFeedback = '';
 
 //must grab the current mainimage value from the database so that we can delete that old img in our img folder
 
+$projectImg = new ProjectDAO;
+  $projectImg = $projectImg->getProjectImg($pdo, $projectId);
+$projectImage = $projectImg['MainPicture'] . "<br/>";
+
 //grab all required inputs
 //=========
 
@@ -162,15 +166,14 @@ else {
 if ($formValid){
   $project = new ProjectDAO;
 
-  $project->insertProject($pdo, $StudentId, $imageValue, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
+  $project->updateProject($pdo, $projectId, $projectImage, $Name, $FinishDate, $TeamProject, $PositionId, $ShortDesc, $Description, $Url, $Github, $UploadDate, $Approved, $Published);
  
-// //now we have to insert technologies associated with the project into the techs table. 
-// //we will do this by grabbing the id of the project that was just inserted
-// //we will do this by calling a method that passes in our user id and the upload date to grab the correct project
-// //this will work because upload date is unique, our user cannot upload more than 1 project in less than a second.
+// //now we delete all of the projecttech values with this project id
+  
+  $project->deleteProjectTechs($pdo, $projectId);
 
 // //project now holds the Id of the project we just inserted above.
-   $project = $project->getProjectIDJustInserted($pdo, $StudentId, $UploadDate)[0];
+   
 
 
 // // //now for each tech that was selected, we just have to insert into our projecttech table
@@ -178,12 +181,12 @@ if ($formValid){
   $projectTech = new ProjectTechsDAO;
   foreach($techs as $t){
   
-   $projectTech->insertProjectTechs($pdo, $project, $t);
+   $projectTech->insertProjectTechs($pdo, $projectId, $t);
  }
   
   
   //now we echo a successful message back to the ajax call.
-  $userFeedback = "Project was uploaded successfully";
+  $userFeedback = "Project was edited successfully";
   echo $userFeedback;
 }
 
