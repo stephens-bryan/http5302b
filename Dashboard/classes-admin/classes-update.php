@@ -97,7 +97,7 @@
                         <h3>Update Class</h3>
                     </div>
                     
-                    <form action="classes-update.php" method="post">
+                    <form method="post">
                         
                         <label>Program Name</label> 
                           <div class="controls">
