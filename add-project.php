@@ -37,7 +37,7 @@ require_once "includes/header.php";
             <div class="col s12">
                 <form method="POST" id="submit-project" enctype="multipart/form-data" data-parsley-validate>
                     <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
-                  <input id="" type="email" placeholder="Project Name" name="projectName" required data-parsley-trigger="change" red="">
+                  <input id="" type="text" placeholder="Project Name" name="projectName" required data-parsley-trigger="change" red="">
                   
                   
                   <input id="" type="text" placeholder="Project Description (Short)" name="ShortDescription">
