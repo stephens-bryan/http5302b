@@ -2,18 +2,7 @@
 ini_set('display_errors', 3); 
 include('includes.php');
 include('database.php');
-
-//hardcoding the student id for now.
 $studentid = 1;
-
-//we need to grab the id of the project the user clicked on to edit, and get the project details from the database.
-$projectSelectedId = $_POST['project-to-edit'];
-
-if (!isset($projectSelectedId)){
-  header('Location:my-projects.php');
-}
-$project = new ProjectDAO;
-$project = $project->getOneProject($pdo, $projectSelectedId);
 
 //need to grab all the tech's from the database for our user to have tech options for their project
  $tech = new TechDAO;
@@ -42,25 +31,19 @@ require_once "includes/header.php";
                 <img src="img/humber-logo-webDevPortal.png" class="portalLogo">
             
             <div class="col s12 myProjectsForm__header">
-              
-                <h2>Edit <?php echo $project['Name'];?></h2>
+                <h2>Add a Project</h2>
             </div>
 
             <div class="col s12">
-                <form method="POST" id="update-project" enctype="multipart/form-data" data-parsley-validate>
-                  <!-- hidden inputs for project and image -->
-                  <input type="hidden" value="<?php echo $project['Id']?>" name="project-id"/>
-                  <input type="hidden" value="<?php echo $studentid?>" name="studentId"/>
-                  <input type="hidden" value="<?php echo $project['MainPicture']?>" name="old-image"/>
+                <form method="POST" id="submit-project" enctype="multipart/form-data" data-parsley-validate>
                     <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
+                  <input id="" type="text" placeholder="Project Name" name="projectName" required data-parsley-trigger="change" red="">
                   
-                  <input id="" type="text" placeholder="Project Name" name="projectName" value="<?php echo $project['Name']?> required">
                   
-                  
-                  <input id="" type="text" placeholder="Project Description (Short)" name="ShortDescription" value="<?php if($project['ShortDesc']!== null) echo $project['ShortDesc']?>">
-                    <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)" name="Description" required><?php echo $project['Description']?></textarea>
-                  <input id="" type="text" placeholder="External URL" name="Url" value="<?php if($project['Url']!== null) echo $project['Url']?>" data-parsley-type="url"/>
-                  <input id="github" type="text" placeholder="Github Repository(Optional)" name="Github" value="<?php if($project['GitHub']!== null) echo $project['GitHub']?>" data-parsley-type="url">
+                  <input id="" type="text" placeholder="Project Description (Short)" name="ShortDescription">
+                    <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)" name="Description" required ></textarea>
+                  <input id="" type="text" placeholder="External URL" name="Url" data-parsley-type="url">
+                  <input id="github" type="text" placeholder="Github Repository(Optional)" name="Github" data-parsley-type="url">
                    
                 
                   
@@ -80,14 +63,14 @@ require_once "includes/header.php";
                                 
                                   
                               </div>
-                          <input type="checkbox" id="TeamProject" <?php if($project['TeamProject'] == 1) echo 'checked'?>  name="TeamProject"/>
+                          <input type="checkbox" id="TeamProject"  name="TeamProject"/>
                   <label for="TeamProject">Was this a team project?</label>
                   
                    <h4>
                     What role(s) did you serve for this project?
                   </h4>
                  <?php foreach($positions as $p):?> 
-                  <input  type="radio" id="<?php echo $p['Title']?>" value="<?php echo $p['Id']?>" name="Position"/>
+                  <input type="radio" id="<?php echo $p['Title']?>" value="<?php echo $p['Id']?>" name="Position"/>
                   <label for="<?php echo $p['Title']?>"><?php echo $p['Title']?></label>
                   <?php endforeach;?> 
                             
@@ -98,7 +81,7 @@ require_once "includes/header.php";
                   <h4>
                     When was this project completed?
                   </h4>
-                  <input type="date" id="FinishDate" name="FinishDate" value="When was this project completed?" value="<?php echo date('Y-m-d', strtotime($project['FinishDate']))?>">
+                  <input type="date" id="FinishDate" name="FinishDate" value="When was this project completed?" required>
                   
                     <h4>Technology Used for this Project(Must select at least 1).</h4>
                    <?php foreach($tech as $t):?>
@@ -113,9 +96,9 @@ require_once "includes/header.php";
 
             
                 <div class="col s12">
-                   <input <?php if($project['Published'] == 1) echo 'checked'; ?>  type="checkbox" id="Published" name="Published">
+                   <input type="checkbox" id="Published" name="Published">
                   <label for="Published">Would you like to publish this project?</label> 
-                    <input  type="submit" value="Save Changes" class="right btn" name="submit-project">
+                    <input type="submit" value="Save Changes" class="right btn" name="submit-project">
                     </div>
                   
                 </form>  
@@ -129,9 +112,8 @@ require_once "includes/header.php";
                   </div>
     </main>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/edit-project.js"></script>
-  <script type="text/javascript" src="js/add-project.js"></script>
-
+  <script type="text/javascript" src="js/parsley.min.js"></script>
+<script type="text/javascript" src="js/add-project.js"></script>
 </body>
 
 <?php
