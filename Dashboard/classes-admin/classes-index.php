@@ -51,7 +51,6 @@
                         echo '<td>'. $row['Credentials'] . '</td>';
                         echo '<td>'. $row['AreaOfInterest'] . '</td>';
                         echo '<td width=250>';
-                        echo '<a class="btn btn-primary" href="classes-read.php?id='.$row['Id'].'">Details</a>';
                         echo ' ';
                         echo '<a class="btn btn-success" href="classes-update.php?id='.$row['Id'].'">Update</a>';
                         echo ' ';
