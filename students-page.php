@@ -37,6 +37,7 @@ $studentProjects = $studentProjects->getStudentsAndProjects($pdo);
         <!--insert project thumbnails here-->
 
         <div class="row">
+
           <?php foreach($studentProjects as $sp) : ?>
           
             <div class="col l4 m6 s12">
@@ -87,7 +88,7 @@ $studentProjects = $studentProjects->getStudentsAndProjects($pdo);
         </div>
 
 
-       
+      
     </div>
     </main>
 </body>
