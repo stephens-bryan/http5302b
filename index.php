@@ -2,14 +2,13 @@
 
 require_once 'includes.php';
 require_once 'database.php';
-//hardcoded student id value for now
-$studentId = 1;
 
 //need to grab all the tech's from the database for our user to have tech options for their project
-$studentProjectsLimit = new Students;
-$studentProjectsLimit = $studentProjectsLimit->getStudentsAndProjectsLimit3($pdo);
+$students = new Students;
+$studentProjectsLimit = $students->getStudentsAndProjectsLimit3($pdo);
 
  require_once "includes/header.php";
+
 
 ?>
 
@@ -23,7 +22,6 @@ $studentProjectsLimit = $studentProjectsLimit->getStudentsAndProjectsLimit3($pdo
 
     <main>
     <div class="container">
-
         <div class="row">
 
             <div class="col s12 center">
@@ -46,7 +44,7 @@ $studentProjectsLimit = $studentProjectsLimit->getStudentsAndProjectsLimit3($pdo
           <p class="landing-page__year col s12">2017</p>
           <?php foreach($studentProjectsLimit as $spl) : ?>
           
-            <div class="col l4 m6 s12">
+            <a href="student-page.php?student=<?php echo $spl->StudentId ?>"><div  class="col l4 m6 s12">
              
                <div class="card thumbnail-small">
         <div class="card-image">
@@ -70,7 +68,7 @@ $studentProjectsLimit = $studentProjectsLimit->getStudentsAndProjectsLimit3($pdo
                     <div class="row valign-wrapper">
                         <div class="col s2 thumbnail-small-footer-image-container valign-wrapper">
 
-                          <!--student profile pic--> <img class="left thumbnail-small-footer-image" src="img/yuna.jpg">
+                          <!--student profile pic--> <img class="left thumbnail-small-footer-image" src="img/<?php echo $spl->ProfileImg ?>">
 
                         </div>
                         <div class="col s10 thumbnail-small-footer-text-container">
@@ -89,7 +87,7 @@ $studentProjectsLimit = $studentProjectsLimit->getStudentsAndProjectsLimit3($pdo
     </div>
 
               
-            </div>
+            </div></a>
                 <?php endforeach; ?>
         </div>
       <a href="students-page.php"><p class="landing-page__see-more col s12">see more...</p></a>

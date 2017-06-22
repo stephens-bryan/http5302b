@@ -39,7 +39,7 @@ $studentProjects = $studentProjects->getStudentsAndProjects($pdo);
         <div class="row">
           <?php foreach($studentProjects as $sp) : ?>
           
-            <div class="col l4 m6 s12">
+             <a href="student-page.php?student=<?php echo $sp->StudentId ?>"><div class="col l4 m6 s12">
              
                <div class="card thumbnail-small">
         <div class="card-image">
@@ -63,7 +63,7 @@ $studentProjects = $studentProjects->getStudentsAndProjects($pdo);
                     <div class="row valign-wrapper">
                         <div class="col s2 thumbnail-small-footer-image-container valign-wrapper">
 
-                          <!--student profile pic--> <img class="left thumbnail-small-footer-image" src="img/yuna.jpg">
+                          <!--student profile pic--> <img class="left thumbnail-small-footer-image" src="img/<?php echo $sp->ProfileImg ?>">
 
                         </div>
                         <div class="col s10 thumbnail-small-footer-text-container">
@@ -82,7 +82,7 @@ $studentProjects = $studentProjects->getStudentsAndProjects($pdo);
     </div>
 
               
-            </div>
+               </div></a>
                 <?php endforeach; ?>
         </div>
 
