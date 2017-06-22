@@ -1,6 +1,8 @@
 <?php
-     
+    require_once './includes/admin_head.php';
+    require_once './includes/admin_nav.php'; 
     require 'database.php';
+
     if (isset($_POST['submit'])) {
         // keep track validation errors
         $programnameError = null;
@@ -90,18 +92,11 @@
         }
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
  
 <body>
     <div class="container">
      
-                    
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                     <div class="row">
                         <h3>Create New Class</h3>
                     </div>
@@ -152,4 +147,7 @@
                             
     </div> <!-- /container -->
   </body>
-</html>
+
+<?php 
+include './includes/admin_footer.php'; 
+?>
