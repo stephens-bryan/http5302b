@@ -7,6 +7,13 @@ class Project{
     public function __construct($db) {
         $this->db = $db;
     }
+	
+	public function readAllStudentNames() {
+		//$readQuery = 'SELECT Id, CONCAT(IFNULL(FirstName,''),' ',IFNULL(LastName,'')) AS Name From students';
+        $readStmt = $this->db->prepare($readQuery);
+        $readStmt->execute();
+        return $readStmt->fetchall(PDO::FETCH_ASSOC);
+	}
 
     //Read 10 projects info with student info
     //$pin should be 0 for the first page, which return most recent 10 projects

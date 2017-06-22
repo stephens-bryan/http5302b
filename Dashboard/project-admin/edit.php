@@ -14,6 +14,9 @@ $project = $Project->readOneProject($id);
 ?>
 
 <main>
+<a href="./">
+	<h4>Back</h4>
+</a>
 <form method="POST" action="">
     <h5><b>Project Name</b></h5>
     <input type="text" value="<?php echo $project['Name'] ?>" name="Name" />
