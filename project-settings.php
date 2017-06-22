@@ -47,20 +47,20 @@ require_once "includes/header.php";
             </div>
 
             <div class="col s12">
-                <form method="POST" id="update-project" enctype="multipart/form-data" data-parsley-validate>
+                <form method="POST" id="update-project" enctype="multipart/form-data">
                   <!-- hidden inputs for project and image -->
                   <input type="hidden" value="<?php echo $project['Id']?>" name="project-id"/>
                   <input type="hidden" value="<?php echo $studentid?>" name="studentId"/>
                   <input type="hidden" value="<?php echo $project['MainPicture']?>" name="old-image"/>
                     <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
                   
-                  <input id="" type="text" placeholder="Project Name" name="projectName" value="<?php echo $project['Name']?> required">
+                  <input id="" type="text" placeholder="Project Name" name="projectName" value="<?php echo $project['Name']?>">
                   
                   
                   <input id="" type="text" placeholder="Project Description (Short)" name="ShortDescription" value="<?php if($project['ShortDesc']!== null) echo $project['ShortDesc']?>">
                     <textarea id="" class="materialize-textarea" data-length="120" placeholder="Project Description (long)" name="Description" required><?php echo $project['Description']?></textarea>
-                  <input id="" type="text" placeholder="External URL" name="Url" value="<?php if($project['Url']!== null) echo $project['Url']?>" data-parsley-type="url"/>
-                  <input id="github" type="text" placeholder="Github Repository(Optional)" name="Github" value="<?php if($project['GitHub']!== null) echo $project['GitHub']?>" data-parsley-type="url">
+                  <input id="" type="text" placeholder="External URL" name="Url" value="<?php if($project['Url']!== null) echo $project['Url']?>"/>
+                  <input id="github" type="text" placeholder="Github Repository(Optional)" name="Github" value="<?php if($project['GitHub']!== null) echo $project['GitHub']?>">
                    
                 
                   
@@ -74,7 +74,7 @@ require_once "includes/header.php";
                                   <input type="file" name="ProjectImage">
                                 </div>
                                 <div class="file-path-wrapper col s8">
-                                  <input class="file-path" type="text" placeholder="Your uploaded image" name="mainImage" required data-parsley-max="40">
+                                  <input class="file-path" type="text" placeholder="Your uploaded image" name="mainImage" >
                                 </div>
                                   
                                 
@@ -102,7 +102,7 @@ require_once "includes/header.php";
                   
                     <h4>Technology Used for this Project(Must select at least 1).</h4>
                    <?php foreach($tech as $t):?>
-                      <input type="checkbox" id="<?php echo $t['Title']?>" value="<?php echo $t['Id']?>" name="t[]" data-parsley-mincheck='1'/>
+                      <input type="checkbox" id="<?php echo $t['Title']?>" value="<?php echo $t['Id']?>" name="t[]" />
                   <label for="<?php echo $t['Title']?>"><?php echo $t['Title']?></label>
                   <?php endforeach; ?>
                  
@@ -129,8 +129,7 @@ require_once "includes/header.php";
                   </div>
     </main>  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/edit-project.js"></script>
-  <script type="text/javascript" src="js/add-project.js"></script>
+  <script type="text/javascript" src="js/edit-project.js"></script>
 
 </body>
 
