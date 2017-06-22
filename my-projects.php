@@ -37,7 +37,7 @@ require_once "includes/header.php";
                     <tbody>
                       <?php foreach ($viewProjects as $project) : ?>                        
                         <tr>
-                          <td><?php echo $project['Name'] ?> <?php echo $project['Id'] ?></td>
+                          <td><?php echo $project['Name'] ?></td>
                           <td><img class="thumbnail-small" src="img/<?php echo $project['MainPicture'] ?>" alt="<?php echo $project['MainPicture'] ?>"></td>
                           <td>
                             <form method="POST" action="project-settings.php">
