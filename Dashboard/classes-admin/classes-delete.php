@@ -1,5 +1,8 @@
 <?php
+    require_once './includes/admin_head.php';
+    require_once './includes/admin_nav.php';
     require 'database.php';
+    
     $id = 0;
      
     if ( !empty($_GET['id'])) {
@@ -54,4 +57,7 @@
                 </div>              
     </div> <!-- /container -->
   </body>
-</html>
+    
+<?php 
+include './includes/admin_footer.php'; 
+?>
