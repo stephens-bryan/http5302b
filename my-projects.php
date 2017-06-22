@@ -53,7 +53,7 @@ require_once "includes/header.php";
                     </tbody>
                 </table>
                     
-                    <button class="btn">Add Project</button>
+              <a href="add-project.php"><button class="btn">Add Project</button></a>
                     
                 
             </div>
