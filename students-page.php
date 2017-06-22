@@ -23,28 +23,16 @@
         <!--insert project thumbnails here-->
 
         <div class="row">
+          
             <div class="col l4 m6 s12">
-              <?php include "project-thumbnail-small.php"; ?>
-            </div>
-            <div class="col l4 m6 s12">
-              <?php include "project-thumbnail-small.php"; ?>
-            </div>
-            <div class="col l4 m6 s12">
-              <?php include "project-thumbnail-small.php"; ?>
-            </div>
+
+              
+              
+              
+          </div>
+
         </div>
 
-        <div class="row">
-            <div class="col l4 m6 s12">
-              <?php include "project-thumbnail-small.php"; ?>
-            </div>
-            <div class="col l4 m6 s12">
-              <?php include "project-thumbnail-small.php"; ?>
-            </div>
-            <div class="col l4 m6 s12">
-              <?php include "project-thumbnail-small.php"; ?>
-            </div>
-        </div>
 
     </div>
     </main>
