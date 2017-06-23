@@ -21,6 +21,7 @@ error_reporting(E_ALL);
         <link rel="stylesheet" href="./css/materialize.min.css">
         <script type="text/javascript" src="./js/materialize.min.js"></script>
         <script type="text/javascript" src="./js/menu.js"></script>
+      <script src="./js/searchPort.js"></script>
         
         <!--Own stylesheet-->
         <link rel="stylesheet" href="./css/styles.css">

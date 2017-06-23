@@ -1,5 +1,8 @@
 <?php
+    require_once './includes/admin_head.php';
+    require_once './includes/admin_nav.php';
     require 'database.php';
+    
     $id = 0;
      
     if ( !empty($_GET['id'])) {
@@ -28,15 +31,10 @@
          
     }
 ?>
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
+
  
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <div class="container">
                 <div class="span10 offset1">
                     <div class="row">
@@ -54,4 +52,7 @@
                 </div>              
     </div> <!-- /container -->
   </body>
-</html>
+    
+<?php 
+include './includes/admin_footer.php'; 
+?>

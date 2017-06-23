@@ -13,6 +13,9 @@ if (isset($_POST['submit'])) {
 ?>
 
 <main>
+<a href="./">
+	<h4>Back</h4>
+</a>
 <form method="POST" action="">
     <h5><b>Project Name</b></h5>
     <input type="text" name="Name" />

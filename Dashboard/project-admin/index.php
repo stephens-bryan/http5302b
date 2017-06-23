@@ -10,6 +10,8 @@ if (!isset($_GET['id'])) {
 
 $Project = new Project($pdo);
 $projects = $Project->readTenProjects($id);
+//$names= $Project->readAllStudentNames();
+//var_dump($names);
 ?>
 
 <main>
@@ -34,8 +36,10 @@ $projects = $Project->readTenProjects($id);
             <h5 style="display: inline-block; border-right: 1px solid black"><?php echo substr($p['UploadDate'], 0, 10) ?></h5>
             <h5 style="display: inline-block; border-right: 1px solid black"><?php echo $p['Published'] == 1 ? 'Published': "Not published" ?></h5>
             <h5 style="display: inline-block; border-right: 1px solid black"><?php echo $p['Approved'] == 1 ? 'Approved': "Not approved" ?></h5>
-            <h6 style="display: inline-block; border-right: 1px solid black">Preview</h6>
-            <a href="<?php echo 'edit.php?id=' . $p['project_id'] ?>">
+            <a href="<?php echo 'preview.php?id=' . $p['project_id'] ?>">
+				<h6 style="display: inline-block; border-right: 1px solid black">Preview</h6>
+            </a>
+			<a href="<?php echo 'edit.php?id=' . $p['project_id'] ?>">
                 <h6 style="display: inline-block; border-right: 1px solid black">Edit</h6>
             </a>
             <a href="<?php echo 'delete.php?id=' . $p['project_id'] ?>">

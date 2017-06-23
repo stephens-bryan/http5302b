@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
+<?php
+require_once './includes/admin_head.php';
+require_once './includes/admin_nav.php';
+?>
 
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <div class="container">
         <div class="row">
             <h3>Academic Year</h3>
@@ -67,4 +66,7 @@
         </div>
     </div> <!-- /container -->
   </body>
-</html>
+
+<?php 
+include './includes/admin_footer.php'; 
+?>
