@@ -31,7 +31,7 @@
                     <p class="col s5 right-align">
                         <i class="material-icons">settings</i>
                     </p>
-                    <p class="col s7">Settings</p>
+                    <p class="col s7">Profile Settings</p>
                 </p>
 
             </aside>
