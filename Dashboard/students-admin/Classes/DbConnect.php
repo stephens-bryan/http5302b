@@ -4,7 +4,7 @@ class DbConnect {
 
     private $dsn = "mysql:host=localhost;dbname=portfolio";
     private $username = "root";
-    private $password = "root";
+    private $password = "password";
     private $db;
 
     public function getDb(){

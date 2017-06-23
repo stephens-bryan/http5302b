@@ -6,7 +6,7 @@
  * Time: 12:59 PM
  */
 
-require_once "includes/header.php";
+require_once "./includes/header.php";
 
     $listStudents = $student->getStudents();
 

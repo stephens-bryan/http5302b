@@ -7,27 +7,15 @@
  */
 
 //Connect to database
-require_once "Classes/DbConnect.php";
+require_once "/var/www/humberportfolio/http5302b/Dashboard/students-admin/Classes/DbConnect.php";
 $dbc = new DbConnect();
 $db = $dbc->getDb();
 
 //instantiate Account Class
-require_once "Classes/Account.php";
+require_once "/var/www/humberportfolio/http5302b/Dashboard/students-admin/Classes/Account.php";
 $account = new Account($db);
 
 //instantiate Student Class
-require_once "Classes/Student.php";
+require_once "/var/www/humberportfolio/http5302b/Dashboard/students-admin/Classes/Student.php";
 $student = new Student($db);
 
-?>
-<!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <title>Student Module</title>
-        </head>
-        <body>
-            <header>
-                <h1>Students</h1>
-            </header>
-            <main>
