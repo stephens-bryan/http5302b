@@ -36,13 +36,13 @@ h4 {
 
 
 
-#search {
+#searchQuery {
     width: 250px;
     margin: 2em 1.5em;
     border-bottom: 1px solid black;
 }
 
-#search::placeholder {
+#searchQuery::placeholder {
         color: black;
 
 }
