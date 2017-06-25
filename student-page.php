@@ -4,7 +4,7 @@ ini_set('display_errors', 3);
 require_once 'includes.php';
 require_once 'database.php';
 //hardcoded student id value for now
-$studentId = 1;
+$studentId = $_GET['student'];
 
 //must grab student profile information
 $student = new Students;
@@ -34,8 +34,9 @@ $projects = $projects->getProjectsById($pdo, $studentId);
             <!--STUDENT INFORMATION-->
 
                 <!--student profile pic-->
+          <?php foreach($student as $student) : ?>
                 <div class="col s12 center">
-                    <img class="circle student-page__student-information_profile-pic" src="img/<?php echo $student['ProfileImg']?>">
+                    <img class="circle student-page__student-information_profile-pic" src="img/<?php echo $student['ProfileImg'] ?>">
                 </div>
 
                 <!--student name-->
@@ -48,6 +49,7 @@ $projects = $projects->getProjectsById($pdo, $studentId);
                     <p class="center-align student-page__student-information_student-description"><?php echo $student['ContactEmail']?></p>
                 </div>
 
+          <?php endforeach; ?>
                 
 
             <!--PROJECTS INFORMATION-->

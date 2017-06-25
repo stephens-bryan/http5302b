@@ -1,6 +1,8 @@
 <ul class="collapsible side-nav fixed bar-color" id="slide-out" data-collapsible="accordion"> <img class="logo" src="img/humber_logo.png" alt="Humber Logo image"> <img class="circle" id="icon" src="img/yuna.jpg" alt="Humber Logo image">
     <div id="sidebar__searchCont">
-    <input id="search" type="search" placeholder="Search" /><i class="material-icons" id="sidebar__searchIcon">search</i>
+      <form action='search.php' method='post'>
+    <input id="searchQuery" type="search" placeholder="Search" /><i class="material-icons" id="sidebar__searchIcon">search</i>
+      </form>
     </div>
     <li>
         <div class="collapsible-header"><i class="material-icons">supervisor_account</i>Account Settings</div>
