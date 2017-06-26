@@ -10,7 +10,7 @@
 
 class Search
 {
-     
+  
   //search query for public site. Handles first name, last name, full name,tech (css, javascript etc.) and stack (front-end etc)
     public function searchPortfolio ($db, $searchTerm){
         
@@ -120,8 +120,6 @@ class Search
         return $searchResults;
   }
   
-
-
 
 
 
