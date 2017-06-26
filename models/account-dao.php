@@ -64,4 +64,36 @@ class AccountDAO {
     $row = $statement->execute();
     return true;
   }
+   //View Account
+  public function viewAccount($db, $userName) {
+    $query = "SELECT * FROM Accounts JOIN Students ON Accounts.Id = Students.AccountId WHERE UserName = '$userName'";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':UserName', $userName, PDO::PARAM_INT);
+    $statement->execute();
+    $account = $statement->fetchAll();
+    $statement->closeCursor();
+    return $account;
+}
+  //Edit Account
+  public function editAccount($db, $email, $password) {
+    $query = "INSERT INTO Accounts( Email, PasswordHash) 
+                  VALUES (:emailField, :password)";
+    $statement = $db->prepare($query);
+    $statement->bindValue(':emailField', $email, PDO::PARAM_STR);
+    $statement->bindValue(':password', $password, PDO::PARAM_STR);
+    $statement->execute();
+    $statement->closeCursor();
+    return $email;
+  }
+
+    //Edit Profile Picture
+   public function editPicture($db, $profilePic) {
+     $query = "INSERT INTO Students(ProfileImg) 
+                  VALUES (:profilePic)";
+     $statement = $db->prepare($query);
+     $statement->bindValue(':profilePic', $profilePic, PDO::PARAM_STR);
+     $statement->execute();
+     $statement->closeCursor();
+     return $profilePic;
+   }
 }
