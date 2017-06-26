@@ -1,8 +1,8 @@
 <?php
 
 
-include( 'config.php' );
-//include( 'functions/SearchFunctions/search.php' );
+
+
 include('config.php' );
 include('functions/strings.php');
 include('models/account-dao.php');

@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+  
+
 
     var userTerm = $('#search').val(); //grabs the value from search field
     var searchFor = []; //array that will hold all Tech and Stack terms.
@@ -7,12 +9,15 @@ $(document).ready(function(){
 
 
   $( "#search" ).on('click',function() {
+ 
       searchResults = [];
-});
+    });
+   
 
     //Grabs all the entries from the Techs and Stacks table and puts them in array.
-        $.getJSON("getSearchHelper.php", function (data) {
-           console.log(data);
+        $.getJSON("functions/SearchFunctions/searchPortfolio/getSearchHelper.php", function (data) {
+        
+           //console.log(data);
 
             $.each(data, function(index, obj){
 
@@ -36,12 +41,14 @@ $(document).ready(function(){
 
 
 //sends back json objects that match search query
-    $('#submit').on('click', function(){
+    $('#searchbtn').on('click', function(){
+       
         var userTerm = $('#search').val();
+       
 
 
-        $.post( "getSearchResults.php", { term: userTerm },  function( data ) {
-              console.log(data);
+        $.post( "functions/SearchFunctions/searchPortfolio/getSearchResults.php", { term: userTerm },  function( data ) {
+             
 
             $.each(data, function(index, obj){
 

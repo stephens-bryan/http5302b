@@ -10,8 +10,6 @@ ini_set('display_errors', 1);
 
 require_once '../../../includes.php';
 require_once '../../../database.php';
-require_once "../search.php";
-
    
 $r = new Search();
 
