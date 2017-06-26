@@ -30,7 +30,7 @@ if($_GET):?>
     <h1>Main Dashboard</h1>
     <div id="features" class="row">
         <div class="col m4">
-          <a href="/Dashboard/students-admin/list_student.php" >
+          <a href="/http5302b/Dashboard/students-admin/list_student.php" >
             <i class="material-icons">supervisor_account</i>
             <h2 class="admin_core_link">Manage Students</h2>
           </a>
