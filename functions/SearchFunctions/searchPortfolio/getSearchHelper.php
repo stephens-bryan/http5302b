@@ -20,7 +20,7 @@ $jList = json_encode($results);
 header("Content-Type: application/json");
 echo $jList;
 
-echo "Hello";
+
 
 
 

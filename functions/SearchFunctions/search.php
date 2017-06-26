@@ -44,6 +44,82 @@ class Search
         return $helpers;
 
     }
+  
+  public function searchStudents ($db, $searchTerm){
+    $query = "SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast 
+              FROM Students WHERE FirstName LIKE :searchTerm OR 
+              LastName LIKE :searchTerm OR 
+              CONCAT(FirstName, ' ',LastName) LIKE :searchTerm ORDER BY firstlast ASC";
+     $statement = $db->prepare($query);
+     $statement->bindValue(':searchTerm', $searchTerm);
+     $statement->execute();
+     $searchResults = $statement->fetchAll();
+
+        return $searchResults;
+  }
+  
+  /*
+  Last Name DESC :SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast FROM Students WHERE FirstName LIKE :searchTerm OR LastName LIKE :searchTerm OR CONCAT(FirstName, ' ',LastName) LIKE :searchTerm ORDER BY LastName DESC
+  Last Name ASC: SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast FROM Students WHERE FirstName LIKE '%j%' OR LastName LIKE '%j%' OR CONCAT(FirstName, ' ',LastName) LIKE '%j%' ORDER BY LastName ASC
+  First Name ASC: SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast FROM Students WHERE FirstName LIKE '%j%' OR LastName LIKE '%j%' OR CONCAT(FirstName, ' ',LastName) LIKE '%j%' ORDER BY FirstName ASC
+  Last Name DESC: SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast FROM Students WHERE FirstName LIKE '%j%' OR LastName LIKE '%j%' OR CONCAT(FirstName, ' ',LastName) LIKE '%j%' ORDER BY FirstName DESC
+  
+  
+  
+  */
+  
+   public function searchStudentsByLastDESC ($db, $searchTerm){
+    $query = "SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast 
+              FROM Students WHERE FirstName LIKE :searchTerm OR 
+              LastName LIKE :searchTerm OR 
+              CONCAT(FirstName, ' ',LastName) LIKE :searchTerm ORDER BY LastName DESC";
+     $statement = $db->prepare($query);
+     $statement->bindValue(':searchTerm', $searchTerm);
+     $statement->execute();
+     $searchResults = $statement->fetchAll();
+
+        return $searchResults;
+  }
+  
+    public function searchStudentsByLastASC ($db, $searchTerm){
+    $query = "SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast 
+              FROM Students WHERE FirstName LIKE :searchTerm OR 
+              LastName LIKE :searchTerm OR 
+              CONCAT(FirstName, ' ',LastName) LIKE :searchTerm ORDER BY LastName ASC";
+     $statement = $db->prepare($query);
+     $statement->bindValue(':searchTerm', $searchTerm);
+     $statement->execute();
+     $searchResults = $statement->fetchAll();
+
+        return $searchResults;
+  }
+  
+    public function searchStudentsByFirstDESC ($db, $searchTerm){
+    $query = "SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast 
+              FROM Students WHERE FirstName LIKE :searchTerm OR 
+              LastName LIKE :searchTerm OR 
+              CONCAT(FirstName, ' ',LastName) LIKE :searchTerm ORDER BY FirstName DESC";
+     $statement = $db->prepare($query);
+     $statement->bindValue(':searchTerm', $searchTerm);
+     $statement->execute();
+     $searchResults = $statement->fetchAll();
+
+        return $searchResults;
+  }
+  
+    public function searchStudentsByFirstASC ($db, $searchTerm){
+    $query = "SELECT DISTINCT Students.*, CONCAT(FirstName, ' ',LastName) as firstlast 
+              FROM Students WHERE FirstName LIKE :searchTerm OR 
+              LastName LIKE :searchTerm OR 
+              CONCAT(FirstName, ' ',LastName) LIKE :searchTerm ORDER BY FirstName ASC";
+     $statement = $db->prepare($query);
+     $statement->bindValue(':searchTerm', $searchTerm);
+     $statement->execute();
+     $searchResults = $statement->fetchAll();
+
+        return $searchResults;
+  }
+  
 
 
 
