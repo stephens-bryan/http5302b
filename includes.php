@@ -1,4 +1,4 @@
 <?php
 
 include( 'config.php' );
-include( 'functions/strings.php' );
+//include( 'functions/SearchFunctions/search.php' );
