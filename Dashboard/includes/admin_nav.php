@@ -3,7 +3,7 @@
         <div class="row top-padding">
             <aside id="admin_nav" class="col m4 l3 z-depth-2">
                 <div class="center-align">
-                    <img src="includes/media/HumberWebDev.png" alt="humber logo" title="Image of humber logo" width="70%"/>
+                    <img src="/Dashboard/includes/media/HumberWebDev.png" alt="humber logo" title="Image of humber logo" width="70%"/>
                 </div>
 
                 <ul>
