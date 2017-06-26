@@ -1,6 +1,6 @@
 <?php
 
-include('config.php' );
+include('config.php');
 include('functions/strings.php');
 include('models/account-dao.php');
 include('models/tech-dao.php');

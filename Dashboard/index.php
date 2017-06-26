@@ -3,7 +3,7 @@ require_once './includes/admin_head.php';
 require_once './includes/admin_nav.php';
 ?>
 
-<?php 
+<?php
 /*
 The access to different features are controlled by the url paras, $GET['board'] control which board this page is going to show
 Three different boards: students, projects and classes
@@ -30,7 +30,7 @@ if($_GET):?>
     <h1>Main Dashboard</h1>
     <div id="features" class="row">
         <div class="col m4">
-          <a href="?board=students" >
+          <a href="/Dashboard/students-admin/list_student.php" >
             <i class="material-icons">supervisor_account</i>
             <h2 class="admin_core_link">Manage Students</h2>
           </a>

@@ -3,7 +3,7 @@
         <div class="row top-padding">
             <aside id="admin_nav" class="col m4 l3 z-depth-2">
                 <div class="center-align">
-                    <img src="includes/media/HumberWebDev.png" alt="humber logo" title="Image of humber logo" width="70%"/>
+                    <img src="/Dashboard/includes/media/HumberWebDev.png" alt="humber logo" title="Image of humber logo" width="70%"/>
                 </div>
 
                 <ul>
@@ -11,7 +11,7 @@
                         <p class="col s4 right-align">
                             <i class="material-icons">supervisor_account</i>
                         </p>
-                        <p class="col s8"><a href="?board=students" class="admin_core_link">Manage Students</a></p>
+                        <p class="col s8"><a href="/Dashboard/students-admin/list_student.php" class="admin_core_link">Manage Students</a></p>
                     </li>
                     <li class="row">
                         <p class="col s4 right-align">

@@ -5,7 +5,10 @@
  * Date: 2017-06-13
  * Time: 12:59 PM
  */
+require_once "../includes/admin_head.php";
+require_once "../includes/admin_nav.php";
 
+//require header
 require_once "./includes/header.php";
 
     $listStudents = $student->getStudents();
@@ -48,12 +51,12 @@ require_once "./includes/header.php";
             <!-- Update Student-->
             <td><form action="update_student.php" method="post">
                     <input type="hidden" name="id" value="<?= $students["Id"]; ?>">
-                    <input type="submit" name="submit" value="EDIT">
+                    <input type="submit" name="submit" value="EDIT" class="btn">
                 </form></td>
             <!-- Delete Student -->
             <td><form action="delete_student.php" method="post">
                     <input type="hidden" name="id" value="<?= $students["Id"]; ?>">
-                    <input type="submit" name="submit" value="DELETE">
+                    <input type="submit" name="submit" value="DELETE" class="btn">
                 </form></td>
         </tr>
         <?php }?>
