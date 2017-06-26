@@ -5,6 +5,8 @@
  * Date: 2017-06-13
  * Time: 5:37 PM
  */
+require_once "../includes/admin_head.php";
+require_once "../includes/admin_nav.php";
 
 require_once"includes/header.php";
 
@@ -43,13 +45,14 @@ require_once"includes/header.php";
     */
 
 ?>
+<h1>Delete Student</h1>
 
 <p>Are you sure you want to delete student <?= $id; ?>?</p>
 
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
     <input type="hidden" name="id" value="<?= $id; ?>">
-    <input type="submit" name="yes" value="Yes">
-    <input type="Submit" name="no" value="No">
+    <input type="submit" name="yes" value="Yes" class="btn">
+    <input type="Submit" name="no" value="No" class="btn">
 </form>
 
 

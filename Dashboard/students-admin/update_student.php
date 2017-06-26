@@ -5,6 +5,9 @@
  * Date: 2017-06-13
  * Time: 5:55 PM
  */
+date_default_timezone_set('America/Toronto');
+require_once "../includes/admin_head.php";
+require_once "../includes/admin_nav.php";
 
 require_once "includes/header.php";
 
@@ -47,7 +50,7 @@ require_once "includes/header.php";
     }//end if isset update
 ?>
 
-    <h1>update Student</h1>
+    <h1>Update Student</h1>
 
     <form action"<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div>
@@ -81,7 +84,7 @@ require_once "includes/header.php";
         <label for="current_job">Current Job:</label>
         <input type="text" name="current_job" id="current_job" placeholder="Current Job..." value="<?= $currJob; ?>">
     </div>
-    <input type="submit" name="update" value="update">
+    <input type="submit" name="update" value="update" class="btn">
     </form>
 
 <?php
