@@ -1,8 +1,10 @@
 <?php
-
+require_once 'includes.php';
+require_once 'database.php';
+$studentId = 1;
+$projectClass = new ProjectDAO();
+$viewProjects = $projectClass->getProjectsById($pdo, $studentId);
 require_once "includes/header.php";
-
-
 ?>
 <body>
     <?php 
@@ -21,50 +23,65 @@ require_once "includes/header.php";
             </div>
             
             <div class="col s12">
-                <form>
                 <table>
                     <thead>
                         <tr>
-                            <th>Project</th>
-                            <th>Hero</th>
-                            <th>Order</th>
+                            <th>Project Name</th>
+                            <th>Feature Image</th>
+                            <th>Description</th>
                             <th>Delete</th>
                         </tr>
                     
                     </thead>
                     
-                    <!--The data in tbody is placeholder content! Delete if you want-->
                     <tbody>
+                      <?php foreach ($viewProjects as $project) : ?>                        
                         <tr>
-                            <td>Img ImgImgImgImgImgImgImg</td>
-                            <td>
-                                  <input name="group1" type="radio" id="test1" />
-                                  <label for="test1"></label>
-                            
-                            </td>
-                            <td>
-                                <select class="select">
-                                  <option value="1">1</option>
-                                </select>    
-                            </td>
+                          <td><?php echo $project['Name'] ?></td>
+                          <td><img class="thumbnail-small" src="img/<?php echo $project['MainPicture'] ?>" alt="<?php echo $project['MainPicture'] ?>"></td>
+                          <td>
+                            <form method="POST" action="project-settings.php">
+                              <input type="hidden" value="<?php echo $project['Id']?>" name="project-to-edit">
+                              <button type="submit" class="btn">Edit</button>
+                            </form>
+                          </td>
+                          <td>
+                            <button id="my-projects-form__btn-delete<?php echo $project['Id'] ?>" data-target="delete-project-modal" class="btn"  value="<?php echo $project['Id'] ?>">Delete</button>
+                          </td>
                         </tr>
+                      <?php endforeach; ?>
                     </tbody>
                 </table>
                     
-                    <button class="btn">Add Project</button>
+              <a href="add-project.php"><button class="btn">Add Project</button></a>
                     
-                <div class="col s12">
-                    <input type="submit" value="Save Changes" class="right btn">
-                    </div>
-                </form>    
+                
             </div>
             
         </div>
-    </div> 
-    </main>    
+    </div>       
+
+  <!-- Modal Structure -->
+  <div id="delete-project-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-action modal-close right"><i class="small material-icons">close</i></span>
+      <h4>Are you sure you want to delete this project?</h4>
+      <p>Once you click delete there is no going back.</p>
+    </div>
+    <div class="modal-footer">
+      <button id="delete-project-modal__btn-delete-confirm" class="modal-action modal-close waves-effect waves-red btn-flat left" value="">Delete</button>
+      <button id="delete-project-modal__btn-delete-exit" class="modal-action modal-close waves-effect waves-green btn-flat right" value="">Cancel</button>
+    </div>
+  </div>
+</main>
+ 
+  
+  
+  <script src="js/delete-project.js"></script>
+  <script src="js/modal.js"></script>
 </body>
 
 <?php
-
 require_once "includes/footer.php";
 ?>
+Contact GitHub API Training Shop Blog About

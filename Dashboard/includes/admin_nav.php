@@ -11,19 +11,19 @@
                         <p class="col s4 right-align">
                             <i class="material-icons">supervisor_account</i>
                         </p>
-                        <p class="col s8">Manage Students</p>
+                        <p class="col s8"><a href="?board=students" class="admin_core_link">Manage Students</a></p>
                     </li>
                     <li class="row">
                         <p class="col s4 right-align">
                             <i class="material-icons">art_track</i>
                         </p>
-                        <p class="col s8">Manage Projects</p>
+                        <p class="col s8"><a href="?board=projects" class="admin_core_link">Manage Projects</a></p>
                     </li>
                     <li class="row">
                         <p class="col s4 right-align">
                             <i class="material-icons">class</i>
                         </p>
-                        <p class="col s8">Manage Classes</p>
+                        <p class="col s8"><a href="?board=classes" class="admin_core_link">Manage Classes</a></p>
                     </li>
                 </ul>
 
@@ -31,7 +31,7 @@
                     <p class="col s5 right-align">
                         <i class="material-icons">settings</i>
                     </p>
-                    <p class="col s7">Settings</p>
+                    <p class="col s7">Profile Settings</p>
                 </p>
 
             </aside>

@@ -1,3 +1,9 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,6 +23,7 @@
         <script type="text/javascript" src="./js/materialize.min.js"></script>
         <script type="text/javascript" src="./js/menu.js"></script>
         <script type="text/javascript" src="./js/searchPort.js"></script>
+
         
         <!--Own stylesheet-->
         <link rel="stylesheet" href="./css/styles.css">
