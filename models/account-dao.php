@@ -64,6 +64,7 @@ class AccountDAO {
     $row = $statement->execute();
     return true;
   }
+ 
    //View Account
   public function viewAccount($db, $userName) {
     $query = "SELECT * FROM Accounts JOIN Students ON Accounts.Id = Students.AccountId WHERE UserName = '$userName'";
@@ -74,6 +75,7 @@ class AccountDAO {
     $statement->closeCursor();
     return $account;
 }
+ 
   //Edit Account
   public function editAccount($db, $email, $password) {
     $query = "INSERT INTO Accounts( Email, PasswordHash) 
