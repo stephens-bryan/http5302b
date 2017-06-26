@@ -70,7 +70,8 @@ require_once "includes/header.php";
                 <div class="input-field">
                   <button type="button" data-target="delete-account-modal" class="btn left" id="acctSettForm__delete-account" value="<?php echo $accountIdSession ?>" >Delete Account</button>
                 <input type="submit" value="Save Changes" class="btn right" id="acctSettForm__save" name="editId">
-                </div>    
+                </div>  
+                <?php } ?>
             </form>
             </div>
             
