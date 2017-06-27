@@ -2,7 +2,6 @@
 require_once "includes/header.php";
 require_once "models/db.php";
 
-session_start();
 
 $db = DbConnect::getDB();
 
