@@ -2,7 +2,7 @@
   "require": { 
     "components/jquery": "3.*",
     "phpunit/phpunit": "6.*.*",
-    "phpunit/dbunit": "^3.0"
+    "phpunit/dbunit": "^3.0",
+    "phpmailer/phpmailer": "^5.2"
   }
 }
-

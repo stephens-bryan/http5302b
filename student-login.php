@@ -1,7 +1,7 @@
 <?php
 
 require_once "includes/header.php";
-require_once "model/db.php";
+require_once "models/db.php";
 
 session_start();
 
@@ -85,9 +85,9 @@ if (isset($_POST['submit'])) {
                 
                   <input id="studentLoginForm__passwField" type="password" placeholder="Password" name="pass">  <span><?php echo $passErr ?></span>
                 
-                <span><?php echo $loginErr ?></span>
+                <p><?php echo $emailErr ?></p>
                 <div id="studentLoginForm__promptLoginCont">
-                <a href="#" id="studentLoginForm__passwPrompt">Forgotten Your Password?</a>
+                <a href="forgot-password.php" id="studentLoginForm__passwPrompt">Forgotten Your Password?</a>
                 <input type="submit" value="Login" class="studentLoginForm__loginBtn btn" name="submit">
                 </div>
             </form>
