@@ -3,12 +3,11 @@ require_once "includes/header.php";
 require_once 'includes.php';
 require_once 'database.php';
 
-session_start();
 $student = $_SESSION['user'];
 $studentId = $student['Id'];
 $studentFName= $student['FirstName'];
 
-var_dump($student);
+// var_dump($student);
 $projectClass = new ProjectDAO();
 $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
 
