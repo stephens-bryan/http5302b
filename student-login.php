@@ -78,7 +78,7 @@ if (isset($_POST['submit'])) {
         $user = array_merge($account,$student);
         var_dump($user);
         $_SESSION['user'] = $user;
-        header("Location: student-page.php");
+        header("Location: my-projects.php");
       }
     }else {
       $loginErr="invalid login";

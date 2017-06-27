@@ -4,6 +4,8 @@ ini_set('display_errors', 3);
 require_once 'includes.php';
 require_once 'database.php';
 //hardcoded student id value for now
+
+
 $studentId = $_GET['student'];
 
 //must grab student profile information

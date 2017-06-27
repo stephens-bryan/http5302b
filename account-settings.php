@@ -1,6 +1,8 @@
 <?php
 
 $accountIdSession = 4;
+$accountId = 2;
+$studentId = 'n00000000';
 
 <<<<<<< HEAD
 $userName = 'student';
@@ -9,7 +11,7 @@ require_once 'includes.php';
 require_once 'database.php';
 
 $accountObj = new AccountDAO();
-$rows = $accountObj->viewAccount($db, $userName);
+$rows = $accountObj->viewAccount($db, $accountId, $studentId);
 
 =======
 >>>>>>> master
