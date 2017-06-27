@@ -1,6 +1,6 @@
 <?php
-require_once './includes/admin_head.php';
-require_once './includes/admin_nav.php';
+require_once '../includes/admin_head.php';
+require_once '../includes/admin_nav.php';
 ?>
 
 <body>
@@ -39,7 +39,7 @@ require_once './includes/admin_nav.php';
                         $pdostmt->bindValue(':progid', $row['Id']);
                         $pdostmt->execute();
                         $result = $pdostmt->fetchAll();
-                        foreach ($result as $year){               
+                        foreach ($result as $year){
                             $date1 = strtotime($year['StartDate']);
                             echo '<td>'. date("F j Y",$date1) . '</td>';
                             $date2 = strtotime($year['EndDate']);
@@ -67,6 +67,6 @@ require_once './includes/admin_nav.php';
     </div> <!-- /container -->
   </body>
 
-<?php 
-include './includes/admin_footer.php'; 
+<?php
+include '../includes/admin_footer.php'; 
 ?>

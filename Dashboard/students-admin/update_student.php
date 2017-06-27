@@ -5,7 +5,6 @@
  * Date: 2017-06-13
  * Time: 5:55 PM
  */
-date_default_timezone_set('America/Toronto');
 require_once "../includes/admin_head.php";
 require_once "../includes/admin_nav.php";
 
