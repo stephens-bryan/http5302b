@@ -94,6 +94,7 @@ require_once "includes/header.php";
 
 <h3>Add Student</h3>
 
+
 <form action"<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div>
         <label for="profile_img">Profile Image:</label>
