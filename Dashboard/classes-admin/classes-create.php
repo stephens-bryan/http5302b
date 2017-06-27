@@ -1,6 +1,6 @@
 <?php
-    require_once './includes/admin_head.php';
-    require_once './includes/admin_nav.php'; 
+    require_once '../includes/admin_head.php';
+    require_once '../includes/admin_nav.php'; 
     require 'database.php';
 
     if (isset($_POST['submit'])) {

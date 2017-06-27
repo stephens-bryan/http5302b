@@ -12,6 +12,8 @@ $Project = new Project($pdo);
 $projects = $Project->readTenProjects($id);
 //$names= $Project->readAllStudentNames();
 //var_dump($names);
+require_once '../includes/admin_head.php';
+require_once '../includes/admin_nav.php';
 ?>
 
 <main>
@@ -48,3 +50,6 @@ $projects = $Project->readTenProjects($id);
         </div>
     <?php } ?>
 </main>
+<?php 
+include '../includes/admin_footer.php'; 
+?>

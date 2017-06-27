@@ -1,6 +1,6 @@
 <?php
-    require_once './includes/admin_head.php';
-    require_once './includes/admin_nav.php';
+    require_once '../includes/admin_head.php';
+    require_once '../includes/admin_nav.php';
     require 'database.php';
  
     $id = $_GET['id'];
@@ -141,5 +141,5 @@
   </body>
 
 <?php 
-include './includes/admin_footer.php'; 
+include '../includes/admin_footer.php'; 
 ?>

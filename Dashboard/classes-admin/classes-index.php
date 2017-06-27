@@ -1,16 +1,16 @@
 <?php
-require_once './includes/admin_head.php';
-require_once './includes/admin_nav.php';
+require_once '../includes/admin_head.php';
+require_once '../includes/admin_nav.php';
 ?>
 
 <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <div class="container">
+    <div class="centered">
         <div class="row">
             <h3>Academic Year</h3>
         </div>
         <div class="row">
-            <table class="table table-striped table-bordered">
+            <table class="bordered">
               <thead>
                 <tr>
                   <th>Program Name</th>
@@ -52,7 +52,7 @@ require_once './includes/admin_nav.php';
                         echo '<td width=250>';
                         echo ' ';
                         echo '<a class="btn btn-success" href="classes-update.php?id='.$row['Id'].'">Update</a>';
-                        echo ' ';
+                        echo ' '; 
                         echo '<a class="btn btn-danger" href="classes-delete.php?id='.$row['Id'].'">Delete</a>';
                         echo '</td>';
                         echo '</tr>';
@@ -68,5 +68,5 @@ require_once './includes/admin_nav.php';
   </body>
 
 <?php 
-include './includes/admin_footer.php'; 
+include '../includes/admin_footer.php'; 
 ?>
