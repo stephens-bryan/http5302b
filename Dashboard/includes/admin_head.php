@@ -29,6 +29,7 @@ $unpublished = 3;
 
 <body>
     <header id="admin_head" class="z-depth-2">
+        <!--  Responsive navbar with sideNav using materialize  -->
         <nav class="nav-extended">
             <div class="nav-wrapper">
                 <a href="/http5302b/Dashboard" class="brand-logo">Admin Dashboard</a>
@@ -55,16 +56,21 @@ $unpublished = 3;
     <ul id="dropAdmin" class='dropdown-content'>
         <li><a href="/http5302b/includes/logout.php"><i class="material-icons">settings</i>Logout</a></li>
     </ul>
+    <!-- Side Nav Structure -->
     <ul id="slide-out" class="side-nav">
         <li><h4>&emsp;Menu</h4></li>
+        <!-- Main Navigation Links -->
         <li><a href="/http5302b/Dashboard"><i class="material-icons">home</i>Dashboard</a></li>
         <li><a href="/http5302b/Dashboard/students-admin/list_student.php"><i class="material-icons">supervisor_account</i>Manage Students</a></li>
+            <!-- Dynamic Project Notifications -->
         <li><a href="/http5302b/Dashboard/project-admin"><i class="material-icons">art_track</i>Manage Projects<?php echo ($unpublished >= 1)? '<span id="unpublished" class="new badge">'.$unpublished.'</span>' : '' ;?></a></li>
         <li><a href="/http5302b/Dashboard/classes-admin/classes-index.php"><i class="material-icons">class</i>Manage Classes</a></li>
+        <!-- Secondary Navigation Links -->
         <li><div class="divider"></div></li>
         <li><a href="/http5302b/includes/logout.php"><i class="material-icons">settings</i>Logout</a></li>
     </ul>
     <script type='text/javascript'>
+        // Initialize Materialize Functions
         $(document).ready(function(){
             $(".button-collapse").sideNav();
             $(".dropdown-button").dropdown();
