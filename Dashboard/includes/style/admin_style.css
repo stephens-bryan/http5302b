@@ -22,9 +22,12 @@ main {
   margin: 0;
   left: 0;
   right: 0;
-  z-index: 5;
+  z-index: 3;
   color: white;
   background: #153b35; }
+  #admin_head nav {
+    background: #153b35;
+  }
   #admin_head h1 {
     font-size: 1.5em;
     text-transform: uppercase; }
@@ -33,10 +36,27 @@ main {
     transition: color 0.3s ease; }
     #admin_head a:hover {
       color: rgba(255, 255, 255, 0.8); }
-
+#slide-out {
+    color: #153b35;
+    z-index: 5;
+}
+#slide-out .background {
+    position: absolute;
+    top: 0;
+    height: 160px;
+    overflow: hidden;
+    z-index: -1;
+}
+#sidenav-overlay {
+    z-index: 4;
+}
 #features {
   text-align: center;
   color: #73ddd9 !important; }
+  #features div {
+      min-width: 160px;
+      margin: 0 auto;
+  }
   #features i {
     font-size: 8em;
     color: #73ddd9;}
