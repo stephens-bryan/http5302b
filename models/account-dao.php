@@ -64,7 +64,6 @@ class AccountDAO {
     $row = $statement->execute();
     return true;
   }
-<<<<<<< HEAD
  
    //View Account
   public function viewAccount($db, $userName) {
@@ -100,6 +99,4 @@ class AccountDAO {
      return $profilePic;
    }
 }
-=======
-}
->>>>>>> master
+
