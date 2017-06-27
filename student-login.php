@@ -40,9 +40,9 @@ if (isset($_POST['submit'])) {
     $account = array("RoleId"=>$userdetails['RoleId'],"UserName"=>$userdetails['UserName'],"Email"=>$userdetails['Email']);
 
 
->>>>>>> master
+
     if($_POST['pass']==$userdetails['PasswordHash']){   /*password_verify($hashPass, $userdetails['passwordHash'])*/
->>>>>>> master
+
       //if user is an admin
       if($userdetails['RoleId']==1){
 
