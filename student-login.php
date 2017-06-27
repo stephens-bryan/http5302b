@@ -23,10 +23,7 @@ if (isset($_POST['submit'])) {
   if(empty($_POST['pass'])) {
     $passErr="Please enter password";
     $valid = false;
-  } else if(strlen($_POST['pass']) < 8) {
-    $passErr="min 8 character";
-    $valid = false;
-  }
+  } 
 
   if($valid) {
     $sql = "SELECT * FROM Accounts WHERE Email = :email";
