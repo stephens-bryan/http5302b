@@ -1,5 +1,4 @@
 <?php
-
 require_once "includes/header.php";
 require_once "models/db.php";
 
@@ -32,11 +31,10 @@ if (isset($_POST['submit'])) {
     
     $hashPass = $userdetails['PasswordHash'].$userdetails['PasswordSalt'];
     $account = array("RoleId"=>$userdetails['RoleId'],"UserName"=>$userdetails['UserName'],"Email"=>$userdetails['Email']);
-    
     if($_POST['pass']==$userdetails['PasswordHash']){  
       //if user is an admin
       if($userdetails['RoleId']==1){
-        
+
         //getting this users detail from admin table
         $sql = "SELECT * FROM Admins WHERE AccountId = :id";
         $stm = $db->prepare($sql);
@@ -49,7 +47,7 @@ if (isset($_POST['submit'])) {
         header("Location: student-page.php");
       //if user is a student
       }else if ($userdetails['RoleId']==3){
-        
+
         //getting this users detail from admin table
         $sql = "SELECT * FROM Students WHERE AccountId = :id";
         $stm = $db->prepare($sql);
