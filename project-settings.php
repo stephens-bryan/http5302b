@@ -1,11 +1,12 @@
 <?php
+require_once "includes/header.php";
+
 ini_set('display_errors', 3); 
 include('includes.php');
 include('database.php');
 
-//hardcoding the student id for now.
-$studentid = 1;
-
+$student = $_SESSION['user'];
+$studentId = $student['Id'];
 //we need to grab the id of the project the user clicked on to edit, and get the project details from the database.
 $projectSelectedId = $_POST['project-to-edit'];
 
@@ -52,7 +53,7 @@ require_once "includes/header.php";
 
                   <!-- hidden inputs for project and image -->
                   <input type="hidden" value="<?php echo $project['Id']?>" name="project-id"/>
-                  <input type="hidden" value="<?php echo $studentid?>" name="studentId"/>
+                  <input type="hidden" value="<?php echo $studentId?>" name="studentId"/>
                   <input type="hidden" value="<?php echo $project['MainPicture']?>" name="old-image"/>
                     <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
                   

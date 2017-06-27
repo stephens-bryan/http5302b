@@ -1,5 +1,6 @@
 <?php
 require_once "includes/header.php";
+
 require_once 'includes.php';
 require_once 'database.php';
 $student = $_SESSION['user'];
@@ -23,7 +24,7 @@ $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
                 <img src="img/humber-logo-webDevPortal.png" class="portalLogo">
     
             <div class="col s12 myProjectsForm__header">
-                <h2>Mia's Projects</h2>
+                <h2><?php echo $student['FirstName'] . " " . $student['LastName']?></h2>
             </div>
             
             <div class="col s12">

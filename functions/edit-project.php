@@ -136,7 +136,7 @@ if (getimagesize($imageTemp)){
   //check if the image name is less than 50 characters. It must be, to be stored in the database.
       if (strlen($imageName)>50)  {
         $formValid = false;
-          $imageLengthError =  ' The image name is too large.';
+          $imageLengthError =  ' The image name is too large.' . $imageName;
       }
       elseif(move_uploaded_file($imageTemp, $target_path)){
         //set the value to be inserted into our database as mainimage
@@ -157,7 +157,7 @@ else {
 if ($formValid){
   $delete  = "../img/"; 
   if(unlink($delete .$projectImage)){
-    echo 'deleted';
+    $deleted = 'the image was deleted';
   }
   else {
     echo 'not deleted';
