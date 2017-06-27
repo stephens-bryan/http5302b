@@ -28,6 +28,8 @@ $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
     
             <div class="col s12 myProjectsForm__header">
 <h2><?php echo $studentFName ?>'s Projects</h2>
+                            <a href="add-project.php"><button class="btn">Add Project</button></a>
+
           </div>
             
             <div class="col s12">
@@ -61,7 +63,6 @@ $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
                     </tbody>
                 </table>
                     
-              <a href="add-project.php"><button class="btn">Add Project</button></a>
                     
                 
             </div>
