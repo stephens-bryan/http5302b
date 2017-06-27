@@ -1,4 +1,6 @@
 <?php
+require_once '../includes/admin_head.php';
+require_once '../includes/admin_nav.php';
 require_once('../../includes.php');
 require_once('../../database.php');
 require_once('Project.php');
@@ -10,41 +12,52 @@ if (!isset($_GET['id'])) {
 
 $Project = new Project($pdo);
 $projects = $Project->readTenProjects($id);
-//$names= $Project->readAllStudentNames();
-//var_dump($names);
+//var_dump($projects);
 ?>
 
 <main>
     <a href="add.php">
-        <h4>Create new project</h4>
+        <h3>Manage project</h3>
     </a>
-    <div style="display: block; border-bottom: 1px solid black">
-        <h5 style="display: inline-block; border-right: 1px solid black">Project</h5>
-        <h5 style="display: inline-block; border-right: 1px solid black">Student</h5>
-        <h5 style="display: inline-block; border-right: 1px solid black">Student Number</h5>
-        <h5 style="display: inline-block; border-right: 1px solid black">Upload Date</h5>
-        <h5 style="display: inline-block; border-right: 1px solid black">Publish Statue</h5>
-        <h5 style="display: inline-block; border-right: 1px solid black">Approve Statue</h5>
-    </div>
-    <?php foreach ($projects as $p) { ?>
-        <div style="display: block; border-bottom: 1px solid black">
-            <h5 style="display: inline-block; border-right: 1px solid black">
-                <?php echo $p['Name'] ?>
-            </h5>
-            <h5 style="display: inline-block; border-right: 1px solid black"><?php echo $p['FirstName'] . ' ' . $p['LastName'] ?></h5>
-            <h5 style="display: inline-block; border-right: 1px solid black"><?php echo $p['StudentNumber'] ?></h5>
-            <h5 style="display: inline-block; border-right: 1px solid black"><?php echo substr($p['UploadDate'], 0, 10) ?></h5>
-            <h5 style="display: inline-block; border-right: 1px solid black"><?php echo $p['Published'] == 1 ? 'Published': "Not published" ?></h5>
-            <h5 style="display: inline-block; border-right: 1px solid black"><?php echo $p['Approved'] == 1 ? 'Approved': "Not approved" ?></h5>
-            <a href="<?php echo 'preview.php?id=' . $p['project_id'] ?>">
-				<h6 style="display: inline-block; border-right: 1px solid black">Preview</h6>
-            </a>
-			<a href="<?php echo 'edit.php?id=' . $p['project_id'] ?>">
-                <h6 style="display: inline-block; border-right: 1px solid black">Edit</h6>
-            </a>
-            <a href="<?php echo 'delete.php?id=' . $p['project_id'] ?>">
-                <h6 style="display: inline-block; border-right: 1px solid black">Delete</h6>
-            </a>
-        </div>
-    <?php } ?>
+	<table class="table table-striped table-bordered">
+	  <thead>
+		<tr>
+		  <th>Project</th>
+		  <th>Student</th>
+		  <th>Student Number</th>
+		  <th>Upload Date</th>
+		  <th>Publish Statue</th>
+		  <th>Approve Statue</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<?php foreach ($projects as $p) { ?>
+			<tr>
+				<td>
+					<?php echo $p['Name'] ?>
+				</td>
+				<td><?php echo $p['FirstName'] . ' ' . $p['LastName'] ?></td>
+				<td><?php echo $p['StudentNumber'] ?></td>
+				<td><?php echo substr($p['UploadDate'], 0, 10) ?></td>
+				<td><?php echo $p['Published'] == 1 ? 'Published': "Not published" ?></td>
+				<td><?php echo $p['Approved'] == 1 ? 'Approved': "Not approved" ?></td>
+				<td>
+					<a class="btn btn-success" href="<?php echo 'preview.php?id=' . $p['project_id'] ?>">
+						Preview
+					</a>
+				</td>
+				<td>
+					<a class="btn btn-success" href="<?php echo 'edit.php?id=' . $p['project_id'] ?>">
+						Edit
+					</a>
+				</td>
+				<td>
+					<a class="btn btn-danger" href="<?php echo 'delete.php?id=' . $p['project_id'] ?>">
+						Delete
+					</a>
+				</td>
+			</tr>
+		<?php } ?>
+	  </tbody>
+	</table>
 </main>

@@ -1,6 +1,8 @@
 <?php
 require_once('../../includes.php');
 require_once('../../database.php');
+require_once "../includes/admin_head.php";
+require_once "../includes/admin_nav.php";
 require_once('Project.php');
 $Project = new Project($pdo);
 $id = $_GET['id'];
@@ -16,35 +18,47 @@ $project = $Project->readOneProject($id);
 ?>
 
 <main>
-<a href="./">
-	<h4>Back</h4>
-</a>
-<form method="POST" action="">
-    <h5><b>Project Name</b></h5>
-    <h5><?php echo $project['Name'] ?></h5>
-    <h5>by <?php echo $project['FirstName'] . ' ' . $project['LastName'] ?></h5>
-    <h5>Student Number: <?php echo $project['StudentNumber'] ?></h5>
-    <h5>Contact Email: <?php echo $project['ContactEmail'] ?></h5>
-    <h5>Contact Number: <?php echo $project['ContactNumber'] ?></h5>
-    <h5><?php echo $project['Published'] == 0 ? "Not published" : "Published" ?></h5>
-    <!-- I don't know where frontend team want to put these pictures
-        <img alt="Main Picture" src="" /> 
-    -->
-    <h5><b>Finish Date</b></h5>
-    <h5><?php echo date(substr($project['FinishDate'], 0, 10)) ?><h5>
-    <h5><b>Upload Date</b></h5>
-    <h5><?php echo date(substr($project['UploadDate'], 0, 10)) ?><h5>
-    <h5><b>Team project or not</b></h5>
-    <h5><?php echo $project['TeamProject'] == 0? 'Personal Project': 'Team Project'?></h5>
-    <h5><b>Url</b></h5>
-    <h5><?php echo $project['Url'] ?></h5>
-    <h5><b>GitHub</b></h5>
-    <h5><?php echo $project['GitHub'] ?></h5>
-    <h5><b>Short Description</b></h5>
-    <h5><?php echo $project['ShortDesc'] ?></h5>
-    <h5><b>Full Description</b></h5>
-    <h5><?php echo $project['Description'] ?></h5>
-    <h5><b>Approved or not</b></h5>
-    <h5><?php echo $project['Approved'] == 0? 'Not Approved': 'Approved'?></h5>
-</form>
+	<a class="btn" href="./">
+		Back
+	</a>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Project Name</th>
+				<th>Student Name</th>
+				<th>Student Number</th>
+				<th>Contact Email</th>
+				<th>Contact Number</th>
+				<th>Statues</th>
+				<th>Finish Date</th>
+				<th>Upload Date</th>
+				<th>Type</th>
+				<th>Url</th>
+				<th>Github</th>
+				<th>Short Desc</th>
+				<th>Full Desc</th>
+				<th>Approved?</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><?php echo $project['Name'] ?></td>
+				<td><?php echo $project['FirstName'] . ' ' . $project['LastName'] ?></td>
+				<td><?php echo $project['StudentNumber'] ?></td>
+				<td><?php echo $project['ContactEmail'] ?></td>
+				<td><?php echo $project['ContactNumber'] ?></td>
+				<td><?php echo $project['Published'] == 0 ? "Not published" : "Published" ?></td>
+				<td><?php echo date(substr($project['FinishDate'], 0, 10)) ?></td>
+				<td><?php echo date(substr($project['UploadDate'], 0, 10)) ?></td>
+				<td><?php echo $project['TeamProject'] == 0? 'Personal Project': 'Team Project'?></td>
+				<td><?php echo $project['Url'] ?></td>
+				<td><?php echo $project['GitHub'] ?></td>
+				<td><?php echo $project['ShortDesc'] ?></td>
+				<td><?php echo $project['Description'] ?></td>
+				<td><?php echo $project['Approved'] == 0? 'Not Approved': 'Approved'?></td>
+			</tr>
+		</tbody>
+	</table>
+	
 </main>
