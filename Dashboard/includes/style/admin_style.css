@@ -25,6 +25,9 @@ main {
   z-index: 5;
   color: white;
   background: #153b35; }
+  #admin_head nav {
+    background: #153b35;
+  }
   #admin_head h1 {
     font-size: 1.5em;
     text-transform: uppercase; }
@@ -33,7 +36,12 @@ main {
     transition: color 0.3s ease; }
     #admin_head a:hover {
       color: rgba(255, 255, 255, 0.8); }
-
+#mobile-admin {
+    color: #153b35;
+}
+#sidenav-overlay {
+    z-index: 1;
+}
 #features {
   text-align: center;
   color: #73ddd9 !important; }
