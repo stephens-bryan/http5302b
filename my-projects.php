@@ -1,10 +1,12 @@
 <?php
+require_once "includes/header.php";
 require_once 'includes.php';
 require_once 'database.php';
-$studentId = 1;
+$student = $_SESSION['user'];
+$studentId = $student['Id'];
 $projectClass = new ProjectDAO();
 $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
-require_once "includes/header.php";
+
 ?>
 <body>
     <?php 
@@ -12,7 +14,9 @@ require_once "includes/header.php";
     ?>
     
     <main>
-    <div class="container">  
+    <div class="container"> 
+     
+
         <div class="row" id="projectsForm__cont">
             
             <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
