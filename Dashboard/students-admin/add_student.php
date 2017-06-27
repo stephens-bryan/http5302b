@@ -50,9 +50,11 @@ require_once "includes/header.php";
 
             //get date for Last Update
             $lastUpdate = $student->getDate();
-
+            
+            //token set to empty string for account
+            $token = '';
             //add account
-            $row = $account->addAccount($roleId, $username, $email, $salt, $passHash, $activated);
+            $row = $account->addAccount($roleId, $username, $email, $salt, $passHash, $token, $activated);
 
             //if $row is true, do something
             if($row){
