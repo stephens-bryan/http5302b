@@ -1,4 +1,4 @@
-<?php ini_set('display_errors', 3); 
+<?php ini_set('display_errors', 3);
 
 require_once 'includes.php';
 require_once 'database.php';
@@ -43,9 +43,9 @@ $studentProjectsLimit = $students->getStudentsAndProjectsLimit3($pdo);
         <div class="row">
           <p class="landing-page__year col s12">2017</p>
           <?php foreach($studentProjectsLimit as $spl) : ?>
-          
+
             <a href="student-page.php?student=<?php echo $spl->StudentId ?>"><div  class="col l4 m6 s12">
-             
+
                <div class="card thumbnail-small">
         <div class="card-image">
             <svg class="thumbnail-small-header-svgs" height="24" width="238">
@@ -54,8 +54,8 @@ $studentProjectsLimit = $students->getStudentsAndProjectsLimit3($pdo);
                 <circle cx="34" cy="12" r="3" fill="white" />
             </svg>
             <div class="thumb-container">
-              
-              <!--project hero image--> 
+
+              <!--project hero image-->
               <img class="thumbnail-small-image" src="img/<?php echo $spl->MainPicture ?>">
 
               <div class="overlay">
@@ -74,7 +74,7 @@ $studentProjectsLimit = $students->getStudentsAndProjectsLimit3($pdo);
                         <div class="col s10 thumbnail-small-footer-text-container">
                           <div class="col s12 thumbnail-small-footer-text-header-container">
 
-                          <!--student profile name--> 
+                          <!--student profile name-->
                             <p class="left thumbnail-small-footer-text thumbnail-small-footer-text-header"><?php echo $spl->FirstName?> <?php echo $spl->LastName ?></p>
 
                           </div>
@@ -86,12 +86,12 @@ $studentProjectsLimit = $students->getStudentsAndProjectsLimit3($pdo);
         </div>
     </div>
 
-              
+
             </div></a>
                 <?php endforeach; ?>
         </div>
       <a href="students-page.php"><p class="landing-page__see-more col s12">see more...</p></a>
-      
+
       <div class="row">
         <div class="col s12"><div class="divider"></div></div>
       </div>

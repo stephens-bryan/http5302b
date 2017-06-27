@@ -1,6 +1,8 @@
 <?php
 require_once('../../includes.php');
 require_once('../../database.php');
+require_once "../includes/admin_head.php";
+require_once "../includes/admin_nav.php";
 require_once('Project.php');
 $Project = new Project($pdo);
 $id = $_GET['id'];
@@ -14,37 +16,48 @@ $project = $Project->readOneProject($id);
 ?>
 
 <main>
-<a href="./">
-	<h4>Back</h4>
+<a class="btn" href="./">
+	Back
 </a>
 <form method="POST" action="">
-    <h5><b>Project Name</b></h5>
-    <input type="text" value="<?php echo $project['Name'] ?>" name="Name" />
-    <h5>by <?php echo $project['FirstName'] . ' ' . $project['LastName'] ?></h5>
-    <h5>Student Number: <?php echo $project['StudentNumber'] ?></h5>
-    <h5>Contact Email: <?php echo $project['ContactEmail'] ?></h5>
-    <h5>Contact Number: <?php echo $project['ContactNumber'] ?></h5>
-    <h5><?php echo $project['Published'] == 0 ? "Not published" : "Published" ?></h5>
-    <!-- I don't know where frontend team want to put these pictures
-        <img alt="Main Picture" src="" /> 
-    -->
-    <h5><b>Finish Date</b></h5>
-    <input type="date" value="<?php echo date(substr($project['FinishDate'], 0, 10)) ?>" name="FinishDate" />
-    <h5><b>Upload Date</b></h5>
+	<label>Project Name</label> 
+	<div class="controls">
+	<input name="Name" type="text" value="<?php echo $project['Name'] ?>">
+	</div>
+	<br/>
+    <label>by <?php echo $project['FirstName'] . ' ' . $project['LastName'] ?></label> <br/><br/>
+    <label>Student Number: <?php echo $project['StudentNumber'] ?></label> <br/><br/>
+    <label>Contact Email: <?php echo $project['ContactEmail'] ?></label> <br/><br/>
+    <label>Contact Number: <?php echo $project['ContactNumber'] ?></label> <br/><br/>
+    <label><?php echo $project['Published'] == 0 ? "Not published" : "Published" ?></label> <br/><br/>
+
+	<label>Finish Date</label> 
+	<div class="controls">
+	<input type="date" value="<?php echo date(substr($project['FinishDate'], 0, 10)) ?>" name="FinishDate" />
+	</div>
+	<br/>
+    <label>Upload Date</label>
     <input type="date" value="<?php echo date(substr($project['UploadDate'], 0, 10)) ?>" name="UploadDate" />
-    <h5><b>Team project or not</b></h5>
-    <input type="radio" name="TeamProject" value="0" <?php echo $project['TeamProject'] == 0? 'checked': null?>>Personal Project<br>
-    <input type="radio" name="TeamProject" value="1" <?php echo $project['TeamProject'] == 1? 'checked': null?>>Team Project<br>
-    <h5><b>Url</b></h5>
+	<br/>
+	
+    <label>project or not</label>
+    <input style="display: block" type="radio" name="TeamProject" value="0" <?php echo $project['TeamProject'] == 0? 'checked': null?>>Personal Project<br>
+    <input style="display: block" type="radio" name="TeamProject" value="1" <?php echo $project['TeamProject'] == 1? 'checked': null?>>Team Project<br>
+	<br/>
+    <label>Url</label>
     <input type="text" value="<?php echo $project['Url'] ?>" name="Url" />
-    <h5><b>GitHub</b></h5>
+	<br/>
+    <label>GitHub</label>
     <input type="text" value="<?php echo $project['GitHub'] ?>" name="GitHub" />
-    <h5><b>Short Description</b></h5>
+	<br/>
+    <label>Short Description</label>
     <textarea name="ShortDesc"><?php echo $project['ShortDesc'] ?></textarea>
-    <h5><b>Full Description</b></h5>
+	<br/>
+    <label>Full Description</label>
     <textarea name="Description"><?php echo $project['Description'] ?></textarea>
-    <h5><b>Approved or not</b></h5>
-    <select name="Approved">
+	<br/>
+    <label>Approved or not</label>
+    <select style="display: block" name="Approved">
         <option value="0" <?php echo $project['Approved'] == 0? 'selected': null?>>Not approved</option>
         <option value="1" <?php echo $project['Approved'] == 1? 'selected': null?>>Approved</option>
     </select>

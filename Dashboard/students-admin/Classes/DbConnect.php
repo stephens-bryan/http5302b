@@ -2,7 +2,7 @@
 
 class DbConnect {
 
-    private $dsn = "mysql:host=localhost;dbname=portfolio";
+    private $dsn = "mysql:host=127.0.0.1;dbname=portfolio";
     private $username = "root";
     private $password = "root";
     private $db;

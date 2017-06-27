@@ -18,16 +18,3 @@ $account = new Account($db);
 //instantiate Student Class
 require_once "Classes/Student.php";
 $student = new Student($db);
-
-?>
-<!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <title>Student Module</title>
-        </head>
-        <body>
-            <header>
-                <h1>Students</h1>
-            </header>
-            <main>

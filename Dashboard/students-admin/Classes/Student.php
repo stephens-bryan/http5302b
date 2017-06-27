@@ -30,7 +30,7 @@ class Student {
 
     public function getStudents() {
 
-        $query = "SELECT * FROM students";
+        $query = "SELECT * FROM Students";
         $pdostmt = $this->db->prepare($query);
         $pdostmt->execute();
         $students = $pdostmt->fetchAll();
@@ -43,7 +43,7 @@ class Student {
 
     public function getStudentById($id){
 
-        $query = "SELECT * FROM students
+        $query = "SELECT * FROM Students
                   WHERE Id = :id";
         $pdostmt = $this->db->prepare($query);
         $pdostmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -60,7 +60,7 @@ class Student {
     public function
     addStudent($accountId, $profileImg, $firstName, $lastName, $studentNum, $email, $lastUpdate, $phoneNum, $currentJob){
 
-        $query = "INSERT INTO students
+        $query = "INSERT INTO Students
                   (AccountId, ProfileImg, FirstName, LastName, StudentNumber, ContactEmail, LastUpdate, ContactNumber, CurrentJob)
                   VALUES(:AccountId, :ProfileImg, :FirstName, :LastName, :StudentNumber, :ContactEmail, :LastUpdate, :ContactNumber, :CurrentJob )";
         $pdostmt = $this->db->prepare($query);
@@ -82,7 +82,7 @@ class Student {
     //***Update Student***
     public function updateStudent($profileImg, $firstName, $lastName, $studentNum, $email, $lastUpdate, $phoneNum, $currentJob, $id){
 
-        $query = "UPDATE students
+        $query = "UPDATE Students
                   SET ProfileImg = :ProfileImg,
                   FirstName = :FirstName,
                   LastName = :LastName,
@@ -111,7 +111,7 @@ class Student {
     //***Delete Student***
 
     public function deleteStudent($id){
-        $query = "DELETE FROM students WHERE Id = :id";
+        $query = "DELETE FROM Students WHERE Id = :id";
         $pdostmt = $this->db->prepare($query);
         $pdostmt->bindValue(':id',$id,PDO::PARAM_INT);
         $row = $pdostmt->execute();
@@ -124,7 +124,7 @@ class Student {
     //***Get Acccount Id By student id***
 
     public function getAccountId($id){
-        $query = "SELECT AccountId FROM students
+        $query = "SELECT AccountId FROM Students
                   WHERE Id = :id";
         $pdostmt = $this->db->prepare($query);
         $pdostmt->bindValue(':id', $id, PDO::PARAM_INT);

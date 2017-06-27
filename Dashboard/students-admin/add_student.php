@@ -5,6 +5,9 @@
  * Date: 2017-06-13
  * Time: 1:29 PM
  */
+require_once "../includes/admin_head.php";
+require_once "../includes/admin_nav.php";
+
 //require header
 require_once "includes/header.php";
 
@@ -87,6 +90,8 @@ require_once "includes/header.php";
 
 ?>
 
+<h1>Add Student</h1>
+
 <form action"<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div>
         <label for="profile_img">Profile Image:</label>
@@ -116,7 +121,7 @@ require_once "includes/header.php";
         <label for="current_job">Current Job:</label>
         <input type="text" name="current_job" id="current_job" placeholder="Current Job...">
     </div>
-    <input type="submit" name="submit" value="Add">
+    <input type="submit" name="submit" value="Add" class="btn">
 </form>
 
 
