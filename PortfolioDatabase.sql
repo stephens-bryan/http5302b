@@ -31,7 +31,7 @@ CREATE TABLE `Accounts` (
   `Email` varchar(50) DEFAULT NULL,
   `PasswordSalt` varchar(20) NOT NULL,
   `PasswordHash` varchar(80) NOT NULL,
-  'Token' varchar(50) NOT NULL,
+  `Token` varchar(50) NULL,
   `Activated` bit(1) NOT NULL DEFAULT b'0',
   PRIMARY KEY (`Id`),
   KEY `RoleId` (`RoleId`),
@@ -45,7 +45,7 @@ CREATE TABLE `Accounts` (
 
 LOCK TABLES `Accounts` WRITE;
 /*!40000 ALTER TABLE `Accounts` DISABLE KEYS */;
-INSERT INTO `Accounts` VALUES (1,1,'Boss','Bernard.Monette@humber.ca','root','1a935314579adfe8dc18db6ae1e8aec4df941a93',''),(2,3,'student','student@gmail.com','student','81291dee22e3be6d899743420c20764845b74dc0',''),(3,3,'someDude','test@test.com','test','81291dee22e3be6d899743420c20764845b74dc0','\0');
+INSERT INTO `Accounts` VALUES (1,1,'Boss','Bernard.Monette@humber.ca','root','1a935314579adfe8dc18db6ae1e8aec4df941a93','',''),(2,3,'student','student@gmail.com','student','81291dee22e3be6d899743420c20764845b74dc0','',''),(3,3,'someDude','test@test.com','test','81291dee22e3be6d899743420c20764845b74dc0','','\0');
 /*!40000 ALTER TABLE `Accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -105,10 +105,15 @@ if (isset($_POST['submit'])) {
                   <input id="studentLoginForm__emailField" type="text" placeholder="Email Address" name="email" value="<?php //if(!empty($_POST['email'])){echo $_POST['email']} ?>"> <span><?php echo $emailErr ?></span>
 
                   <input id="studentLoginForm__passwField" type="password" placeholder="Password" name="pass">  <span><?php echo $passErr ?></span>
+<<<<<<< origin/master
 
                 <span><?php echo $loginErr ?></span>
+=======
+                
+                <p><?php echo $emailErr ?></p>
+>>>>>>> HEAD~0
                 <div id="studentLoginForm__promptLoginCont">
-                <a href="#" id="studentLoginForm__passwPrompt">Forgotten Your Password?</a>
+                <a href="forgot-password.php" id="studentLoginForm__passwPrompt">Forgotten Your Password?</a>
                 <input type="submit" value="Login" class="studentLoginForm__loginBtn btn" name="submit">
                 </div>
             </form>

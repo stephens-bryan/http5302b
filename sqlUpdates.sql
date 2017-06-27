@@ -2,4 +2,4 @@
 ALTER TABLE Accounts MODIFY COLUMN PasswordHash varchar(80);
 
 -- add token column
-ALTER TABLE Accounts ADD Tokeny varchar(50);
+ALTER TABLE Accounts ADD Token varchar(50);
