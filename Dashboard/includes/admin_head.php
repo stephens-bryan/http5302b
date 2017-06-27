@@ -1,6 +1,10 @@
 <?php
 session_start();
 date_default_timezone_set('America/Toronto');
+
+//  This can be a variable of how many unpublished
+//  projects there are in the database
+$unpublished = 3;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,17 +29,25 @@ date_default_timezone_set('America/Toronto');
 
 <body>
     <header id="admin_head" class="z-depth-2">
-        <nav>
+        <nav class="nav-extended">
             <div class="nav-wrapper">
                 <a href="/http5302b/Dashboard" class="brand-logo">Admin Dashboard</a>
-                <a href="#" data-activates="mobile-admin" class="button-collapse"><i class="material-icons">menu</i></a>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
                     <li><a class="dropdown-button" href="#!" data-activates="dropAdmin">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
-                <ul id="mobile-admin" class="side-nav">
-                    <li><a href="/http5302b/includes/logout.php">Logout<i class="material-icons right">settings</i></a></li>
-                </ul>
+                <!-- Slide Navigation
+
+                <div class="nav-content">
+                  <ul class="tabs tabs-transparent">
+                    <li class="tab"><a href="/http5302b/Dashboard/students-admin/list_student.php">Students</a></li>
+                    <li class="tab"><a href="/http5302b/Dashboard/project-admin">Projects</a></li>
+                    <li class="tab"><a href="/http5302b/Dashboard/classes-admin/classes-index.php">Classes</a></li>
+                  </ul>
+                </div>
+
+                -->
             </div>
         </nav>
     </header>
@@ -43,7 +55,15 @@ date_default_timezone_set('America/Toronto');
     <ul id="dropAdmin" class='dropdown-content'>
         <li><a href="/http5302b/includes/logout.php"><i class="material-icons">settings</i>Logout</a></li>
     </ul>
-
+    <ul id="slide-out" class="side-nav">
+        <li><h4>&emsp;Menu</h4></li>
+        <li><a href="/http5302b/Dashboard"><i class="material-icons">home</i>Dashboard</a></li>
+        <li><a href="/http5302b/Dashboard/students-admin/list_student.php"><i class="material-icons">supervisor_account</i>Manage Students</a></li>
+        <li><a href="/http5302b/Dashboard/project-admin"><i class="material-icons">art_track</i>Manage Projects<?php echo ($unpublished >= 1)? '<span id="unpublished" class="new badge">'.$unpublished.'</span>' : '' ;?></a></li>
+        <li><a href="/http5302b/Dashboard/classes-admin/classes-index.php"><i class="material-icons">class</i>Manage Classes</a></li>
+        <li><div class="divider"></div></li>
+        <li><a href="/http5302b/includes/logout.php"><i class="material-icons">settings</i>Logout</a></li>
+    </ul>
     <script type='text/javascript'>
         $(document).ready(function(){
             $(".button-collapse").sideNav();
