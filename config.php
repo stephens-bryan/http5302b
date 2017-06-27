@@ -1,7 +1,7 @@
 <?php
 
 
-define( 'HOST', '127.0.0.1' );
+define( 'HOST', 'localhost' );
 define( 'USERNAME', 'root' );
-define( 'PASSWORD', 'root' );
+define( 'PASSWORD', 'password' );
 define( 'DATABASE', 'portfolio' );
