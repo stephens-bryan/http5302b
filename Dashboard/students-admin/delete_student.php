@@ -45,7 +45,7 @@ require_once"includes/header.php";
     */
 
 ?>
-<h1>Delete Student</h1>
+<h3>Delete Student</h3>
 
 <p>Are you sure you want to delete student <?= $id; ?>?</p>
 

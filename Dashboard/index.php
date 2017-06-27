@@ -36,13 +36,13 @@ if($_GET):?>
           </a>
         </div>
         <div class="col m4">
-          <a href="?board=projects">
+          <a href="/http5302b/Dashboard/project-admin" >
             <i class="material-icons">art_track</i>
             <h2 class="admin_core_link">Manage Projects</h2>
           </a>
         </div>
         <div class="col m4">
-          <a href="?board=classes" >
+          <a href="/http5302b/Dashboard/classes-admin/classes-index.php">
             <i class="material-icons">class</i>
             <h2 class="admin_core_link">Manage Classes</h2>
           </a>

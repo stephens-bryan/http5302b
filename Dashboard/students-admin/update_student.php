@@ -49,7 +49,7 @@ require_once "includes/header.php";
     }//end if isset update
 ?>
 
-    <h1>Update Student</h1>
+    <h3>Update Student</h3>
 
     <form action"<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div>

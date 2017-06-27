@@ -93,61 +93,52 @@
     }
 ?>
 
-<body>
-    <div class="container">
+<h3>Create New Class</h3>
 
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-                    <div class="row">
-                        <h3>Create New Class</h3>
-                    </div>
+<form action="classes-create.php" method="post">
 
-                    <form action="classes-create.php" method="post">
+<label>Program Name</label>
+  <div class="controls">
+    <input name="ProgramName" type="text"  placeholder="Program name" value="<?php echo !empty($programname)?$programname:'';?>">
+  </div>
+<br/>
+<label>Campus</label>
+  <div class="controls">
+    <input name="Campus" type="text" placeholder="Humber campus" value="<?php echo !empty($campus)?$campus:'';?>">
+  </div>
+<br/>
+<label>Semesters</label>
+  <div class="controls">
+    <input name="Length" type="number" placeholder="# of Semesters" value="<?php echo !empty($length)?$length:'';?>">
+  </div>
+<br/>
+<label>Start Date</label>
+  <div class="controls">
+    <input name="StartDate" type="date" placeholder="Start Date" value="<?php echo !empty($startdate)?$startdate:'';?>">
+  </div>
+<br/>
+<label>End Date</label>
+  <div class="controls">
+    <input name="EndDate" type="date" placeholder="End Date" value="<?php echo !empty($enddate)?$enddate:'';?>">
+  </div>
+<br/>
+<label>Program Credentials</label>
+  <div class="controls">
+    <input name="Credentials" type="text" placeholder="Diploma/Certificate Obtained" value="<?php echo !empty($credentials)?$credentials:'';?>">
+  </div>
+<br/>
+<label>Area of Interest</label>
+  <div class="controls">
+    <input name="AreaOfInterest" type="text" placeholder="Department" value="<?php echo !empty($areaofinterest)?$areaofinterest:'';?>">
+  </div>
+<br/><br/>
+<div>
+  <button type="submit" name="submit" class="btn btn-success">Create</button>
+  <a class="btn" href="classes-index.php">Back to Main</a>
+</div>
 
-                        <label>Program Name</label>
-                          <div class="controls">
-                            <input name="ProgramName" type="text"  placeholder="Program name" value="<?php echo !empty($programname)?$programname:'';?>">
-                          </div>
-                        <br/>
-                        <label>Campus</label>
-                          <div class="controls">
-                            <input name="Campus" type="text" placeholder="Humber campus" value="<?php echo !empty($campus)?$campus:'';?>">
-                          </div>
-                        <br/>
-                        <label>Semesters</label>
-                          <div class="controls">
-                            <input name="Length" type="number" placeholder="# of Semesters" value="<?php echo !empty($length)?$length:'';?>">
-                          </div>
-                        <br/>
-                        <label>Start Date</label>
-                          <div class="controls">
-                            <input name="StartDate" type="date" placeholder="Start Date" value="<?php echo !empty($startdate)?$startdate:'';?>">
-                          </div>
-                        <br/>
-                        <label>End Date</label>
-                          <div class="controls">
-                            <input name="EndDate" type="date" placeholder="End Date" value="<?php echo !empty($enddate)?$enddate:'';?>">
-                          </div>
-                        <br/>
-                        <label>Program Credentials</label>
-                          <div class="controls">
-                            <input name="Credentials" type="text" placeholder="Diploma/Certificate Obtained" value="<?php echo !empty($credentials)?$credentials:'';?>">
-                          </div>
-                        <br/>
-                        <label>Area of Interest</label>
-                          <div class="controls">
-                            <input name="AreaOfInterest" type="text" placeholder="Department" value="<?php echo !empty($areaofinterest)?$areaofinterest:'';?>">
-                          </div>
-                        <br/><br/>
-                        <div>
-                          <button type="submit" name="submit" class="btn btn-success">Create</button>
-                          <a class="btn" href="classes-index.php">Back to Main</a>
-                        </div>
-
-                    </form>
-
-    </div> <!-- /container -->
-  </body>
+</form>
 
 <?php
-include '../includes/admin_footer.php'; 
+include '../includes/admin_footer.php';
 ?>

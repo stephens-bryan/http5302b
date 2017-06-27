@@ -17,13 +17,13 @@
                         <p class="col s4 right-align">
                             <i class="material-icons">art_track</i>
                         </p>
-                        <p class="col s8"><a href="?board=projects" class="admin_core_link">Manage Projects</a></p>
+                        <p class="col s8"><a href="/http5302b/Dashboard/project-admin" class="admin_core_link">Manage Projects</a></p>
                     </li>
                     <li class="row">
                         <p class="col s4 right-align">
                             <i class="material-icons">class</i>
                         </p>
-                        <p class="col s8"><a href="?board=classes" class="admin_core_link">Manage Classes</a></p>
+                        <p class="col s8"><a href="/http5302b/Dashboard/classes-admin/classes-index.php" class="admin_core_link">Manage Classes</a></p>
                     </li>
                 </ul>
 
@@ -31,7 +31,7 @@
                     <p class="col s5 right-align">
                         <i class="material-icons">settings</i>
                     </p>
-                    <p class="col s7">Profile Settings</p>
+                    <p class="col s7"><a href="/http5302b/includes/logout.php" class="admin_core_link">Logout</a></p>
                 </p>
 
             </aside>

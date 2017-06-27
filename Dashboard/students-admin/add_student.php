@@ -90,7 +90,7 @@ require_once "includes/header.php";
 
 ?>
 
-<h1>Add Student</h1>
+<h3>Add Student</h3>
 
 <form action"<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div>

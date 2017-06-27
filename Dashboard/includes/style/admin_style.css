@@ -3,7 +3,9 @@
   font-family: 'Montserrat'; }
 
 h1 {
-  font-size: 3em; }
+    margin: 17px 0 15px;
+    font-size: 2em;
+}
 
 main {
   color: #153b35;

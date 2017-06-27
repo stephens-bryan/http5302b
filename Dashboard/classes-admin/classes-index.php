@@ -2,13 +2,7 @@
 require_once '../includes/admin_head.php';
 require_once '../includes/admin_nav.php';
 ?>
-
-<body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <div class="container">
-        <div class="row">
-            <h3>Academic Year</h3>
-        </div>
+        <h3>Academic Year</h3>
         <div class="row">
             <table class="table table-striped table-bordered">
               <thead>
@@ -64,9 +58,7 @@ require_once '../includes/admin_nav.php';
                 <a href="classes-create.php" class="btn btn-success">Create New Academic Year</a>
             </p>
         </div>
-    </div> <!-- /container -->
-  </body>
 
 <?php
-include '../includes/admin_footer.php'; 
+include '../includes/admin_footer.php';
 ?>
