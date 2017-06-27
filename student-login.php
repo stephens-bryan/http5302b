@@ -1,7 +1,7 @@
 <?php
 
 require_once "includes/header.php";
-require_once "model/db.php";
+require_once "models/db.php";
 
 session_start();
 
