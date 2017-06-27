@@ -2,6 +2,9 @@
 require_once "includes/header.php";
 require_once 'includes.php';
 require_once 'database.php';
+if (!isset($_SESSION['user'])){
+      header("Location: student-login.php");
+}
 
 $student = $_SESSION['user'];
 $studentId = $student['Id'];

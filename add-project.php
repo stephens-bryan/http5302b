@@ -1,5 +1,8 @@
 <?php
 require_once "includes/header.php";
+if (!isset($_SESSION['user'])){
+      header("Location: student-login.php");
+}
 ini_set('display_errors', 3); 
 include('includes.php');
 include('database.php');
