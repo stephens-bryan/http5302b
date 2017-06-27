@@ -8,20 +8,27 @@ $db = DbConnect::getDB();
 
 $passErr="";
 $emailErr="";
+$loginErr="";
 $valid = true;
 
 if (isset($_POST['submit'])) {
   //validate email
   if(empty($_POST['email'])) {
-    $emailErr="Please enter valid email";
+    $emailErr="Please enter your email";
+    $valid = false;
+  }else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+    $emailErr="Please enter correct email format";
     $valid = false;
   }
   //validate password
   if(empty($_POST['pass'])) {
     $passErr="Please enter password";
     $valid = false;
+  } else if(strlen($_POST['pass']) < 8) {
+    $passErr="min 8 character";
+    $valid = false;
   }
-
+  
   if($valid) {
     $sql = "SELECT * FROM Accounts WHERE Email = :email";
     $stm = $db->prepare($sql);
@@ -31,7 +38,10 @@ if (isset($_POST['submit'])) {
     
     $hashPass = $userdetails['PasswordHash'].$userdetails['PasswordSalt'];
     $account = array("RoleId"=>$userdetails['RoleId'],"UserName"=>$userdetails['UserName'],"Email"=>$userdetails['Email']);
-    if($_POST['pass']==$userdetails['PasswordHash']){  
+
+    
+    if($_POST['pass']==$userdetails['PasswordHash']){   /*password_verify($hashPass, $userdetails['passwordHash'])*/
+>>>>>>> master
       //if user is an admin
       if($userdetails['RoleId']==1){
 
@@ -44,7 +54,20 @@ if (isset($_POST['submit'])) {
         //merging new result with the account detail array
         $user = array_merge($account,$admin);
         $_SESSION['user'] = $user;
-        header("Location: student-page.php");
+        header("Location: ./Dashboard/index.php");
+      //if user is a student
+      }else if ($userdetails['RoleId']==2){
+        
+        //getting this users detail from admin table
+        $sql = "SELECT * FROM Admins WHERE AccountId = :id";
+        $stm = $db->prepare($sql);
+        $stm->bindValue(':id', $userdetails['Id'], PDO::PARAM_STR);
+        $stm->execute();
+        $admin = $stm->fetch();
+        //merging new result with the account detail array
+        $user = array_merge($account,$admin);
+        $_SESSION['user'] = $user;
+        header("Location: ./Dashboard/index.php");
       //if user is a student
       }else if ($userdetails['RoleId']==3){
 
@@ -56,10 +79,13 @@ if (isset($_POST['submit'])) {
         $student = $stm->fetch();
         //merging new result with the account detail array
         $user = array_merge($account,$student);
+        var_dump($user);
         $_SESSION['user'] = $user;
         header("Location: student-page.php");
       }   
-    } /*password_verify($hashPass, $userdetails['passwordHash'])*/
+    }else {
+      $loginErr="invalid login";
+    }
     
   }
   
