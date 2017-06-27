@@ -18,8 +18,12 @@ date_default_timezone_set('America/Toronto');
             <!--END #header_title-->
 
             <div class="col s2 right-align right">
-                <p>Admin<i class="material-icons">expand_more</i></p>
+                <a class='dropdown-button' href='#' data-activates='adminDrop'>Admin<i class="material-icons">expand_more</i></a>
             </div>
+            <!-- Dropdown Structure -->
+            <ul id='adminDrop' class='dropdown-content'>
+                <li><a href="/http5302b/includes/logout.php"><i class="material-icons">settings</i>Logout</a></li>
+            </ul>
             <!--END #header_menu-->
         </div>
         <!--END .row-->

@@ -83,15 +83,8 @@
     }
 ?>
 
-<body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <div class="container">
 
-                <div class="span10 offset1">
-
-                    <div class="row">
                         <h3>Update Class</h3>
-                    </div>
 
                     <form method="post">
 
@@ -136,10 +129,7 @@
                         </div>
 
                     </form>
-                </div>
-    </div> <!-- /container -->
-  </body>
 
 <?php
-include '../includes/admin_footer.php'; 
+include '../includes/admin_footer.php';
 ?>

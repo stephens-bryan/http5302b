@@ -32,27 +32,18 @@
     }
 ?>
 
-
-<body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <div class="container">
-                <div class="span10 offset1">
-                    <div class="row">
-                        <h3>Delete Year</h3>
-                    </div>
-                    <form class="form-horizontal" action="classes-delete.php" method="post">
-                      <input type="hidden" name="id" value="<?php echo $id;?>"/>
-                      <p class="alert alert-error">Are you sure to delete this Academic Year?</p>
-                      <div class="form-actions">
-                          <button type="submit" class="btn btn-danger">Yes</button>
-                          <a class="btn" href="classes-index.php">No</a>
-                        </div>
-                    </form><br/>
-                    <a class="btn" href="classes-index.php">Back to Main</a>
-                </div>
-    </div> <!-- /container -->
-  </body>
+<h3>Delete Year</h3>
+<form class="form-horizontal" action="classes-delete.php" method="post">
+    <input type="hidden" name="id" value="<?php echo $id;?>"/>
+    <p class="alert alert-error">Are you sure to delete this Academic Year?</p>
+    <div class="form-actions">
+        <button type="submit" class="btn btn-danger">Yes</button>
+        <a class="btn" href="classes-index.php">No</a>
+    </div>
+</form>
+<br>
+<a class="btn" href="classes-index.php">Back to Main</a>
 
 <?php
-include '../includes/admin_footer.php'; 
+include '../includes/admin_footer.php';
 ?>
