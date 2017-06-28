@@ -1,19 +1,23 @@
 <ul class="collapsible side-nav fixed bar-color" id="slide-out" data-collapsible="accordion"> 
   <a href="./index.php"><img class="logo" src="img/humber_logo.png" alt="Humber Logo image"></a>
+    
+<h1 class="loggedInSdbr__nav__year">2017</h1>
   <img class="circle" id="icon" src="img/yuna.jpg" alt="Humber Logo image">
     <div id="sidebar__searchCont">
-      <form action='search.php' method='post'>
-    <input id="searchQuery" type="search" placeholder="Search" /><i class="material-icons" id="sidebar__searchIcon">search</i>
+      <form action='search.php' method='post' id="searchForm">
+          
+        <input id="searchQuery" type="search" placeholder="Search by language, skill or discipline." />
+           <button id="sidebar__searchIcon" type="button">Search</button>
       </form>
     </div>
     <li>
-        <div class="collapsible-header"><a href="./account-settings.php"><i class="material-icons">supervisor_account</i>Account Settings</a></div>
+        <div class="collapsible-header"><a class="loggedInSdbr__menuRow__normal" href="./account-settings.php"><i class="material-icons">supervisor_account</i>Account Settings</a></div>
     </li>
     <li>
-        <div class="collapsible-header"><a href="./project-settings.php"><i class="material-icons">settings</i>Project Settings</a></div>
+        <div class="collapsible-header"><a class="loggedInSdbr__menuRow__normal" href="./project-settings.php"><i class="material-icons">settings</i>Project Settings</a></div>
     </li>
     <li>
-        <div class="collapsible-header"><a href="./my-projects.php"><i class="material-icons">note_add</i>Add Project</a></div>
+        <div class="collapsible-header"><a class="loggedInSdbr__menuRow__normal" href="./my-projects.php"><i class="material-icons">note_add</i>Add Project</a></div>
     </li>
 </ul>
 <div class="navbar-fixed mobile-only">
