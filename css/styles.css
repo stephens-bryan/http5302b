@@ -1,6 +1,6 @@
 /* Custom Fonts*/
 
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Arapey');
 
 /* End of Fonts*/
 
@@ -36,39 +36,100 @@ h4 {
 
 
 
-#searchQuery {
-    width: 250px;
-    margin: 2em 1.5em;
-    border-bottom: 1px solid black;
-}
-
-#searchQuery::placeholder {
-        color: black;
-
-}
-
-#sidebar__searchIcon {
-    position: absolute;
-    top: 350px;
-    right: 0025px;
-}
 
 
 /* Sidebar style*/
 
+#searchForm {
+    text-align: center ;
+}
+
+#searchQuery {
+    color: black !important;
+    width: 70%;
+    border-bottom-color: white;
+    border: 2px solid white;
+    background: white;
+    padding: 0px 20px 0px 20px;
+    
+}
+
+#searchQuery::placeholder {
+    color: #73ddd9 !important;
+    font-size: 14px;
+
+}
+
+#search {
+    color: black !important;
+    width: 70%;
+    border-bottom-color: white;
+    border: 2px solid white;
+    background: white;
+    padding: 0px 20px 0px 20px;
+}
+
+#search::placeholder {
+    color: #73ddd9 !important;
+    font-size: 14px;
+}
+
+
+#searchForm {
+    color: white !important;
+    text-align: center;
+}
+
+#sidebar__searchIcon {
+    background: transparent;
+    border: 2px solid white;
+    padding: 12px 20px 12px 20px;
+    margin-bottom: 40px;
+}
+.loggedInSdbr__menuRow__normal {
+    color: white !important;
+    font-weight: 300;
+}
+
 .logo {
     max-width: 85%;
     height: auto;
-    margin: 2em 1em 5em 1em;
+    margin: 2em 1em 3em 1em;
 }
 #icon {
 margin: 0 6em;
+    margin-bottom: 20px;
+}
+
+#searchbtn {
+    background: transparent;
+    border: 2px solid white;
+    padding: 0px 20px 0px 20px
 }
 
 .year {
     color: #fff;
     margin: 0 auto;
     margin: 0 1em 4em 1em;
+    font-family: 'Arapey', 'Times New Roman', serif;
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+.loggedInSdbr__nav__year {
+    color: #fff;
+    margin: 0 auto;
+    margin: 0 1em 4em 1em;
+    font-family: 'Arapey', 'Times New Roman', serif;
+    font-size: 80px;
+    text-align: center;
+    margin-bottom: 20px !important;
+}
+
+.landing-page__Humber-information {
+    margin-top: 50px;
+    font-size: 16px;
 }
 
 header,

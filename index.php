@@ -29,7 +29,7 @@ $studentProjectsLimit = $students->getStudentsAndProjectsLimit3($pdo);
             </div>
 
             <div class="col s12 center">
-                <p class="center-align landing-page__Humber-information">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="center-align landing-page__Humber-information">Welcome to the Humber Web Development Portfolio Site! Humber’s Web Development graduate certificate program focuses on the development of websites and web services for multiple environments including database-driven programming, content management and mobile services. Student work is featured here.</p>
             </div>
 
         </div>
