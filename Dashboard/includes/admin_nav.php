@@ -1,7 +1,7 @@
 
     <!--END #header-->
         <div class="row top-padding">
-            <aside id="admin_nav" class="col m4 l3 z-depth-2">
+            <aside id="admin_nav" class="col m4 l3 z-depth-2 hide-on-med-and-down">
                 <div class="center-align">
                     <a href="/http5302b"><img src="/http5302b/Dashboard/includes/media/HumberWebDev.png" alt="humber logo" title="Image of humber logo" width="70%"/></a>
                 </div>
@@ -45,5 +45,5 @@
                 });
             </script>
             <!--END #side-->
-            <main class="col m8 l9 offset-m4 offset-l3">
+            <main class="col s12 l9 offset-l3">
                 <div class="container row">

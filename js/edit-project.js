@@ -12,7 +12,7 @@ $(document).ready(function(){
       data: formData,
       async: true,
       success:function(data){
-                  $("#upload-feedback").html(Materialize.toast("<p>Result:<br/>" + data + "</p>", 100000));
+                  $("#upload-feedback").html(Materialize.toast("<p>Result:<br/>" + data + "</p>", 10000));
 
 
                 $("#submission-progress").html('');

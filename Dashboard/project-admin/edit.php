@@ -39,10 +39,11 @@ $project = $Project->readOneProject($id);
     <label>Upload Date</label>
     <input type="date" value="<?php echo date(substr($project['UploadDate'], 0, 10)) ?>" name="UploadDate" />
 	<br/>
-	
-    <label>project or not</label>
-    <input style="display: block" type="radio" name="TeamProject" value="0" <?php echo $project['TeamProject'] == 0? 'checked': null?>>Personal Project<br>
-    <input style="display: block" type="radio" name="TeamProject" value="1" <?php echo $project['TeamProject'] == 1? 'checked': null?>>Team Project<br>
+    <label>Team project or not</label>
+	<select style="display: block" name="TeamProject">
+        <option value="0" <?php echo $project['TeamProject'] == 0? 'selected': null?>>Personal Project</option>
+        <option value="1" <?php echo $project['TeamProject'] == 1? 'selected': null?>>Team Project</option>
+    </select>
 	<br/>
     <label>Url</label>
     <input type="text" value="<?php echo $project['Url'] ?>" name="Url" />

@@ -128,10 +128,11 @@ $target_path = $target_path . $imageName;
 
 //check if it actually is an image. if it is, move it, if not, send feedback.
 if (getimagesize($imageTemp)){
-  //check if the image name is less than 50 characters. It must be, to be stored in the database.
+  //check if the image name is more than 50 characters. It must be, to be stored in the database.
       if (strlen($imageName)>50)  {
         $formValid = false;
-          $imageLengthError =  ' The image name is too large.';
+          $imageLengthError =  ' The image name is too large.' . $imageName;
+        
       }
       elseif(move_uploaded_file($imageTemp, $target_path)){
         //set the value to be inserted into our database as mainimage
