@@ -27,11 +27,15 @@ require_once "../../functions/SearchFunctions/search.php";
 
 
 ?>
-
-<div>Search Students</div>
-    <form method="get" action="<?= $_SERVER['PHP_SELF']; ?>">
-        <input type="text" name="searchTerm">
-        <input type="submit" name="search" value="search">
+<h3>List Students</h3>
+    <form method="get" action="<?= $_SERVER['PHP_SELF']; ?>" class="row valign-wrapper">
+        <div class="input-field col s11">
+            <input type="text" id="searchTerm" name="searchTerm">
+            <label for="searchTerm">Search Students</label>
+        </div>
+        <div class="col s1">
+            <button type="submit" name="search" class="btn-floating"><i class="material-icons">search</i></button>
+        </div>
     </form>
 
 <?php if(isset($searchResults)){foreach($searchResults as $results) {
@@ -66,36 +70,34 @@ require_once "../../functions/SearchFunctions/search.php";
         <td><?= $results["CurrentJob"]; ?></td>
         <!-- Update Student-->
         <td><form action="update_student.php" method="post">
-                <input type="hidden" name="id" value="<?= $results["Id"]; ?>">
-                <input type="submit" name="submit" value="EDIT" class="btn">
+                <input type="hidden" name="id" value="<?= $students["Id"]; ?>">
+                <button type="submit" name="submit" class="btn-floating"><i class="material-icons">edit</i></button>
+                <!-- <input type="submit" name="submit" value="EDIT" class="btn"> -->
             </form></td>
         <!-- Delete Student -->
         <td><form action="delete_student.php" method="post">
-                <input type="hidden" name="id" value="<?= $results["Id"]; ?>">
-                <input type="submit" name="submit" value="DELETE" class="btn">
+                <input type="hidden" name="id" value="<?= $students["Id"]; ?>">
+                <button type="submit" name="submit" class="btn-floating red lighten-1"><i class="material-icons">delete</i></button>
+                <!-- <input type="submit" name="submit" value="DELETE" class="btn"> -->
             </form></td>
     </tr>
     </tbody>
     </table>
 
     <?php }}?>
-<h1>List Students</h1>
-
-    <a href="add_student.php">Add Student</a>
 
 <!-- Output student information into table using a foreach-->
 
 <table>
     <thead>
         <tr>
-            <th>Id</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <!-- <th>Id</th> -->
+            <th>Name</th>
             <th>Student Number</th>
             <th>Contact Email</th>
-            <th>Last Update</th>
+            <!-- <th>Last Update</th> -->
             <th>Contact Number</th>
-            <th>Current Job</th>
+            <!-- <th>Current Job</th> -->
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -104,23 +106,24 @@ require_once "../../functions/SearchFunctions/search.php";
     <tbody>
         <?php foreach($listStudents as $students){?>
         <tr>
-            <td><?= $students["Id"]; ?></td>
-            <td><?= $students["FirstName"]; ?></td>
-            <td><?= $students["LastName"]; ?></td>
+            <!-- <td><?= $students["Id"]; ?></td> -->
+            <td><?= $students["FirstName"]; ?> <?= $students["LastName"]; ?></td>
             <td><?= $students["StudentNumber"]; ?></td>
             <td><?= $students["ContactEmail"]; ?></td>
-            <td><?= $students["LastUpdate"]; ?></td>
+            <!-- <td><?= $students["LastUpdate"]; ?></td> -->
             <td><?= $students["ContactNumber"]; ?></td>
-            <td><?= $students["CurrentJob"]; ?></td>
+            <!-- <td><?= $students["CurrentJob"]; ?></td> -->
             <!-- Update Student-->
             <td><form action="update_student.php" method="post">
                     <input type="hidden" name="id" value="<?= $students["Id"]; ?>">
-                    <input type="submit" name="submit" value="EDIT" class="btn">
+                    <button type="submit" name="submit" class="btn-floating"><i class="material-icons">edit</i></button>
+                    <!-- <input type="submit" name="submit" value="EDIT" class="btn"> -->
                 </form></td>
             <!-- Delete Student -->
             <td><form action="delete_student.php" method="post">
                     <input type="hidden" name="id" value="<?= $students["Id"]; ?>">
-                    <input type="submit" name="submit" value="DELETE" class="btn">
+                    <button type="submit" name="submit" class="btn-floating red lighten-1"><i class="material-icons">delete</i></button>
+                    <!-- <input type="submit" name="submit" value="DELETE" class="btn"> -->
                 </form></td>
         </tr>
         <?php }?>
@@ -128,7 +131,7 @@ require_once "../../functions/SearchFunctions/search.php";
 
     </table>
 
-
+<a href="add_student.php" class="btn btn-success">Add Student</a>
 
 <?php
     require_once "includes/footer.php";
