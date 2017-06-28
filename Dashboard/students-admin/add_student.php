@@ -50,9 +50,11 @@ require_once "includes/header.php";
 
             //get date for Last Update
             $lastUpdate = $student->getDate();
-
+            
+            //token set to empty string for account
+            $token = '';
             //add account
-            $row = $account->addAccount($roleId, $username, $email, $salt, $passHash, $activated);
+            $row = $account->addAccount($roleId, $username, $email, $salt, $passHash, $token, $activated);
 
             //if $row is true, do something
             if($row){
@@ -90,7 +92,7 @@ require_once "includes/header.php";
 
 ?>
 
-<h1>Add Student</h1>
+<h3>Add Student</h3>
 
 <form action"<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <div>

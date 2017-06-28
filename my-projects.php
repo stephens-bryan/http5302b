@@ -1,10 +1,19 @@
 <?php
+require_once "includes/header.php";
 require_once 'includes.php';
 require_once 'database.php';
-$studentId = 1;
+if (!isset($_SESSION['user'])){
+      header("Location: student-login.php");
+}
+
+$student = $_SESSION['user'];
+$studentId = $student['Id'];
+$studentFName= $student['FirstName'];
+// var_dump($student);
 $projectClass = new ProjectDAO();
 $viewProjects = $projectClass->getProjectsById($pdo, $studentId);
-require_once "includes/header.php";
+
+
 ?>
 <body>
     <?php 
@@ -12,15 +21,19 @@ require_once "includes/header.php";
     ?>
     
     <main>
-    <div class="container">  
+    <div class="container"> 
+     
+
         <div class="row" id="projectsForm__cont">
             
             <!--CONTENT GOES IN HERE: Please use the Materialize grid system!-->
                 <img src="img/humber-logo-webDevPortal.png" class="portalLogo">
     
             <div class="col s12 myProjectsForm__header">
-                <h2>Mia's Projects</h2>
-            </div>
+<h2><?php echo $studentFName ?>'s Projects</h2>
+                            <a href="add-project.php"><button class="btn">Add Project</button></a>
+
+          </div>
             
             <div class="col s12">
                 <table>
@@ -53,7 +66,6 @@ require_once "includes/header.php";
                     </tbody>
                 </table>
                     
-              <a href="add-project.php"><button class="btn">Add Project</button></a>
                     
                 
             </div>

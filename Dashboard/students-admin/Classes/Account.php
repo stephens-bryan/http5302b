@@ -31,16 +31,17 @@ class Account{
 
     //add account
 
-    public function addAccount($roleId, $username, $email, $passSalt, $passHash, $activated){
+    public function addAccount($roleId, $username, $email, $passSalt, $passHash, $token, $activated){
 
-        $query = "INSERT INTO accounts (RoleId, UserName, Email, PasswordSalt, PasswordHash, Activated)
-                  VALUES(:RoleId, :UserName, :Email, :PasswordSalt, :PasswordHash, :Activated)";
+        $query = "INSERT INTO accounts (RoleId, UserName, Email, PasswordSalt, PasswordHash, Token, Activated)
+                  VALUES(:RoleId, :UserName, :Email, :PasswordSalt, :PasswordHash, :Token, :Activated)";
         $pdostmt = $this->db->prepare($query);
         $pdostmt->bindValue(':RoleId', $roleId, PDO::PARAM_INT);
         $pdostmt->bindValue(':UserName', $username, PDO::PARAM_STR);
         $pdostmt->bindValue(':Email', $email, PDO::PARAM_STR);
         $pdostmt->bindValue(':PasswordSalt', $passSalt, PDO::PARAM_STR);
         $pdostmt->bindValue(':PasswordHash', $passHash, PDO::PARAM_STR);
+        $pdostmt->bindValue(':Token', $token, PDO::PARAM_STR);
         $pdostmt->bindValue(':Activated', $activated, PDO::PARAM_BOOL);
         $row = $pdostmt->execute();
         $pdostmt->closeCursor();

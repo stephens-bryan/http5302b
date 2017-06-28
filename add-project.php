@@ -1,8 +1,13 @@
 <?php
+require_once "includes/header.php";
+if (!isset($_SESSION['user'])){
+      header("Location: student-login.php");
+}
 ini_set('display_errors', 3); 
 include('includes.php');
 include('database.php');
-$studentid = 1;
+$student = $_SESSION['user'];
+$studentId = $student['Id'];
 
 //need to grab all the tech's from the database for our user to have tech options for their project
  $tech = new TechDAO;
@@ -37,7 +42,7 @@ require_once "includes/header.php";
             <div class="col s12">
 
                 <form method="POST" id="submit-project" enctype="multipart/form-data">
-                    <input type="hidden" value="<?php echo $studentid?>" name="StudentId"/>
+                    <input type="hidden" value="<?php echo $studentId?>" name="StudentId"/>
                   <input id="" type="text" placeholder="Project Name" name="projectName" >
                   
                   

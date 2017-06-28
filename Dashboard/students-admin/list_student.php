@@ -15,7 +15,7 @@ require_once "./includes/header.php";
 
 ?>
 
-<h1>List Students</h1>
+<h3>List Students</h3>
 
     <a href="add_student.php">Add Student</a>
 

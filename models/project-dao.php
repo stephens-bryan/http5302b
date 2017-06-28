@@ -6,7 +6,7 @@ public function getProjectsById($db, $studentId){
   $query = "SELECT * FROM Projects WHERE StudentId = :studentId and Published = 1";
   $statement = $db->prepare($query);
   $statement->bindValue(':studentId', $studentId, PDO::PARAM_INT);
-  $statement->execute();
+  $statement->execute() or die(print_r($statement->errorInfo(), true));
   $projects = $statement->fetchAll();
   $statement->closeCursor();
   return $projects;

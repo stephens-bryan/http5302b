@@ -27,22 +27,22 @@ if($_GET):?>
         </div>
     <?php endif ?>
 <?php else:?>
-    <h1>Main Dashboard</h1>
+    <h3>Main Dashboard</h3>
     <div id="features" class="row">
-        <div class="col m4">
+        <div class="col s4">
           <a href="/http5302b/Dashboard/students-admin/list_student.php" >
             <i class="material-icons">supervisor_account</i>
             <h2 class="admin_core_link">Manage Students</h2>
           </a>
         </div>
-        <div class="col m4">
-          <a href="?board=projects">
+        <div class="col s4">
+          <a href="/http5302b/Dashboard/project-admin" >
             <i class="material-icons">art_track</i>
             <h2 class="admin_core_link">Manage Projects</h2>
           </a>
         </div>
-        <div class="col m4">
-          <a href="?board=classes" >
+        <div class="col s4">
+          <a href="/http5302b/Dashboard/classes-admin/classes-index.php">
             <i class="material-icons">class</i>
             <h2 class="admin_core_link">Manage Classes</h2>
           </a>

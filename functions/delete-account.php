@@ -3,9 +3,12 @@
 if (isset($_POST['delete-account-modal__btn-delete-confirm'])) {
   require_once '../includes.php';
   require_once '../database.php';
+  
+  session_start();
 
-  $accountId = 2;
-  $studentId = 1;
+  $student = $_SESSION['user'];
+  $studentId = $student['Id'];
+  $accountId = $student['AccountId'];
 
   $accountClass = new AccountDAO();
   $deleteAccount = $accountClass->deleteAccount($pdo, $accountId);
