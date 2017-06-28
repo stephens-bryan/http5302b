@@ -11,10 +11,11 @@ require_once '../includes/admin_nav.php';
                   <th>Campus</th>
                   <th>Semesters</th>
                   <th>Start Date</th>
-                  <th>End Date</th>
+                  <!-- <th>End Date</th> -->
                   <th>Credentials</th>
-                  <th>Area of Interest</th>
-                  <th>Manage</th>
+                  <!-- <th>Area of Interest</th> -->
+                  <th>Edit</th>
+                  <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,19 +36,19 @@ require_once '../includes/admin_nav.php';
                         $result = $pdostmt->fetchAll();
                         foreach ($result as $year){
                             $date1 = strtotime($year['StartDate']);
-                            echo '<td>'. date("F j Y",$date1) . '</td>';
+                            echo '<td>'. date("F Y",$date1) . '</td>';
                             $date2 = strtotime($year['EndDate']);
-                            echo '<td>'. date("F j Y",$date2) . '</td>';
+                            // echo '<td>'. date("F Y",$date2) . '</td>';
                             //echo '<td>'. $year['StartDate'] . '</td>';
                             //echo '<td>'. $year['EndDate'] . '</td>';
                         }
                         echo '<td>'. $row['Credentials'] . '</td>';
-                        echo '<td>'. $row['AreaOfInterest'] . '</td>';
-                        echo '<td width=250>';
+                        // echo '<td>'. $row['AreaOfInterest'] . '</td>';
+                        echo '<td>';
                         echo ' ';
-                        echo '<a class="btn btn-success" href="classes-update.php?id='.$row['Id'].'">Update</a>';
-                        echo ' ';
-                        echo '<a class="btn btn-danger" href="classes-delete.php?id='.$row['Id'].'">Delete</a>';
+                        echo '<a class="btn-floating" href="classes-update.php?id='.$row['Id'].'"><i class="material-icons">edit</i></a>';
+                        echo '</td><td>';
+                        echo '<a class="btn-floating red lighten-1" href="classes-delete.php?id='.$row['Id'].'"><i class="material-icons">delete</i></a>';
                         echo '</td>';
                         echo '</tr>';
                }

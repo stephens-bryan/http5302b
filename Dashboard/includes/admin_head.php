@@ -36,7 +36,7 @@ $unpublished = 3;
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <!-- Dropdown Trigger -->
-                    <li><a class="dropdown-button" href="#!" data-activates="dropAdmin">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropAdmin">Admin<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
                 <!-- Slide Navigation
 
@@ -54,7 +54,7 @@ $unpublished = 3;
     </header>
     <!-- Dropdown Structure -->
     <ul id="dropAdmin" class='dropdown-content'>
-        <li><a href="/http5302b/includes/logout.php"><i class="material-icons">settings</i>Logout</a></li>
+        <li><a href="/http5302b/includes/logout.php">Logout</a></li>
     </ul>
     <!-- Side Nav Structure -->
     <ul id="slide-out" class="side-nav">

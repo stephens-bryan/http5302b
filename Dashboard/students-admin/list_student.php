@@ -27,7 +27,7 @@ require_once "../../functions/SearchFunctions/search.php";
 
 
 ?>
-<h3>List Students</h3>
+<h3>All Students</h3>
     <form method="get" action="<?= $_SERVER['PHP_SELF']; ?>" class="row valign-wrapper">
         <div class="input-field col s11">
             <input type="text" id="searchTerm" name="searchTerm">
