@@ -75,6 +75,7 @@ class AccountDAO {
     $account = $statement->fetchAll();
     $statement->closeCursor();
     return $account;
+  }
  
   //Edit Account
   public function editAccount($db, $email, $password) {
