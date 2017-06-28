@@ -106,7 +106,6 @@ if (isset($_POST['submit'])) {
 
                   <input id="studentLoginForm__passwField" type="password" placeholder="Password" name="pass">  <span><?php echo $passErr ?></span>
                 <span><?php echo $loginErr ?></span>
-                <p><?php echo $emailErr ?></p>
 
                 <div id="studentLoginForm__promptLoginCont">
                 <a href="forgot-password.php" id="studentLoginForm__passwPrompt">Forgotten Your Password?</a>
