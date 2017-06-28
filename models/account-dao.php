@@ -66,17 +66,15 @@ class AccountDAO {
   }
  
   //View Account
-  public function viewAccount($db, $accountId, $studentId) {
+  public function viewAccount($db, $studentId) {
     $query = "SELECT * FROM Accounts JOIN Students ON Accounts.Id = Students.AccountId 
-                JOIN Enrollment ON Students.Id = Enrollment.StudentId WHERE Accounts.Id = :accountId AND Students.Id = :studentId";
+                JOIN Enrollment ON Students.Id = Enrollment.StudentId WHERE Students.Id = '$studentId'";
     $statement = $db->prepare($query);
-    $statement->bindValue(':accountId', $accountId, PDO::PARAM_INT);
     $statement->bindValue(':studentId', $studentId, PDO::PARAM_INT);
     $statement->execute();
     $account = $statement->fetchAll();
     $statement->closeCursor();
     return $account;
-}
  
   //Edit Account
   public function editAccount($db, $email, $password) {
