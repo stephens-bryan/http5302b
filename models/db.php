@@ -4,7 +4,7 @@ class DbConnect
 {
     private static $dsn = 'mysql:host=localhost;dbname=portfolio';
     private static $username = 'root';
-    private static $password = '';
+    private static $password = 'password';
     private static $db;
 
     //return reference to pdo object
