@@ -62,7 +62,7 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
             require_once '../includes.php';
             require_once '../database.php';
             $profileObj = new AccountDAO();
-            $account = $profileObj->viewAccount($db, $userName);
+            $account = $profileObj->viewAccount($db, $studentId);
         }
         require_once 'account-settings.php';
     }
