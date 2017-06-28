@@ -1,6 +1,8 @@
 <?php
 require_once('../../includes.php');
 require_once('../../database.php');
+require_once "../includes/admin_head.php";
+require_once "../includes/admin_nav.php";
 require_once('Project.php');
 $Project = new Project($pdo);
 
@@ -13,35 +15,42 @@ if (isset($_POST['submit'])) {
 ?>
 
 <main>
-<a href="./">
-	<h4>Back</h4>
+<a class="btn" href="./">
+	Back
 </a>
+
 <form method="POST" action="">
-    <h5><b>Project Name</b></h5>
+    <label>Project Name</label> 
     <input type="text" name="Name" />
-    <h5><b>Student Id</b></h5>
+    <label>Student Id</label> 
     <input type="text" name="StudentId" />
-    <h5><b>Finish Date</b></h5>
+    <label>Finish Date</label> 
     <input type="date" name="FinishDate" />
-    <h5><b>Upload Date</b></h5>
+    <label>Upload Date</label>
     <input type="date" name="UploadDate" />
-    <h5><b>Short Description</b></h5>
+    <label>Short Description</label>
     <textarea name="ShortDesc"></textarea>
-    <h5><b>Full Description</b></h5>
+    <label>Full Description</label>
     <textarea name="Description"></textarea>
-    <h5><b>Url</b></h5>
+    <label>Url</label>
     <input type="text" name="Url" />
-    <h5><b>GitHub</b></h5>
+    <label>GitHub</label>
     <input type="text" name="Github" />
-    <h5><b>Team project or not</b></h5>
-    <input type="radio" name="TeamProject" value="0">Personal Project<br>
-    <input type="radio" name="TeamProject" value="1">Team Project<br>
-    <h5><b>Publish or not</b></h5>
-    <input type="radio" name="Published" value="0">Not publish<br>
-    <input type="radio" name="Published" value="1">Publish<br>
-    <h5><b>Approved or not</b></h5>
-    <input type="radio" name="Approved" value="0">Not Approved<br>
-    <input type="radio" name="Approved" value="1">Approved<br>
-    <input type="submit" name="submit" value="Update" style="display: block; margin-top: 50px;" />
+    <label>Team project or not</label>
+	<select style="display: block" name="TeamProject">
+        <option value="0">Personal Project</option>
+        <option value="1">Team Project</option>
+    </select>
+    <label>Published or not</label>
+	<select style="display: block" name="Published">
+        <option value="0">Not publish</option>
+        <option value="1">Publish</option>
+    </select>
+    <label>Approved or not</label>
+	<select style="display: block" name="Approved">
+        <option value="0">Not Approved</option>
+        <option value="1">Approved</option>
+    </select>
+    <input type="submit" name="submit" value="Add" style="display: block; margin-top: 50px;" />
 </form>
 </main>

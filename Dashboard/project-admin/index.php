@@ -19,6 +19,7 @@ $projects = $Project->readTenProjects($id);
     <a href="add.php">
         <h3>Manage project</h3>
     </a>
+	
 	<table class="table table-striped table-bordered">
 	  <thead>
 		<tr>
@@ -59,5 +60,8 @@ $projects = $Project->readTenProjects($id);
 			</tr>
 		<?php } ?>
 	  </tbody>
+	  <a class="btn btn-success" href="add.php">
+		Add
+	  </a>
 	</table>
 </main>
